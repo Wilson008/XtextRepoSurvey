@@ -1,7 +1,7 @@
 import requests
 
 # 设置 GitHub Token
-token = "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"
+token = "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"
 
 # 设置存储库的所有者的登录名和存储库的名称
 owner_login = "rquinio"

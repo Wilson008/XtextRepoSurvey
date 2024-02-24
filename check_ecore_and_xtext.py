@@ -3,7 +3,7 @@ import time
 
 def search_files_in_repo(owner, repo):
     headers = {
-        'Authorization': 'token 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'
+        'Authorization': 'token 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'
     }
 
     # 查询 ecore 文件
@@ -61,8 +61,8 @@ def search_files_in_repo(owner, repo):
     return ecore_files, ecore_folders, xtext_files, xtext_folders
 
 def main():
-    owner = 'waynepiekarski'  # 替换为指定的 owner 名称
-    repo = 'XTextureExtractor'    # 替换为指定的存储库名称
+    owner = 'TypeFox'  # 替换为指定的 owner 名称
+    repo = 'theia-xtext-sprotty-example'    # 替换为指定的存储库名称
 
     ecore_files, ecore_folders, xtext_files, xtext_folders = search_files_in_repo(owner, repo)
 
