@@ -2,6 +2,8 @@ import os
 import zipfile
 import openpyxl
 
+log_file = 'output.log'
+
 def extract_zip(zip_path, extract_folder):
     try:
         with zipfile.ZipFile(zip_path, 'r') as zip_ref:
@@ -30,6 +32,7 @@ def update_excel_with_files_info(excel_file, unzip_folder):
         if os.path.exists(zip_file):
             extract_folder = os.path.join(unzip_folder, repo_name)
             print(f"Found zip file for repository {repo_name}.")
+            write_to_log(f"Found zip file for repository {repo_name}.")
             if extract_zip(zip_file, extract_folder):
                 ecore_files = find_files(extract_folder, '.ecore')
                 xtext_files = find_files(extract_folder, '.xtext')
@@ -49,19 +52,28 @@ def update_excel_with_files_info(excel_file, unzip_folder):
                         ws.append([None, repo_name, None, None, None, os.path.basename(xtext_file), xtext_file, None, None, None])
                 if not ecore_files:
                     print(f"No ecore files found in repository {repo_name}.")
+                    write_to_log(f"No ecore files found in repository {repo_name}.")
                 if not xtext_files:
                     print(f"No xtext files found in repository {repo_name}.")
+                    write_to_log(f"No xtext files found in repository {repo_name}.")
             else:
                 print(f"Failed to extract zip file for repository {repo_name}.")
+                write_to_log(f"Failed to extract zip file for repository {repo_name}.")
         else:
             print(f"No zip file found for repository {repo_name}.")
+            write_to_log(f"No zip file found for repository {repo_name}.")
 
     wb.save(excel_file)
     print("Files information updated in the Excel file.")
+    write_to_log("Files information updated in the Excel file.")
+
+def write_to_log(message):
+    with open(log_file, 'a') as f:
+        f.write(message + '\n')
 
 def main():
     excel_file = 'analysis_results/analyze_ecore_xtext_files.xlsx'
-    unzip_folder = 'E:/xtext_repositories_unzip'
+    unzip_folder = 'E:/xtext_repositories_unzip_new'
     update_excel_with_files_info(excel_file, unzip_folder)
 
 if __name__ == "__main__":
