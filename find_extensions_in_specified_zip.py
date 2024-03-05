@@ -33,7 +33,7 @@ def find_mwe2_files(repo_name):
                     print("New file extensions:", match.group(1))
 
 # Example usage
-repo_name = 'packtpub-xtext-book-2nd-examples'
+repo_name = 'xtext-demo'
 contains_mwe2 = 'YES'
 if contains_mwe2 == "YES":
     find_mwe2_files(repo_name)

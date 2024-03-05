@@ -35,8 +35,8 @@ def write_to_csv(file_path, data, header):
 def main():
     access_token = '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'
 
-    owner = 'eclipse'
-    repo = 'xtext-website'
+    owner = 'chris125964'
+    repo = 'Xtext'
     
     xtext_files = get_xtext_files(owner, repo, access_token)
     
