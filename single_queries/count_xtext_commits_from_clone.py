@@ -29,14 +29,19 @@ def get_commit_count(file_path):
     commits = list(repo.iter_commits(paths=file_path))
     return len(commits)
 
+# if __name__ == "__main__":
+#     repo_path = r"E:\xtext_repos_clone_new\0xMYsteRy_Xtext"
 if __name__ == "__main__":
-    repo_path = r"E:\xtext_repos_clone_new\0xMYsteRy_Xtext"
+    owner = "altran-mde"
+    repo = "xtext-sirius-integration"
+    repo_name = f"{owner}_{repo}"
+    repo_path = os.path.join(r"E:\xtext_repos_clone_new", repo_name)
     xtext_files, total_commit_count, total_files, average_commit_count = list_xtext_files_with_commit_count(repo_path)
     if not xtext_files:
         print("该本地仓库中没有找到任何扩展名为 .xtext 的文件。")
 
     # 将结果写入CSV文件
-    with open("commit_count_by_clone.csv", "w", newline="") as csvfile:
+    with open("xtext_commit_count_by_clone.csv", "w", newline="") as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(["repo_name", "total_files", "total_commit_count", "average_commit_count"])
         writer.writerow(["0xMYsteRy_Xtext", total_files, total_commit_count, average_commit_count])

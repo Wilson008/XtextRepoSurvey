@@ -49,7 +49,7 @@ def get_files_with_extensions(owner, repo, file_extensions, access_token):
 owner = "RomainLefeuvre"
 repo = "xtextHW"
 file_extensions = "xtext"  # 不同的扩展名以逗号分隔
-access_token = "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"
+access_token = "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"
 
 total_commit_count = 0
 total_files = 0

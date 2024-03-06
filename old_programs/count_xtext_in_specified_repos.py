@@ -58,10 +58,10 @@ def main():
             count_xtext_data.append([owner, repo, len(xtext_files)])
     
     # 写入 find_xtext_in_repo.csv
-    write_to_csv('find_xtext_in_repo.csv', find_xtext_data, find_xtext_header)
+    write_to_csv('find_xtext_in_repos.csv', find_xtext_data, find_xtext_header)
     
     # 写入 count_xtext_in_repo.csv
-    write_to_csv('count_xtext_in_repo.csv', count_xtext_data, count_xtext_header)
+    write_to_csv('count_xtext_in_repos.csv', count_xtext_data, count_xtext_header)
 
     print("All repositories queried and results saved.")
 
