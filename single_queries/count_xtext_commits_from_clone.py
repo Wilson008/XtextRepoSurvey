@@ -32,8 +32,8 @@ def get_commit_count(file_path):
 # if __name__ == "__main__":
 #     repo_path = r"E:\xtext_repos_clone_new\0xMYsteRy_Xtext"
 if __name__ == "__main__":
-    owner = "zrrk"
-    repo = "xtext-utils.uml"
+    owner = "LorenzoBettini"
+    repo = "xtext-build-utils"
     repo_name = f"{owner}_{repo}"
     repo_path = os.path.join(r"E:\xtext_repos_clone_new", repo_name)
     xtext_files, total_commit_count, total_files, average_commit_count = list_xtext_files_with_commit_count(repo_path)

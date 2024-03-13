@@ -7,7 +7,7 @@ def get_commit_dates(repo_path, file_path):
     repo = Repo(repo_path)
     first_commit = None
     last_commit = None
-
+    commits = list(repo.iter_commits(paths=file_path))
     # 遍历文件的提交历史
     for commit in repo.iter_commits(paths=file_path):
         commit_time = commit.committed_datetime
@@ -16,7 +16,7 @@ def get_commit_dates(repo_path, file_path):
         if not last_commit or commit_time > last_commit:
             last_commit = commit_time
     
-    return first_commit, last_commit
+    return first_commit, last_commit, len(commits)
 
 def find_xtext_files_with_commit_dates(directory):
     xtext_files = []
@@ -26,9 +26,14 @@ def find_xtext_files_with_commit_dates(directory):
                 xtext_files.append(os.path.join(root, file))
     return xtext_files
 
+def get_commit_count(file_path):
+    repo = Repo(file_path, search_parent_directories=True)
+    commits = list(repo.iter_commits(paths=file_path))
+    return len(commits)
+
 # 设置参数
-owner = "altran-mde"
-repo_name = "xtext-sirius-integration"
+owner = "LorenzoBettini"
+repo_name = "xtext-build-utils"
 local_repo_folder = r"E:\xtext_repos_clone_new"
 
 # 构造本地存储库的名字字符串
@@ -47,10 +52,12 @@ else:
         xtext_first_commits = []
         xtext_last_commits = []
         for file in xtext_files:
-            first_commit, last_commit = get_commit_dates(local_repo_path, file)
+            first_commit, last_commit, commit_count = get_commit_dates(local_repo_path, file)
             xtext_first_commits.append(first_commit)
             xtext_last_commits.append(last_commit)
             print(f"文件: {file}, 第一次提交时间: {first_commit.strftime('%Y-%m-%d %H:%M:%S')}, 最后一次提交时间: {last_commit.strftime('%Y-%m-%d %H:%M:%S')}")
+            # commit_count = get_commit_count(file)
+            print(f"文件 '{file}' 的提交次数为: {commit_count}")
 
         # 找到存储库的第一个commit时间和最后一个commit时间
         repo = Repo(local_repo_path)
