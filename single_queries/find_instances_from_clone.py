@@ -2,15 +2,15 @@ import os
 import subprocess
 
 # 定义远程repo的owner和repo的name
-remote_owner = 'altran-mde'
-remote_repo = 'xtext-sirius-integration'
+remote_owner = 'dslmeinte'
+remote_repo = 'SimScript'
 
 # 根据远程repo的owner和repo的name拼接成本地repo的名称
 local_repo_name = f'{remote_owner}_{remote_repo}'
 repo_path = rf'E:\xtext_repos_clone_new\{local_repo_name}'
 
 # 定义要查找的文件扩展名列表
-extensions = ['classes', 'ekeylang', 'html', 'inlineClasses', 'reflang', 'reflang_edit', 'statemachine', 'statemachineInlineedit']
+extensions = ['xtext','mappings','sim_app','sim_back','sim_struct','sim_ui','simple_db']
 
 # 初始化总文件数和总提交次数
 total_files = 0

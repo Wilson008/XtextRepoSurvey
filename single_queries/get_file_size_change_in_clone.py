@@ -2,8 +2,8 @@ import os
 import subprocess
 
 # GitHub 仓库信息
-owner_name = 'Minres'
-repo_name = 'CoreDSL'
+owner_name = 'altran-mde'
+repo_name = 'xtext-sirius-integration'
 
 # 本地存储库路径
 local_repo_path = f'E:\\xtext_repos_clone_new\\{owner_name}_{repo_name}'
