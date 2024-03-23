@@ -1,82 +1,99 @@
 import csv
+import re
 import os
-import subprocess
+import git
+
+def get_commit_count(file_path):
+    try:
+        repo = git.Repo(file_path, search_parent_directories=True)
+        return len(list(repo.iter_commits(paths=file_path)))
+    except Exception as e:
+        print(f"Error getting commit count for {file_path}: {e}")
+        return 0
+
+def get_xtext_file_content(repo, file_path, commit_sha):
+    try:
+        # 获取相对路径
+        git_root = repo.working_dir.replace('\\', '/') + '/'
+        rel_file_path = file_path.replace('\\', '/').replace(git_root, '')
+        file_content = repo.git.show(f"{commit_sha}:{rel_file_path}")
+        return file_content
+    except Exception as e:
+        print(f"Error getting file content for {file_path} ({commit_sha}): {e}")
+        return ""
+
+def find_xtext_files(root_dir):
+    xtext_files = []
+    for root, dirs, files in os.walk(root_dir):
+        for file in files:
+            if file.endswith(".xtext"):
+                file_path = os.path.join(root, file)
+                commit_count = get_commit_count(file_path)
+                xtext_files.append((file_path, commit_count))
+    return xtext_files
+
+def count_lines(text):
+    # 将文本按换行符分割成列表，并计算列表长度即为行数
+    lines = text.split('\n')
+    return len(lines)
 
 # 读取 CSV 文件获取 owner 和 repo 信息
 csv_file_path = r'D:\02.Git Repository\XtextRepoSurvey\manual_analysis_results\mwe2_and_extensions.csv'
-output_csv_file = 'average_commit_change_xtext.csv'
+output_csv_file = 'count_changed_lines.csv'
 
 with open(csv_file_path, mode='r', newline='', encoding='utf-8') as csv_file, \
         open(output_csv_file, mode='w', newline='', encoding='utf-8') as output_csv:
     reader = csv.reader(csv_file)
     writer = csv.writer(output_csv)
-    
+
     # 写入 CSV 文件的 header
-    writer.writerow(['owner', 'repo', 'average_difference'])
+    writer.writerow(['owner', 'repo', 'average_count_diff'])
 
     next(reader)  # 跳过header行
     for row in reader:
-        owner_name = row[0]
+        owner = row[0]
         repo_name = row[1]
-        local_repo_path = f'E:\\xtext_repos_clone_new\\{owner_name}_{repo_name}'
+        root_folder = f'E:\\xtext_repos_clone_new\\{owner}_{repo_name}'
 
-        # 存储行数差值的列表
-        lines_differences = []
+        print(f"Analyzing {owner} | {repo_name}")
 
-        # 遍历本地存储库文件
-        for root, dirs, files in os.walk(local_repo_path):
-            for file_name in files:
-                if file_name.endswith('.xtext'):
-                    file_path = os.path.join(root, file_name)
-                    print(f"Found .xtext file: {file_path}")
+        # 查找所有扩展名为.xtext的文件并获取其commit次数
+        xtext_files_list = find_xtext_files(root_folder)
+        total_count_diff = 0
+        file_count = len(xtext_files_list)
 
-                    # # 获取第一次 commit 时的文本行数
-                    # first_commit_cmd = f'git log --reverse --format=format: --numstat -- {file_path}'
-                    # first_commit_output = subprocess.check_output(first_commit_cmd, cwd=local_repo_path, shell=True).decode()
-                    # first_commit_lines = sum(int(line.split('\t')[0]) for line in first_commit_output.splitlines() if line)
+        # 处理每个文件的commit次数和文本，并计算差异
+        for file_path, commit_count in xtext_files_list:
+            print(f"File: {file_path} | Commit Count: {commit_count}")
 
-                    # # 获取最后一次 commit 时的文本行数
-                    # try:
-                    #     with open(file_path, 'r', encoding='utf-8') as file:
-                    #         last_commit_lines = len(file.readlines())
-                    # except Exception as e:
-                    #     print(f"Error occurred while reading file {file_path}: {e}")
-                    #     last_commit_lines = 0
+            try:
+                # 获取该文件最近两次commit的文本并传递给count_lines函数
+                repo = git.Repo(file_path, search_parent_directories=True)
+                commits = list(repo.iter_commits(paths=file_path))
+                commit_texts = [get_xtext_file_content(repo, file_path, commit.hexsha) for commit in commits]
+                
+                if len(commit_texts) > 1:
+                    result_before = count_lines(commit_texts[-1])
+                    print(f"Count of lines in first commit: {result_before}")
+                    result_after = count_lines(commit_texts[0])
+                    print(f"Count of lines in last commit: {result_after}")
+                    count_diff = result_after - result_before
+                    print(f"Grammar lines added/removed: {count_diff}")
+                    total_count_diff += count_diff
+                else:
+                    print("Grammar lines added/removed: 0")
+            except Exception as e:
+                print(f"Error occurred while reading file {file_path}: {e}")
+                result_before = 0
+                result_after = 0
+                count_diff = 0
+            
+        
+        average_count_diff = total_count_diff / file_count if file_count > 0 else 0
+        print(f"Average Grammar lines added/removed: {average_count_diff:.2f}")
 
-                    # 获取第一次 commit 时的文本行数
-                    first_commit_cmd = f'git log --reverse --format=format: --numstat -- {file_path}'
-                    first_commit_output = subprocess.check_output(first_commit_cmd, cwd=local_repo_path, shell=True).decode()
+        # 将部分结果写入CSV文件
+        writer = csv.writer(output_csv)
+        writer.writerow([owner, repo_name, f"{average_count_diff:.2f}"])
 
-                    # 计算第一次 commit 时的文本行数
-                    first_commit_lines = 0
-                    for line in first_commit_output.splitlines():
-                        parts = line.split('\t')
-                        if len(parts) >= 2 and parts[0].isdigit():
-                            first_commit_lines += int(parts[0])
-
-                    # 获取最后一次 commit 时的文本行数
-                    try:
-                        with open(file_path, 'r', encoding='utf-8') as file:
-                            last_commit_lines = len(file.readlines())
-                    except Exception as e:
-                        print(f"Error occurred while reading file {file_path}: {e}")
-                        last_commit_lines = 0
-
-                    # 计算行数差值
-                    lines_difference = last_commit_lines - first_commit_lines
-                    print(f"Lines difference: {lines_difference}")
-
-                    # 将行数差值添加到列表中
-                    lines_differences.append(lines_difference)
-
-                    print()  # 打印空行分隔每个文件的信息
-
-        # 计算平均值
-        average_difference = sum(lines_differences) / len(lines_differences) if lines_differences else 0
-        print(f"Average lines difference for {owner_name}/{repo_name}: {average_difference}")
-        print()  # 打印空行分隔每个repo的信息
-
-        # 写入结果到 CSV 文件
-        writer.writerow([owner_name, repo_name, average_difference])
-
-print(f"Results saved to {output_csv_file}")
+        print(f"Results written to {csv_file}")

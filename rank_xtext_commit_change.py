@@ -2,7 +2,7 @@ import csv
 
 # 读取原始数据并排序
 data = []
-with open('auto_analysis_results\\average_commit_change_xtext.csv', mode='r', newline='', encoding='utf-8') as csv_file:
+with open('count_changed_lines.csv', mode='r', newline='', encoding='utf-8') as csv_file:
     reader = csv.reader(csv_file)
     next(reader)  # 跳过header行
     for row in reader:

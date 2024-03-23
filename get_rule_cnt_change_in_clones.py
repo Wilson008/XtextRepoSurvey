@@ -82,13 +82,13 @@ with open(csv_file_path, mode='r', newline='', encoding='utf-8') as csv_file, \
             try:
                 # 获取该文件最近两次commit的文本并传递给count_grammar_rule函数
                 repo = git.Repo(file_path, search_parent_directories=True)
-                commits = list(repo.iter_commits(paths=file_path))[:2]
+                commits = list(repo.iter_commits(paths=file_path))
                 commit_texts = [get_xtext_file_content(repo, file_path, commit.hexsha) for commit in commits]
                 
-                if len(commit_texts) == 2:
-                    result_before = count_grammar_rule(commit_texts[0])
+                if len(commit_texts) > 1:
+                    result_before = count_grammar_rule(commit_texts[-1])
                     print(f"Count of rules in first commit: {result_before}")
-                    result_after = count_grammar_rule(commit_texts[1])
+                    result_after = count_grammar_rule(commit_texts[0])
                     print(f"Count of rules in last commit: {result_after}")
                     count_diff = result_after - result_before
                     print(f"Grammar rules added/removed: {count_diff}")

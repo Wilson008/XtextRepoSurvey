@@ -52,8 +52,8 @@ def count_grammar_rule(str_raw):
 
 if __name__ == "__main__":
     # 设置存储库的根目录路径
-    owner = "altran-mde"
-    repo_name = "xtext-sirius-integration"
+    owner = "eventB-Soton"
+    repo_name = "XTheory"
     root_folder = os.path.join(r"E:\xtext_repos_clone_new", f"{owner}_{repo_name}")
 
     # 查找所有扩展名为.xtext的文件并获取其commit次数
@@ -67,13 +67,13 @@ if __name__ == "__main__":
 
         # 获取该文件最近两次commit的文本并传递给count_grammar_rule函数
         repo = git.Repo(file_path, search_parent_directories=True)
-        commits = list(repo.iter_commits(paths=file_path))[:2]
+        commits = list(repo.iter_commits(paths=file_path))
         commit_texts = [get_xtext_file_content(repo, file_path, commit.hexsha) for commit in commits]
         
-        if len(commit_texts) == 2:
-            result_before = count_grammar_rule(commit_texts[0])
+        if len(commit_texts) > 1:
+            result_before = count_grammar_rule(commit_texts[-1])
             print(f"Count of rules in first commit: {result_before}")
-            result_after = count_grammar_rule(commit_texts[1])
+            result_after = count_grammar_rule(commit_texts[0])
             print(f"Count of rules in last commit: {result_after}")
             count_diff = result_after - result_before
             print(f"Grammar rules added/removed: {count_diff}")
