@@ -11,7 +11,7 @@ def read_data(file_path):
         with open(file_path, 'r', encoding='utf-8') as file:
             search_results = json.load(file)
     except FileNotFoundError:
-        print("文件不存在！")
+        print("File doesn't exist!")
         return None, None, None
 
     # 提取 total_count 和 incomplete_results
@@ -20,12 +20,12 @@ def read_data(file_path):
 
     # 检查是否找到了 total_count
     if total_count is None:
-        print("无法找到 total_count 字段！")
+        print("Can't find total_count field!")
         return None, None, None
 
     # 检查是否找到了 items 列表
     if "items" not in search_results:
-        print("无法找到 items 列表！")
+        print("Can't find items list")
         return None, None, None
 
     # 解析每个 item
@@ -57,7 +57,7 @@ def read_data(file_path):
 # 写入CSV文件
 def write_to_csv(file_path, items):
     if not items:
-        print("没有可写入的数据！")
+        print("There is no data for writing.")
         return
 
     # 写入CSV文件
@@ -68,7 +68,7 @@ def write_to_csv(file_path, items):
         for item in items:
             writer.writerow(item)
 
-    print("CSV文件已创建并成功写入搜索结果信息。")
+    print("CSV is created and successfully written with searched results and information!。")
 
 # 测试函数
 total_count, incomplete_results, items = read_data("search_results/Python_search_results.txt")

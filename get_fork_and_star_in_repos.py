@@ -44,10 +44,10 @@ if __name__ == "__main__":
             
             forks_count, stargazers_count = get_repo_info(owner, repo, access_token)
             if forks_count is not None and stargazers_count is not None:
-                print(f"存储库 {owner}/{repo} 的fork数量为：{forks_count}")
-                print(f"存储库 {owner}/{repo} 的star数量为：{stargazers_count}")
+                print(f"The count of forks in repo {owner}/{repo} is: {forks_count}")
+                print(f"The count of stars in repo {owner}/{repo} is: {stargazers_count}")
 
                 write_to_csv(owner, repo, forks_count, stargazers_count)
-                print("结果已写入到 count_fork_and_star.csv 文件中。")
+                print("Results have been written into count_fork_and_star.csv.")
             else:
-                print(f"获取存储库 {owner}/{repo} 的信息失败，未能写入CSV文件。")
+                print(f"Failed to get the information of Repo: {owner}/{repo}, so failed to write into CSV file.")
