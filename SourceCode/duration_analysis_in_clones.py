@@ -27,9 +27,9 @@ def find_xtext_files_with_commit_dates(directory):
     return xtext_files
 
 # 设置参数
-input_csv_path = r"D:\02.Git Repository\XtextRepoSurvey\manual_analysis_results\mwe2_and_extensions.csv"
+input_csv_path = r"D:\\02.Git Repository\\XtextRepoSurvey\\SourceCode\\manual_analysis_results\\mwe2_and_extensions.csv"
 local_repo_folder = r"E:\xtext_repos_clone_new"
-output_csv_path = "xtext_duration_analysis.csv"
+output_csv_path = "SourceCode/xtext_duration_analysis.csv"
 
 # 打开输入CSV文件并准备输出CSV文件
 with open(input_csv_path, mode='r', newline='') as input_csv_file, \

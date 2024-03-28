@@ -24,7 +24,7 @@ plt.tick_params(colors='black')
 plt.xticks(rotation=45, ha='right')
 
 # 保存为PDF文件
-plt.savefig('bar_chart_repo_types.pdf', format='pdf', bbox_inches='tight')
+plt.savefig('SourceCode\\diagrams\\bar_chart_repo_types.pdf', format='pdf', bbox_inches='tight')
 
 # 显示图形
 plt.show()

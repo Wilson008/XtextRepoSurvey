@@ -6,7 +6,7 @@ import csv
 repos_root = r'E:\xtext_repos_clone_new'
 
 # 打开文件以读取owner、repo和文件扩展名
-with open(r'manual_analysis_results\mwe2_and_extensions.csv', 'r') as file:
+with open(r'SourceCode\\manual_analysis_results\\mwe2_and_extensions.csv', 'r') as file:
     reader = csv.reader(file)
     next(reader)  # 跳过标题行
     for row in reader:
@@ -54,6 +54,6 @@ with open(r'manual_analysis_results\mwe2_and_extensions.csv', 'r') as file:
         print(f"Average Commits per File: {average_commits}")
 
         # 写入到CSV文件中
-        with open('found_instances_and_commits.csv', 'a', newline='') as csvfile:
+        with open('SourceCode/found_instances_and_commits.csv', 'a', newline='') as csvfile:
             csv_writer = csv.writer(csvfile)
             csv_writer.writerow([owner, repo, total_files, total_commits, average_commits])

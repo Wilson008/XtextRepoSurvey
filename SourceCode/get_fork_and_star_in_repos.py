@@ -35,7 +35,7 @@ def write_to_csv(owner, repo, forks_count, stars_count):
 if __name__ == "__main__":
     access_token = "ACCESS_TOKEN"  # 替换为您的访问令牌
 
-    with open('D:/02.Git Repository/XtextRepoSurvey/manual_analysis_results/mwe2_and_extensions.csv', mode='r') as csv_file:
+    with open('D:/02.Git Repository/XtextRepoSurvey/SourceCode/manual_analysis_results/mwe2_and_extensions.csv', mode='r') as csv_file:
         csv_reader = csv.reader(csv_file)
         next(csv_reader)  # 跳过第一行，因为它是header
         for row in csv_reader:

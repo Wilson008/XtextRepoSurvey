@@ -32,7 +32,7 @@ def clone_repo(owner, repo_name, target_dir):
         print(f"Failed to clone repository '{owner}/{repo_name}': {str(e)}")
 
 # Read repositories from count_ecore_in_repos.csv and clone them
-with open('auto_analysis_results/count_ecore_in_repos.csv', newline='', encoding='utf-8') as csvfile:
+with open('SourceCode/auto_analysis_results/count_ecore_in_repos.csv', newline='', encoding='utf-8') as csvfile:
     reader = csv.reader(csvfile)
     next(reader)  # Skip header
     for row in reader:

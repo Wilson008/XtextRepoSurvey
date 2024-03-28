@@ -49,7 +49,7 @@ def search_github_repositories():
 
 def write_to_file(data, page):
     # 将结果写入到对应的文件中
-    filename = f'search_results/Python_search_results_{page+5}.txt'
+    filename = f'SourceCode/search_results/Python_search_results_{page+5}.txt'
     with open(filename, 'w', encoding='utf-8') as file:
         file.write(json.dumps(data, indent=4))  # 将整个响应内容写入文件
 

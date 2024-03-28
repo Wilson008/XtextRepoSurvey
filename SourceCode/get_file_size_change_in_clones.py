@@ -38,8 +38,8 @@ def count_lines(text):
     return len(lines)
 
 # 读取 CSV 文件获取 owner 和 repo 信息
-csv_file_path = r'D:\02.Git Repository\XtextRepoSurvey\manual_analysis_results\mwe2_and_extensions.csv'
-output_csv_file = 'count_changed_lines.csv'
+csv_file_path = r'D:\\02.Git Repository\\XtextRepoSurvey\\SourceCode\\manual_analysis_results\\mwe2_and_extensions.csv'
+output_csv_file = 'SourceCode/count_changed_lines.csv'
 
 with open(csv_file_path, mode='r', newline='', encoding='utf-8') as csv_file, \
         open(output_csv_file, mode='w', newline='', encoding='utf-8') as output_csv:

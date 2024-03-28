@@ -71,7 +71,7 @@ def write_to_csv(file_path, items):
     print("CSV is created and successfully written with searched results and information!。")
 
 # 测试函数
-total_count, incomplete_results, items = read_data("search_results/Python_search_results.txt")
+total_count, incomplete_results, items = read_data("SourceCode/search_results/Python_search_results.txt")
 if total_count is not None:
     print("total_count:", total_count)
     print("incomplete_results:", incomplete_results)
@@ -80,4 +80,4 @@ if total_count is not None:
         print(item)
 
 # 写入CSV文件
-write_to_csv("search_results_files_without_duplicate.csv", items)
+write_to_csv("SourceCode/search_results_files_without_duplicate.csv", items)

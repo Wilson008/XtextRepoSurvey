@@ -29,7 +29,7 @@ plt.gca().spines['bottom'].set_visible(False)
 
 # Save the plot to a local file
 plt.tight_layout()
-plt.savefig('git_repository_plot.png', bbox_inches='tight', transparent=True)
+plt.savefig('SourceCode/git_repository_plot.png', bbox_inches='tight', transparent=True)
 
 # Show the plot
 plt.show()

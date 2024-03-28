@@ -32,11 +32,11 @@ def get_commit_count(file_path):
 
 if __name__ == "__main__":
     # 读取Excel文件
-    excel_file = r"manual_analysis_results\analyze_ecore_xtext_files.xlsx"
+    excel_file = r"SourceCode/manual_analysis_results/analyze_ecore_xtext_files.xlsx"
     df = pd.read_excel(excel_file)
     
     # 打开CSV文件准备写入
-    with open("xtext_commits_count_by_clones.csv", "w", newline="") as csvfile:
+    with open("SourceCode/xtext_commits_count_by_clones.csv", "w", newline="") as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(["owner", "repo", "total_files", "total_commit_count", "average_commit_count"])
 

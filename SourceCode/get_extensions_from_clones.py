@@ -44,10 +44,10 @@ def find_mwe2_files_with_extensions(repo_path):
 
 def main():
     # 读取Excel文件
-    excel_file = r"manual_analysis_results\analyze_ecore_xtext_files.xlsx"
+    excel_file = r"SourceCode\\manual_analysis_results\\analyze_ecore_xtext_files.xlsx"
     df = pd.read_excel(excel_file)
 
-    with open("mwe2_files_with_extensions.csv", "w") as csv_file:
+    with open("SourceCode/mwe2_files_with_extensions.csv", "w") as csv_file:
         csv_file.write("Repository Name,MWE2 File Count,Found Extensions\n")
 
         for index, row in df.iterrows():
