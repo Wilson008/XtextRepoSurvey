@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 
 # 定义数据
 categories = ['Language', 'Training/Examples', 'Infrastructure', 'Experimental/Personal', 'Unrelated']
-counts = [200, 232, 131, 318, 121]
+counts = [228, 215, 110, 343, 106]
 
 # 调整子图间距
 plt.subplots_adjust(left=0.1, right=0.9, top=0.9, bottom=0.3)
