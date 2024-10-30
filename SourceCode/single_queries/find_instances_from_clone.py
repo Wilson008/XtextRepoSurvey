@@ -2,15 +2,15 @@ import os
 import subprocess
 
 # 定义远程repo的owner和repo的name
-remote_owner = 'dslmeinte'
-remote_repo = 'SimScript'
+remote_owner = 'atanaka'
+remote_repo = 'experimental-rmodp-dsl'
 
 # 根据远程repo的owner和repo的name拼接成本地repo的名称
 local_repo_name = f'{remote_owner}_{remote_repo}'
 repo_path = rf'E:\xtext_repos_clone_new\{local_repo_name}'
 
 # 定义要查找的文件扩展名列表
-extensions = ['xtext','mappings','sim_app','sim_back','sim_struct','sim_ui','simple_db']
+extensions = ['ecore']
 
 # 初始化总文件数和总提交次数
 total_files = 0

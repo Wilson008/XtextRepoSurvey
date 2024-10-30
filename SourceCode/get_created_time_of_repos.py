@@ -5,7 +5,7 @@ import csv
 access_token = 'XXX'
 
 # CSV file path
-csv_file_path = 'SourceCode/auto_analysis_results/average_commit_change_xtext.csv'
+csv_file_path = 'SourceCode/Benchmarks_Order_Repos.csv'
 # Output CSV file path
 output_csv_file_path = 'SourceCode/repos_created_time.csv'
 
