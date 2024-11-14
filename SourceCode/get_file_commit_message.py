@@ -2,6 +2,7 @@ import os
 import csv
 import subprocess
 import sys
+from datetime import datetime
 
 # 设置目录路径
 repo_base_path = "E:/xtext_repos_clone_new"  # 替换为本地存储库的根路径
@@ -56,29 +57,38 @@ def get_commit_hashes(repo_path, file_path):
         print(f"Error retrieving commit hashes for {file_path}: {e.output}")
         return []
 
+
 def get_commit_message(repo_path, commit_hash):
-    """使用git命令获取指定commit hash的提交信息。"""
+    """使用git命令获取指定commit hash的提交信息和时间。"""
     try:
-        commit_message = subprocess.check_output(
-            ["git", "-C", repo_path, "log", "-1", "--pretty=format:%s", commit_hash],
+        # 获取commit时间和message
+        commit_info = subprocess.check_output(
+            ["git", "-C", repo_path, "log", "-1", "--pretty=format:%cI %s", commit_hash],
             stderr=subprocess.STDOUT,
-            encoding="utf-8",
-            universal_newlines=True
+            encoding="utf-8"  # 确保编码正确处理
         )
-        return commit_message
+        # commit_info前面的时间格式化为 "[时间] message" 形式
+        commit_time, commit_message = commit_info.split(" ", 1)
+        formatted_message = f"[{commit_time}] {commit_message}"
+        return formatted_message
     except subprocess.CalledProcessError as e:
         print(f"Error retrieving commit message for {commit_hash}: {e.output}")
         return ""
 
 def get_commit_messages(repo_path, file_path):
-    """获取文件的所有 commit message，按顺序返回一个列表。"""
+    """获取文件的所有 commit message，按时间顺序（从最早到最新）返回一个列表。"""
     commit_messages = []
     commit_hashes = get_commit_hashes(repo_path, file_path)
-    print(f"Starting commit message retrieval for {file_path} with {len(commit_hashes)} commits.")  # 打印commit数量
+    print(f"Starting commit message retrieval for {file_path} with {len(commit_hashes)} commits.")
+    
+    # 将 commit_hashes 列表反转，使其按时间从最早到最新排序
+    commit_hashes.reverse()
+    
     for commit_hash in commit_hashes:
         commit_message = get_commit_message(repo_path, commit_hash)
         commit_messages.append(commit_message)
-    print(f"Finished commit message retrieval for {file_path}")  # 结束日志
+    
+    print(f"Finished commit message retrieval for {file_path}")
     return commit_messages
 
 def main(login, repo_name):
