@@ -38,7 +38,7 @@ ax.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=140, textprops={'font
 ax.set_title("Category Distribution")
 
 # 保存图像为 PDF 文件
-plt.savefig("SourceCode\proportion_of_repos_in_categories.pdf", format="pdf")
+plt.savefig("SourceCode\proportion_of_repos_in_categories.pdf", format="pdf", bbox_inches='tight')
 
 # 显示图表
 plt.show()
