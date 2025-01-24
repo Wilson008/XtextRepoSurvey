@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 
 # 读取数据
-data = pd.read_csv("SourceCode\created_date_of_categories.csv")
+data = pd.read_csv("SourceCode\\auto_analysis_results\\created_date_of_categories.csv")
 
 # 将创建日期解析为日期格式
 data['created_date'] = pd.to_datetime(data['created_date'])
@@ -29,10 +29,15 @@ for category in categories:
 
 # 开始绘制
 plt.figure(figsize=(14, 8))
-colors = cm.get_cmap('tab20', len(categories))  # 使用一个颜色映射来获取18种不同颜色
+# colors = cm.get_cmap('tab20', len(categories))  # 使用一个颜色映射来获取18种不同颜色
+colors = [
+    'red', 'blue', 'green', 'orange', 'purple', 'brown', 'pink', 'gray', 
+    'yellow', 'cyan', 'magenta', 'lime', 'olive', 'teal', 'navy', 'maroon',
+    'gold', 'lightblue'
+]
 
 for idx, category in enumerate(categories):
-    plt.plot(years, category_cumulative_count[category], marker='o', color=colors(idx), label=category)
+    plt.plot(years, category_cumulative_count[category], marker='o', color=colors[idx], label=category)
 
 # 图表设置
 plt.xlabel("Year")

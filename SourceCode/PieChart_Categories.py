@@ -29,16 +29,25 @@ total_count = 226
 category_percentages = {category: (count / total_count) * 100 for category, count in categories.items()}
 
 # 数据准备
-labels = list(category_percentages.keys())
+# labels = list(category_percentages.keys())
 sizes = list(category_percentages.values())
 
 # 绘制饼状图
 fig, ax = plt.subplots(figsize=(10, 8))
-ax.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=140, textprops={'fontsize': 9}, wedgeprops={'edgecolor': 'black'})
+colors = [
+    'brown', 'blue', 'magenta', 'purple', 'teal', 'cyan', 'yellow', 'green', 
+    'gold', 'maroon', 'olive', 'pink', 'orange', 'navy', 'lightblue', 'red',
+    'gray', 'lime'
+]
+ax.pie(sizes, autopct='%1.1f%%', startangle=140, 
+       textprops={'fontsize': 9}, wedgeprops={'edgecolor': 'black'}, 
+       colors=colors)
+
 ax.set_title("Category Distribution")
 
 # 保存图像为 PDF 文件
 plt.savefig("SourceCode\proportion_of_repos_in_categories.pdf", format="pdf", bbox_inches='tight')
+print('Successfully saved proportion_of_repos_in_categories.pdf')
 
 # 显示图表
 plt.show()
