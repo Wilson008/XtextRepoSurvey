@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: edu.tadp.firewall.ui
+Bundle-ManifestVersion: 2
+Bundle-Name: edu.tadp.firewall.ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: edu.tadp.firewall.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: edu.tadp.firewall,
+ edu.tadp.firewall.ide,
+ org.eclipse.xtext.ui,
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.ui.editors;bundle-version="3.14.300",
+ org.eclipse.ui.ide;bundle-version="3.18.500",
+ org.eclipse.ui,
+ org.eclipse.xtext.xbase.ui,
+ org.eclipse.compare,
+ org.eclipse.xtext.builder,
+ org.eclipse.jdt.debug.ui,
+ org.eclipse.xtext.common.types.ui
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: edu.tadp.firewall.ui.editor,
+ edu.tadp.firewall.ui.contentassist,
+ edu.tadp.firewall.ui.quickfix,
+ edu.tadp.firewall.ui.internal
+Bundle-Activator: edu.tadp.firewall.ui.internal.FirewallActivator

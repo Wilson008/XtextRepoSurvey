@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: io.yaktor.domain.as.tests;singleton:=true
+Automatic-Module-Name: io.yaktor.domain.as.tests
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: io.yaktor.domain.tests,
+ io.yaktor.mongoNode.tests
+Require-Bundle: org.eclipse.core.runtime,
+ io.yaktor.domain.as;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
+ org.junit;visibility:=reexport
+Bundle-ActivationPolicy: lazy

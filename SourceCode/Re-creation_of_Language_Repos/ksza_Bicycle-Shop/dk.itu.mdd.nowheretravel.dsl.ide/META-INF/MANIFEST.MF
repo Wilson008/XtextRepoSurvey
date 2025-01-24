@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: dk.itu.mdd.nowheretravel.dsl.ide
+Bundle-ManifestVersion: 2
+Bundle-Name: dk.itu.mdd.nowheretravel.dsl.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: dk.itu.mdd.nowheretravel.dsl.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: dk.itu.mdd.nowheretravel.dsl,
+ com.itu.mdd.nowheretravel.model,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: dk.itu.mdd.nowheretravel.dsl.ide.contentassist.antlr,
+ dk.itu.mdd.nowheretravel.dsl.ide.contentassist.antlr.internal

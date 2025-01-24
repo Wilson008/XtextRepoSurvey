@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: nl.tue.ele.es.sdf3.editor
+Bundle-ManifestVersion: 2
+Bundle-Name: nl.tue.ele.es.sdf3.editor
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: nl.tue.ele.es.sdf3.editor; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.16.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.35.0",
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-21
+Export-Package: nl.tue.ele.es.sdf3.editor.parser.antlr,
+ nl.tue.ele.es.sdf3.editor.validation,
+ nl.tue.ele.es.sdf3.editor.sDF3.impl,
+ nl.tue.ele.es.sdf3.editor.services,
+ nl.tue.ele.es.sdf3.editor.parser.antlr.internal,
+ nl.tue.ele.es.sdf3.editor.scoping,
+ nl.tue.ele.es.sdf3.editor.generator,
+ nl.tue.ele.es.sdf3.editor,
+ nl.tue.ele.es.sdf3.editor.sDF3,
+ nl.tue.ele.es.sdf3.editor.sDF3.util,
+ nl.tue.ele.es.sdf3.editor.serializer
+Import-Package: org.apache.log4j

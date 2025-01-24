@@ -1,0 +1,468 @@
+// Gramatica para el trabajo fin de master sobre EMF e IOT version 2
+grammar es.udima.tfm.cesarlaso.IotDsl with org.eclipse.xtext.common.Terminals
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+import "platform:/resource/es.udima.cesarlaso.tfm/model/Events.ecore" as events
+
+import "platform:/resource/es.udima.cesarlaso.tfm/model/HealthMonitors.ecore" as healthmonitors
+
+import "platform:/resource/es.udima.cesarlaso.tfm/model/Communications.ecore" as communications
+import "platform:/resource/es.udima.cesarlaso.tfm/model/CommunicationsHealth.ecore" as communicationshealt
+import "platform:/resource/es.udima.cesarlaso.tfm/model/CommunicationsPrograms.ecore" as communicationsprograms
+import "platform:/resource/es.udima.cesarlaso.tfm/model/CommunicationsStatus.ecore" as communicationstatus
+import "platform:/resource/es.udima.cesarlaso.tfm/model/CommunicationsEvents.ecore" as communicationsevents
+
+import "platform:/resource/es.udima.cesarlaso.tfm/model/OperatingSystemActuators.ecore" as operatingsystemactuators
+
+import "platform:/resource/es.udima.cesarlaso.tfm/model/Gpios.ecore" as gpios
+import "platform:/resource/es.udima.cesarlaso.tfm/model/GpiosActuators.ecore" as gpiosactuators
+import "platform:/resource/es.udima.cesarlaso.tfm/model/GpiosEvents.ecore" as gpiosevents
+
+import "platform:/resource/es.udima.cesarlaso.tfm/model/Programs.ecore" as programs
+import "platform:/resource/es.udima.cesarlaso.tfm/model/Timers.ecore" as timers
+
+import "platform:/resource/es.udima.cesarlaso.tfm/model/DeploymentDevices.ecore" as deploymentdevices
+import "platform:/resource/es.udima.cesarlaso.tfm/model/Servers.ecore" as servers
+
+import "platform:/resource/es.udima.cesarlaso.tfm/model/IotProyects.ecore" 
+
+
+IotProyect returns IotProyect:
+	'IotProyect'
+	name=EString
+	'{'
+		'product_code' productCode=EInt
+		'version' version=EInt
+		
+		'devices' '{' deploymentDevice+=Device ( "," deploymentDevice+=Device)* '}'
+		'servers' '{' server+=Server ( "," server+=Server)* '}'
+		
+		program=Program
+	'}';
+
+
+Device returns deploymentdevices::Device:
+	Simulator | Raspberry | Beaglebone | ESP8266;
+
+Server returns servers::Server:
+	JavaServer;
+
+
+Pin returns gpios::Pin:
+	DigitalInputPin | DigitalOutputPin |  
+	AnalogInputPin | AnalogOutputPin;
+
+Event returns events::Event:
+	GpioInterrupted | GpioButtonInput | GpioButtonInputAccumulator | GpioButtonReleased |  GpioPulseInput | 
+	GpioAnalogRead | GpioAnalogReadPerformOnHigh | GpioAnalogReadPerformOnLow |
+	TimerEvent | 
+	RemoteEvent | 
+	NetworkConnected | NetworkDisconnected | ServerConnected | ServerDisconnected;
+
+Timer returns timers::Timer:
+	Now | Repeated | Clock | Cron	
+;
+	
+
+Actuator returns events::Actuator:
+	SequentialActuators | 
+	ChangeOutput | ButtonOutput | PulseOutput | BlinkOutput | BlinkTimerOutput | 
+	Pwm | TransformTo | 
+	RemoteActuator | 
+	SystemCommand | Download | PlaySound | BackgroundImage | DrawImage | PlayVideo |   
+	ChangeStateActuator;
+
+RemoteIdentifier returns communicationsprograms::RemoteIdentifier:
+	RemoteEventIdentifier | RemoteActuatorIdentifier
+;
+
+
+
+EString returns ecore::EString:
+	STRING | ID;
+
+EInt returns ecore::EInt:
+	'-'? INT;
+	
+ELong returns ecore::ELong:
+	'-'? INT;
+	
+
+Program returns programs::Program:
+	'program'
+	'{'
+		( 'gpio_aliases' '{' gpioAliases+=Pin ( "," gpioAliases+=Pin)* '}' )?
+		( 'remote_identifiers' '{' remoteIdentifiers+=RemoteIdentifier ( "," remoteIdentifiers+=RemoteIdentifier)* '}' )? 
+		( 'files' '{' files+=FilePath ( "," files+=FilePath)* '}' )? 
+	
+		'start_state' state=[programs::ProgramState|EString] 
+		'states' '{' states+=ProgramState ( "," states+=ProgramState)* '}' 
+	'}';
+
+ProgramState returns programs::ProgramState:
+	'state'
+	name=EString
+	'{' events+=Event ( "," events+=Event)* '}';
+
+
+NetworkConnected returns communicationsevents::NetworkConnected:
+	'network_connected'
+	'{' actuators+=Actuator ( "," actuators+=Actuator)* '}'
+;
+
+NetworkDisconnected returns communicationsevents::NetworkDisconnected:
+	'network_disconnected'
+	'{' actuators+=Actuator ( "," actuators+=Actuator)* '}'
+;
+
+ServerConnected returns communicationsevents::ServerConnected:
+	'server_connected'
+	'{' actuators+=Actuator ( "," actuators+=Actuator)* '}'
+;
+
+ServerDisconnected returns communicationsevents::ServerDisconnected:
+	'server_disconnected'
+	'{' actuators+=Actuator ( "," actuators+=Actuator)* '}'
+;
+
+TimerEvent returns timers::TimerEvent:
+	'timer'
+	'{'
+	timer=Timer
+	'{' actuators+=Actuator ( "," actuators+=Actuator)* '}'
+	'}'
+;
+
+Now returns timers::Now:
+	'now' {timers::Now}
+	;
+
+Repeated returns timers::Repeated:
+	'repeat_every'
+	value=TimeUnitValue
+	;
+
+Clock returns timers::Clock:
+	'clock'
+	value=Time
+	;
+
+Cron returns timers::Cron:
+	'cron'
+	value=EString
+	;
+	
+GpioInterrupted returns gpiosevents::Interrupted:
+	'interrupted'
+	pin=[gpios::DigitalInputPin|EString]
+	mode=GpioInterruptMode
+	'{' actuators+=Actuator ( "," actuators+=Actuator)* '}'
+;
+	
+GpioButtonInput returns gpiosevents::ButtonInput:
+	'button'
+	pin=[gpios::DigitalInputPin|EString]
+	'{'
+	'mode' mode=PinResistor
+	'min_duration' minDuration=EInt
+	'{' actuators+=Actuator ( "," actuators+=Actuator)* '}'
+	'}'
+;
+
+GpioButtonInputAccumulator returns gpiosevents::ButtonInputAccumulator:
+	'button_acumulator'
+	pin=[gpios::DigitalInputPin|EString]
+	'{'
+	'mode' mode=PinResistor
+	'min_duration' minDuration=EInt
+	'count' count=EInt
+	'{' actuators+=Actuator ( "," actuators+=Actuator)* '}'
+	'}'
+;
+
+GpioButtonReleased returns gpiosevents::ButtonInputReleased:
+	'button_released'
+	pin=[gpios::DigitalInputPin|EString]
+	'{'
+	'mode' mode=PinResistor
+	'{' actuators+=Actuator ( "," actuators+=Actuator)* '}'
+	'}'
+;
+
+GpioPulseInput returns gpiosevents::PulseInput:
+	'pulse_input'
+	pin=[gpios::DigitalInputPin|EString]
+	'{'
+	'mode' mode=PinResistor
+	'count' count=EInt
+	'width' width=EInt
+	'space_width' spaceWidth=EInt
+	'{' actuators+=Actuator ( "," actuators+=Actuator)* '}'
+	'}'
+;
+
+GpioAnalogRead returns gpiosevents::AnalogRead:
+	'analog_read'
+	pin=[gpios::AnalogInputPin|EString]
+	'every' pollIntervalLoops=EInt 'loops'
+	'{' actuators+=Actuator ( "," actuators+=Actuator)* '}'
+;
+
+GpioAnalogReadPerformOnHigh returns gpiosevents::AnalogReadPerformOnHigh:
+	'analog_read_on_high'
+	pin=[gpios::AnalogInputPin|EString]
+	'every' pollIntervalLoops=EInt 'loops'
+	'value_higher_than' value=EInt
+	'{' actuators+=Actuator ( "," actuators+=Actuator)* '}'
+;
+
+GpioAnalogReadPerformOnLow returns gpiosevents::AnalogReadPerformOnLow:
+	'analog_read_on_low'
+	pin=[gpios::AnalogInputPin|EString]
+	'every' pollIntervalLoops=EInt 'loops'
+	'value_lower_than' value=EInt
+	'{' actuators+=Actuator ( "," actuators+=Actuator)* '}'
+;
+
+	
+
+Time returns timers::Time:
+	 hour=EInt 'h' minute=EInt 'm' second=EInt 's'
+;
+
+TimeUnitValue returns timers::TimeUnitValue:
+	value=EInt
+	unit=TimeUnitType
+;
+
+enum TimeUnitType returns timers::TimeUnitType:
+	Millisecond = 'Millisecond' | Second = 'Second' | Minute = 'Minute' | Hour = 'Hour';
+
+
+FilePath returns operatingsystemactuators::FilePath:
+	'file_path'
+	name=EString
+	'with_path'
+	filePath=EString
+;	
+
+RemoteEvent returns communicationsprograms::RemoteEvent:
+	'remote_event'
+	identifier=[communicationsprograms::RemoteEventIdentifier|EString]
+	'{' actuators+=Actuator ( "," actuators+=Actuator)* '}' 
+	;
+
+
+
+RemoteActuator returns communicationsprograms::RemoteActuator:
+	'remote_actuator'
+	identifier=[communicationsprograms::RemoteActuatorIdentifier|EString]
+	;
+
+
+SystemCommand returns operatingsystemactuators::SystemCommand:
+	'system_command'
+	filePath=[operatingsystemactuators::FilePath|EString]
+	;
+	
+Download returns operatingsystemactuators::Download:
+	'download'
+	url=EString
+	'to'
+	filePath=[operatingsystemactuators::FilePath|EString]
+	;	
+
+PlaySound returns operatingsystemactuators::PlaySound:
+	'play_sound'
+	( 'with_volume' volume=EInt )?
+	filePath=[operatingsystemactuators::FilePath|EString]
+	;	
+	
+BackgroundImage returns operatingsystemactuators::BackgroundImage:
+	'background_image'
+	filePath=[operatingsystemactuators::FilePath|EString]
+	resizeType=ResizeType
+	;	
+
+DrawImage returns operatingsystemactuators::DrawImage:
+	'draw_image'
+	filePath=[operatingsystemactuators::FilePath|EString]
+	'{'
+	'x' positionX=EInt
+	'y' positionY=EInt
+	'z' positionZ=EInt
+	'color' color=ELong
+	'resize' resizeType=ResizeType
+	'}'
+	;	
+
+PlayVideo returns operatingsystemactuators::PlayVideo:
+	'play_video'
+	filePath=[operatingsystemactuators::FilePath|EString]
+	'{'
+	'x' positionX=EInt
+	'y' positionY=EInt
+	'z' positionZ=EInt
+	'color' color=ELong
+	'resize' resizeType=ResizeType
+	'}'
+	;	
+
+
+ChangeStateActuator returns programs::ChangeStateActuator:
+	'change_state'
+	state=[programs::ProgramState|EString]
+	;
+
+enum ResizeType returns operatingsystemactuators::ResizeType:
+	None = 'none' | Auto = 'auto' | Fill = 'fill';
+
+enum PinResistor returns gpios::PinResistor:
+	PullUp = 'pull_up' | PullDown = 'pull_down';
+				
+enum GpioInterruptMode returns gpios::InterruptMode:
+	Rising = 'rising' | Falling = 'falling' | Changes = 'changes' | Low = 'low' | High = 'high';
+
+
+enum DigitalPinStatus returns gpiosactuators::DigitalPinStatus:
+	High = 'high' | Low = 'low';
+				
+
+
+DigitalInputPin returns gpios::DigitalInputPin:
+	'gpio_input_digital'
+	name=EString
+	'connected_to_pin'
+	number=EInt
+	;
+	
+DigitalOutputPin returns gpios::DigitalOutputPin:
+	'gpio_output_digital'
+	name=EString
+	'connected_to_pin'
+	number=EInt
+	;
+
+AnalogInputPin returns gpios::AnalogInputPin:
+	'gpio_input_analog'
+	name=EString
+	'connected_to_pin'
+	number=EInt
+	;
+
+AnalogOutputPin returns gpios::AnalogOutputPin:
+	'gpio_output_analog'
+	name=EString
+	'connected_to_pin'
+	number=EInt
+	;
+
+RemoteEventIdentifier returns communicationsprograms::RemoteEventIdentifier:
+	'remote_event_identifier'
+	name=EString
+;
+RemoteActuatorIdentifier returns communicationsprograms::RemoteActuatorIdentifier:
+	'remote_actuator_identifier'
+	name=EString
+;
+
+SequentialActuators returns events::SequentialActuators:
+	'sequential'
+	'{' actuators+=Actuator ( "," actuators+=Actuator)* '}'
+;
+	
+	
+ChangeOutput returns gpiosactuators::ChangeOutput:
+	'change'
+	pin=[gpios::DigitalOutputPin|EString]
+	status=DigitalPinStatus
+	;	
+	
+ButtonOutput returns gpiosactuators::ButtonOutput:
+	'button'
+	pin=[gpios::DigitalOutputPin|EString]
+	'duration' duration=TimeUnitValue
+	;
+
+
+PulseOutput returns gpiosactuators::PulseOutput:
+	'pulse'
+	pin=[gpios::DigitalOutputPin|EString]
+	'{'
+	'times' count=EInt 
+	'width' width=EInt 'ms'
+	'space_width' spaceWidth=EInt 'ms'
+	'}';
+
+BlinkOutput returns gpiosactuators::BlinkOutput:
+	'blink' 
+	pin=[gpios::DigitalOutputPin|EString]
+	'interval' interval=TimeUnitValue
+	;
+	
+BlinkTimerOutput returns gpiosactuators::BlinkTimerOutput:
+	'blink_timer' 
+	pin=[gpios::DigitalOutputPin|EString]
+	'{'
+	'during' duration=TimeUnitValue
+	'interval' interval=TimeUnitValue
+	'}'
+	;
+	
+Pwm returns gpiosactuators::Pwm:
+	'pwm'
+	pin=[gpios::AnalogOutputPin|EString]
+	'{'
+	'value' value=EInt
+	'}'
+	;
+	
+
+TransformTo returns gpiosactuators::TransformTo:
+	'pwm_transform'
+	pin=[gpios::AnalogOutputPin|EString]
+	'{'
+	'value' value=EInt
+	'duration' duration=TimeUnitValue
+	'}'
+	;
+
+WifiConfiguration returns deploymentdevices::WifiConfiguration:
+	'ssid'
+	ssid=EString
+	'with_password'
+	password=EString
+	;
+
+Simulator returns deploymentdevices::Simulator:
+	{deploymentdevices::Simulator}
+	'simulator'
+	;
+
+Raspberry returns deploymentdevices::Raspberry:
+	{deploymentdevices::Raspberry}
+	'raspberry'
+	('{' wifiConfiguration=WifiConfiguration '}' )?
+	;
+	
+Beaglebone returns deploymentdevices::Beaglebone:
+	{deploymentdevices::Beaglebone}
+	'beaglebone'
+	('{' wifiConfiguration=WifiConfiguration '}' )?
+	;
+
+
+ESP8266 returns deploymentdevices::ESP8266:
+	{deploymentdevices::ESP8266}
+	'esp8266'
+	('{' wifiConfiguration=WifiConfiguration '}' )?
+	;
+
+
+JavaServer returns servers::JavaServer:
+	'java_server'
+	'{'
+		'network_interface_address' networkInterfaceAddress=EString
+		'network_interface_port' networkInterfacePort=EInt
+	'}';

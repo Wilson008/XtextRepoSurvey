@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/es.udima.cesarlaso.tfm/src" modelPluginID="es.udima.cesarlaso.tfm"
+    modelName="Communications" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>Communications.ecore</foreignModel>
+  <genPackages prefix="Communications" basePackage="es.udima.cesarlaso.tfm" disposableProviderFactory="true"
+      ecorePackage="Communications.ecore#/">
+    <genClasses ecoreClass="Communications.ecore#//Packet">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Communications.ecore#//Packet/secuence"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Communications.ecore#//Packet/timestamp"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Communications.ecore#//Packet/services"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Communications.ecore#//Service"/>
+  </genPackages>
+</genmodel:GenModel>

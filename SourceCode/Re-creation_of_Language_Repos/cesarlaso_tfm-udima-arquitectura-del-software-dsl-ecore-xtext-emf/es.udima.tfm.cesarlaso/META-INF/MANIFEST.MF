@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: es.udima.tfm.cesarlaso
+Bundle-ManifestVersion: 2
+Bundle-Name: es.udima.tfm.cesarlaso
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: es.udima.tfm.cesarlaso; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: es.udima.cesarlaso.tfm,
+ org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.16.0",
+ org.eclipse.xtext.xbase.lib;bundle-version="2.35.0",
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: es.udima.tfm.cesarlaso,
+ es.udima.tfm.cesarlaso.scoping,
+ es.udima.tfm.cesarlaso.generator,
+ es.udima.tfm.cesarlaso.serializer,
+ es.udima.tfm.cesarlaso.formatting2,
+ es.udima.tfm.cesarlaso.parser.antlr.internal,
+ es.udima.tfm.cesarlaso.parser.antlr,
+ es.udima.tfm.cesarlaso.validation,
+ es.udima.tfm.cesarlaso.services
+Import-Package: org.apache.log4j

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/es.udima.cesarlaso.tfm/src" modelPluginID="es.udima.cesarlaso.tfm"
+    modelName="CommunicationsEvents" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    usedGenPackages="Events.genmodel#//events" operationReflection="true" importOrganizing="true">
+  <foreignModel>CommunicationsEvents.ecore</foreignModel>
+  <genPackages prefix="Communicationsevents" basePackage="es.udima.cesarlaso.tfm"
+      disposableProviderFactory="true" ecorePackage="CommunicationsEvents.ecore#/">
+    <genClasses image="false" ecoreClass="CommunicationsEvents.ecore#//CommunicationEvent"/>
+    <genClasses image="false" ecoreClass="CommunicationsEvents.ecore#//NetworkEvent"/>
+    <genClasses ecoreClass="CommunicationsEvents.ecore#//NetworkConnected"/>
+    <genClasses ecoreClass="CommunicationsEvents.ecore#//NetworkDisconnected"/>
+    <genClasses image="false" ecoreClass="CommunicationsEvents.ecore#//ServerEvent"/>
+    <genClasses ecoreClass="CommunicationsEvents.ecore#//ServerConnected"/>
+    <genClasses ecoreClass="CommunicationsEvents.ecore#//ServerDisconnected"/>
+  </genPackages>
+</genmodel:GenModel>

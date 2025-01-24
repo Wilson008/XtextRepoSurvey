@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/es.udima.cesarlaso.tfm/src" modelPluginID="es.udima.cesarlaso.tfm"
+    modelName="Gpios" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>Gpios.ecore</foreignModel>
+  <genPackages prefix="Gpios" basePackage="es.udima.cesarlaso.tfm" disposableProviderFactory="true"
+      ecorePackage="Gpios.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Gpios.ecore#//InterruptMode">
+      <genEnumLiterals ecoreEnumLiteral="Gpios.ecore#//InterruptMode/Rising"/>
+      <genEnumLiterals ecoreEnumLiteral="Gpios.ecore#//InterruptMode/Falling"/>
+      <genEnumLiterals ecoreEnumLiteral="Gpios.ecore#//InterruptMode/Changes"/>
+      <genEnumLiterals ecoreEnumLiteral="Gpios.ecore#//InterruptMode/Low"/>
+      <genEnumLiterals ecoreEnumLiteral="Gpios.ecore#//InterruptMode/High"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Gpios.ecore#//PinNumber">
+      <genEnumLiterals ecoreEnumLiteral="Gpios.ecore#//PinNumber/Gpio01"/>
+      <genEnumLiterals ecoreEnumLiteral="Gpios.ecore#//PinNumber/Gpio02"/>
+      <genEnumLiterals ecoreEnumLiteral="Gpios.ecore#//PinNumber/Gpio03"/>
+      <genEnumLiterals ecoreEnumLiteral="Gpios.ecore#//PinNumber/Gpio04"/>
+      <genEnumLiterals ecoreEnumLiteral="Gpios.ecore#//PinNumber/Gpio05"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Gpios.ecore#//DacResolution">
+      <genEnumLiterals ecoreEnumLiteral="Gpios.ecore#//DacResolution/Bits8"/>
+      <genEnumLiterals ecoreEnumLiteral="Gpios.ecore#//DacResolution/Bits12"/>
+      <genEnumLiterals ecoreEnumLiteral="Gpios.ecore#//DacResolution/Bits16"/>
+      <genEnumLiterals ecoreEnumLiteral="Gpios.ecore#//DacResolution/Bits24"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Gpios.ecore#//PinResistor">
+      <genEnumLiterals ecoreEnumLiteral="Gpios.ecore#//PinResistor/PullUp"/>
+      <genEnumLiterals ecoreEnumLiteral="Gpios.ecore#//PinResistor/PullDown"/>
+    </genEnums>
+    <genClasses image="false" ecoreClass="Gpios.ecore#//Pin">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gpios.ecore#//Pin/number"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Gpios.ecore#//Pin/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Gpios.ecore#//DigitalPin">
+      <genOperations ecoreOperation="Gpios.ecore#//DigitalPin/read"/>
+      <genOperations ecoreOperation="Gpios.ecore#//DigitalPin/write">
+        <genParameters ecoreParameter="Gpios.ecore#//DigitalPin/write/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="Gpios.ecore#//DigitalPin/attachInterrupt">
+        <genParameters ecoreParameter="Gpios.ecore#//DigitalPin/attachInterrupt/mode"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="Gpios.ecore#//AnalogPin">
+      <genOperations ecoreOperation="Gpios.ecore#//AnalogPin/read"/>
+      <genOperations ecoreOperation="Gpios.ecore#//AnalogPin/write">
+        <genParameters ecoreParameter="Gpios.ecore#//AnalogPin/write/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="Gpios.ecore#//AnalogPin/setResolution">
+        <genParameters ecoreParameter="Gpios.ecore#//AnalogPin/setResolution/resolution"/>
+      </genOperations>
+      <genOperations ecoreOperation="Gpios.ecore#//AnalogPin/getResolution"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

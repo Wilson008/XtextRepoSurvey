@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/es.udima.cesarlaso.tfm/src" modelPluginID="es.udima.cesarlaso.tfm"
+    modelName="IotProyects" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    usedGenPackages="Communications.genmodel#//communications CommunicationsPrograms.genmodel#//communicationsprograms DeploymentDevices.genmodel#//deploymentdevices Events.genmodel#//events Gpios.genmodel#//gpios HealthMonitors.genmodel#//healthmonitors OperatingSystemActuators.genmodel#//operatingsystemactuators Programs.genmodel#//programs Servers.genmodel#//servers Timers.genmodel#//timers"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>IotProyects.ecore</foreignModel>
+  <genPackages prefix="Iotproyects" basePackage="es.udima.cesarlaso.tfm" disposableProviderFactory="true"
+      ecorePackage="IotProyects.ecore#/">
+    <genClasses ecoreClass="IotProyects.ecore#//IotProyect">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IotProyects.ecore#//IotProyect/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IotProyects.ecore#//IotProyect/productCode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IotProyects.ecore#//IotProyect/version"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IotProyects.ecore#//IotProyect/program"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IotProyects.ecore#//IotProyect/deploymentDevice"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IotProyects.ecore#//IotProyect/server"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IotProyects.ecore#//IotProyect/healthMonitors"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

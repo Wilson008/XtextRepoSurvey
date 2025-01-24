@@ -1,0 +1,229 @@
+/*
+ * Ejemplo programa ascensor
+ */
+IotProyect ascensor_hotel
+{
+	product_code 2
+	version 1
+	devices {
+		simulator, 
+		//en el laboratorio probamos tambien con raspberry
+		raspberry {
+			ssid "prueba" with_password "prueba"
+		}, 
+		//en produccion, usaremos la beaglebone ira via ethernet sin wifi
+		beaglebone
+	}
+	
+	servers { 
+		java_server {
+			network_interface_address "localhost"
+			network_interface_port 8080
+		}
+	}
+	
+	program {
+		gpio_aliases {
+			gpio_input_digital "piso1" connected_to_pin 1,
+			gpio_input_digital "piso2" connected_to_pin 2,
+			gpio_input_digital "piso3" connected_to_pin 3,
+			gpio_input_digital "piso4" connected_to_pin 4,
+			gpio_input_digital "piso5" connected_to_pin 5,
+			
+			gpio_input_digital "subiendo" connected_to_pin 6,
+			gpio_input_digital "bajando" connected_to_pin 7,
+			gpio_input_digital "parado" connected_to_pin 8,
+			
+			gpio_input_digital "reparando" connected_to_pin 9
+		}
+		
+		remote_identifiers {
+			remote_event_identifier "mensaje_nuevo"
+		}
+		
+		files {
+			file_path "fondo_normal" with_path "/imagenes/fondo.png",
+			file_path "fondo_reparando" with_path "/imagenes/fondo_reparando.png",
+			
+			file_path "imagen_flecha_arriba" with_path "/imagenes/flecha_arriba.png",
+			file_path "imagen_flecha_abajo" with_path "/imagenes/flecha_abajo.png",
+			file_path "imagen_flecha_parado" with_path "/imagenes/flecha_parado.png",
+			
+			file_path "imagen_piso1" with_path "/imagenes/piso1.png",
+			file_path "imagen_piso2" with_path "/imagenes/piso2.png",
+			file_path "imagen_piso3" with_path "/imagenes/piso3.png",
+			file_path "imagen_piso4" with_path "/imagenes/piso4.png",
+			file_path "imagen_piso5" with_path "/imagenes/piso5.png",
+			
+			file_path "video_diario" with_path "/imagenes/video.mp4",
+			file_path "video_fin_semana" with_path "/imagenes/video_fin_semana.mp4"
+		}
+		
+		start_state "inicio"
+		
+		states {
+			state "inicio" {
+
+				//Cada 10 minutos se comprueban actualizaciones de los archivos multimedia
+				//El sistema es capaz de hacer un last-modified y/o etag 
+				//y no volver a descargar si no es necesario
+				repeat_every 10 Minute {
+					download "https://SERVER_HOST/images/fondo_normal.png" to fondo_normal,
+					download "https://SERVER_HOST/images/fondo_reparando.png" to fondo_reparando,
+					
+					download "https://SERVER_HOST/images/flecha_arriba.png" to imagen_flecha_arriba,
+					download "https://SERVER_HOST/images/flecha_abajo.png" to imagen_flecha_abajo,
+					download "https://SERVER_HOST/images/flecha_parado.png" to imagen_flecha_parado,
+					download "https://SERVER_HOST/images/piso1.png" to imagen_piso1,
+					download "https://SERVER_HOST/images/piso2.png" to imagen_piso2,
+					download "https://SERVER_HOST/images/piso3.png" to imagen_piso3,
+					download "https://SERVER_HOST/images/piso4.png" to imagen_piso4,
+					download "https://SERVER_HOST/images/piso5.png" to imagen_piso5,
+
+					download "https://SERVER_HOST/videos/diario.png" to video_diario,
+					download "https://SERVER_HOST/videos/fin_semana.png" to video_fin_semana
+				},
+				
+				now {
+					background_image fondo_normal none,
+					play_video video_diario {
+						x 0
+						y 0
+						z 1
+						color 0
+						resize auto
+					}
+				},
+				
+				//fin semana a partir de las 8 del sabado
+				cron "* 8 * * 6,0" {
+					play_video video_fin_semana {
+						x 0
+						y 0
+						z 1
+						color 0
+						resize auto
+					}
+				},
+				
+				//todos los dias reproducir el video
+				cron "* 8 * * 1,2,3,4,5" {
+					play_video video_diario {
+						x 0
+						y 0
+						z 1
+						color 0
+						resize auto
+					}
+				},
+				
+				//si hubiera cambiado la imagen de fondo, se actualiza,
+				//el resto como el ascensor se mueve no es necesario repintar
+				repeat_every 1 Minute {
+					background_image fondo_normal none
+				},
+				
+				interrupted piso1 falling {
+					draw_image imagen_piso1 {
+						x 100
+						y 100
+						z 0
+						color 0
+						resize auto
+					}
+				}
+				,
+				interrupted subiendo falling {
+					draw_image imagen_flecha_arriba {
+						x 10	
+						y 10
+						z 1
+						color 0
+						resize none
+					}
+				},
+				
+				interrupted bajando falling {
+					draw_image imagen_flecha_abajo {
+						x 10	
+						y 10
+						z 1
+						color 0
+						resize none
+					}
+				},
+				
+				interrupted parado falling {
+					draw_image imagen_flecha_parado {
+						x 10	
+						y 10
+						z 1
+						color 0
+						resize none
+					}
+				},
+				
+				interrupted piso1 falling {
+					draw_image imagen_piso1 {
+						x 10	
+						y 10
+						z 2
+						color 0
+						resize none
+					}
+				},
+				interrupted piso2 falling {
+					draw_image imagen_piso2 {
+						x 10	
+						y 10
+						z 2
+						color 0
+						resize none
+					}
+				},
+				interrupted piso3 falling {
+					draw_image imagen_piso3 {
+						x 10	
+						y 10
+						z 2
+						color 0
+						resize none
+					}
+				},
+				interrupted piso4 falling {
+					draw_image imagen_piso4 {
+						x 10	
+						y 10
+						z 2
+						color 0
+						resize none
+					}
+				},
+				interrupted piso5 falling {
+					draw_image imagen_piso5 {
+						x 10	
+						y 10
+						z 2
+						color 0
+						resize none
+					}
+				},
+				
+				interrupted reparando falling {
+					change_state estado_reparando
+				}
+			},
+			
+			state "estado_reparando" {
+				now {
+					background_image fondo_reparando none
+				},
+				
+				interrupted reparando rising {
+					change_state inicio
+				}
+			}
+		}
+	 
+	}
+}

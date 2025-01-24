@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated house -->
+      <package
+            uri="http://House2/1.0"
+            class="House2.House2Package"
+            genModel="model/house.genmodel"/>
+   </extension>
+
+</plugin>

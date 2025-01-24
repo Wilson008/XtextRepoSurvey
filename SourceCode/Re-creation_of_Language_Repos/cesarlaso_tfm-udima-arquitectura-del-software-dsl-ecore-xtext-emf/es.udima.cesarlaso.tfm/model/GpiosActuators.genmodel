@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/es.udima.cesarlaso.tfm/src" modelPluginID="es.udima.cesarlaso.tfm"
+    modelName="GpiosActuators" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    usedGenPackages="Events.genmodel#//events Gpios.genmodel#//gpios Timers.genmodel#//timers"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>GpiosActuators.ecore</foreignModel>
+  <genPackages prefix="Gpiosactuators" basePackage="es.udima.cesarlaso.tfm" disposableProviderFactory="true"
+      ecorePackage="GpiosActuators.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="GpiosActuators.ecore#//DigitalPinStatus">
+      <genEnumLiterals ecoreEnumLiteral="GpiosActuators.ecore#//DigitalPinStatus/Low"/>
+      <genEnumLiterals ecoreEnumLiteral="GpiosActuators.ecore#//DigitalPinStatus/High"/>
+    </genEnums>
+    <genClasses image="false" ecoreClass="GpiosActuators.ecore#//GpioActuator"/>
+    <genClasses image="false" ecoreClass="GpiosActuators.ecore#//GpioTimerActuator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GpiosActuators.ecore#//GpioTimerActuator/duration"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="GpiosActuators.ecore#//DigitalActuator">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GpiosActuators.ecore#//DigitalActuator/pin"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="GpiosActuators.ecore#//AnalogActuator">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GpiosActuators.ecore#//AnalogActuator/pin"/>
+    </genClasses>
+    <genClasses ecoreClass="GpiosActuators.ecore#//ChangeOutput">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GpiosActuators.ecore#//ChangeOutput/status"/>
+    </genClasses>
+    <genClasses ecoreClass="GpiosActuators.ecore#//ButtonOutput"/>
+    <genClasses ecoreClass="GpiosActuators.ecore#//PulseOutput">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GpiosActuators.ecore#//PulseOutput/count"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GpiosActuators.ecore#//PulseOutput/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GpiosActuators.ecore#//PulseOutput/spaceWidth"/>
+    </genClasses>
+    <genClasses ecoreClass="GpiosActuators.ecore#//BlinkOutput">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GpiosActuators.ecore#//BlinkOutput/interval"/>
+    </genClasses>
+    <genClasses ecoreClass="GpiosActuators.ecore#//BlinkTimerOutput"/>
+    <genClasses ecoreClass="GpiosActuators.ecore#//Pwm">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GpiosActuators.ecore#//Pwm/value"/>
+    </genClasses>
+    <genClasses ecoreClass="GpiosActuators.ecore#//TransformTo">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GpiosActuators.ecore#//TransformTo/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,90 @@
+grammar accessdsl.AccessDsl with org.eclipse.xtext.xbase.Xbase
+
+//import 'classpath:/jpadsl/JPADsl.ecore' as jpadsl
+import "platform:/resource/jpadsl/model/generated/JPADsl.ecore" as jpadsl
+import "platform:/resource/jpaqldsl/model/generated/JPAQLDsl.ecore" as jpaqldsl
+//import 'classpath:/jpaqldsl/JPAQLDsl.ecore' as jpaqldsl
+import "http://www.eclipse.org/xtext/common/JavaVMTypes"
+
+generate accessDsl "http://www.AccessDsl.accessdsl"
+
+Model:
+	imports+=Import*
+	unit=Unit;
+
+Import:
+	'import' importedNamespace=importedNamespace;
+	
+Unit:
+	'access unit' name=QualifiedName '{'
+		package=PackageName
+		containers+=Container*
+		querymapping+=QueryAndTypeMapping*
+		stateAdjustment+=StateAdjustment*
+	'}';
+
+PackageName:
+	'package name' name=QualifiedName;
+		
+Container:
+	'container' name=ID '{'
+		containerElements+=ContainerElement* 
+	'}';
+	
+ContainerElement:
+	'element' entity=ContainedEntity alias=STRING;
+	
+ContainedEntity:
+		contained=[jpadsl::Entity];
+		
+QueryAndTypeMapping:
+		'query and type mapping' name=ID '{'
+				(imports+=Import)*
+				query=QueryMapping
+				'return -> ' typeMapping=[Container]
+				'query parameters -> {' 
+					'(' (queryParameters+=JvmFormalParameter (',' queryParameters+=JvmFormalParameter)*)? ')'
+				'}'
+		'}';
+		
+			
+QueryMapping:
+	SingleResultQueryMapping | MultipleResultQueryMapping;
+	
+SingleResultQueryMapping:
+	'single result mapping' namedQuery=[jpaqldsl::NamedQuery];
+	
+MultipleResultQueryMapping:
+	'multiple result mapping' namedQuery=[jpaqldsl::NamedQuery];
+	
+StateAdjustment:
+	'state adjustment' '{'
+		name=ID
+		(imports+=Import)*
+		stateOperation=StateOperation
+	'}';
+	
+StateOperation:
+	PersistOperation | 
+	PersistAndAssociateOperation | 
+	AssociateOperation | 
+	UpdateOperation | 
+	DeleteOperation;
+
+PersistOperation:
+	'persist ' this=[jpadsl::Entity];
+
+PersistAndAssociateOperation:
+	'persist and associate ' newEntity=[jpadsl::Entity] associaltion=[jpadsl::RelationshipAttribute] existingEntity=[jpadsl::Entity];
+
+AssociateOperation:
+	'associate ' this=[jpadsl::Entity] associaltion=[jpadsl::RelationshipAttribute] that=[jpadsl::Entity];
+
+UpdateOperation:
+	'update ' this=[jpadsl::Entity];
+
+DeleteOperation:
+	'delete ' this=[jpadsl::Entity];
+	
+importedNamespace :
+	QualifiedName  ('.' '*')?;

@@ -1,0 +1,162 @@
+/*
+ * Ejemplo programa futbolin
+ */
+IotProyect futbolin
+{
+	product_code 123
+	version 1
+	devices {
+		simulator,
+		raspberry {
+			ssid "cloudbolin" with_password "cloudbolin"
+		}
+	}
+	servers {
+		java_server {
+			network_interface_address "localhost"
+			network_interface_port 8080
+		}
+	}
+	
+	program {
+		gpio_aliases {
+			//Leds de estado
+			gpio_output_digital "status_led" connected_to_pin 1,
+			gpio_output_digital "error_led" connected_to_pin 2,
+
+			//entradas gol
+			gpio_input_digital "goals_left" connected_to_pin 3,
+			gpio_input_digital "goals_right" connected_to_pin 4,
+			
+			//entradas monederos
+			gpio_input_digital "coin_1_euro" connected_to_pin 5,
+			gpio_input_digital "coin_50_cents" connected_to_pin 6,
+			
+			gpio_output_digital "coin_1_euro_salida" connected_to_pin 1,
+			gpio_output_digital "coin_50_cents_salida" connected_to_pin 1,
+			
+			
+			//entradas alarmas
+			gpio_input_digital "alarm_door" connected_to_pin 7,
+			gpio_input_digital "alarm_coins" connected_to_pin 8,
+			
+			gpio_input_analog "humidity_relative" connected_to_pin 9,
+			gpio_input_analog "temperature" connected_to_pin 10 
+		}
+		
+		remote_identifiers {
+			remote_actuator_identifier "goal_left",
+			remote_actuator_identifier "goal_right",
+			remote_actuator_identifier "coin_1",
+			remote_actuator_identifier "coin_50",
+			
+			remote_actuator_identifier "alarm1",
+			remote_actuator_identifier "alarm2",
+			
+			remote_actuator_identifier "mojado",
+			
+			remote_event_identifier "send_money"
+		}
+		
+		start_state "test"
+		
+		states {
+			state "test" {
+				now {
+					//Arrancando programa....
+					blink status_led interval 1000 Millisecond 
+					
+				},
+				repeat_every 10 Minute {
+					blink status_led interval 10 Millisecond
+					
+				},
+				clock 1h 10m 10s {
+					blink status_led interval 10 Millisecond
+				},				
+				
+				network_connected {
+					blink status_led interval 10 Millisecond
+				},
+				network_disconnected {
+					change status_led low
+				},
+				server_connected {
+					change status_led high
+				},
+				server_disconnected {
+					blink status_led interval 10 Millisecond
+				},
+				
+				
+				//Dar partida, de forma remota se podra simular una entrada de 
+				//moneda en el sistema, permitiendo asi que los jugadores
+				//desde un dispositvo con internet puedan pagar en la maquina 
+				remote_event send_money {
+					
+					//ejemplo de actuador secuencial
+					sequential {
+						pulse coin_1_euro_salida {
+							times 1 
+							width 50 ms
+							space_width 50 ms
+						},
+						blink_timer status_led {
+							during 1 Second
+							interval 10 Millisecond
+						}
+					}
+				},
+				
+				//goles
+				interrupted goals_left falling {
+					sequential {
+						blink status_led interval 50 Millisecond,
+						remote_actuator goal_left
+					}
+				},
+				interrupted goals_right falling {
+					blink status_led interval 50 Millisecond,
+					remote_actuator goal_right
+				},
+				
+				pulse_input coin_1_euro {
+					mode pull_down
+					count 1
+					width 50 
+					space_width 50
+					{
+						blink status_led interval 50 Millisecond
+					}
+				},
+				
+				pulse_input coin_50_cents {
+					mode pull_down
+					count 1
+					width 50 
+					space_width 50
+					{
+						blink status_led interval 50 Millisecond
+					}
+				},
+				
+				interrupted alarm_door falling { 
+					blink status_led interval 50 Millisecond
+				},
+				interrupted alarm_coins falling { 
+					blink status_led interval 50 Millisecond
+				},
+				
+				analog_read_on_high humidity_relative  
+				every 1 loops
+				value_higher_than 10
+				{
+					blink status_led interval 50 Millisecond,
+					remote_actuator mojado
+				}
+				
+			}
+		}
+	 
+	}
+}

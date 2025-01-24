@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: eu.metatools.technocat
+Bundle-ManifestVersion: 2
+Bundle-Name: eu.metatools.technocat
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: eu.metatools.technocat; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.16.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.35.0",
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: eu.metatools.technocat,
+ eu.metatools.technocat.validation,
+ eu.metatools.technocat.technoCat.util,
+ eu.metatools.technocat.serializer,
+ eu.metatools.technocat.generator,
+ eu.metatools.technocat.technoCat,
+ eu.metatools.technocat.services,
+ eu.metatools.technocat.scoping,
+ eu.metatools.technocat.technoCat.impl,
+ eu.metatools.technocat.parser.antlr.internal,
+ eu.metatools.technocat.parser.antlr
+Import-Package: org.apache.log4j

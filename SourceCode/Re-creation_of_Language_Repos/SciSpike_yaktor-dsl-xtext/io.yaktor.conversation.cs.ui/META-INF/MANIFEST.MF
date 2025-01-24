@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: io.yaktor.conversation.cs.ui
+Bundle-ManifestVersion: 2
+Bundle-Name: io.yaktor.conversation.cs.ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: io.yaktor.conversation.cs.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: io.yaktor.conversation.cs,
+ io.yaktor.conversation.cs.ide,
+ io.yaktor.conversation.as,
+ io.yaktor.domain.as,
+ org.eclipse.xtext.ui,
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.ui.editors;bundle-version="3.14.300",
+ org.eclipse.ui.ide;bundle-version="3.18.500",
+ org.eclipse.ui,
+ org.eclipse.compare,
+ org.eclipse.xtext.builder
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: io.yaktor.ui.contentassist,
+ io.yaktor.conversation.cs.ui.internal,
+ io.yaktor.ui.quickfix
+Bundle-Activator: io.yaktor.conversation.cs.ui.internal.CsActivator

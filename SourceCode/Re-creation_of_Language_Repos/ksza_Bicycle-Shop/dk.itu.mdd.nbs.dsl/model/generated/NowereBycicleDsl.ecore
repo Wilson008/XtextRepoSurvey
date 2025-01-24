@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="nowhereBycicleDsl" nsURI="platform:/resource/dk.itu.mdd.nbs.model/model/nbs.ecore"
+    nsPrefix="nowhereBycicleDsl">
+  <eClassifiers xsi:type="ecore:EClass" name="Bicycle">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="deliveryDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parts" upperBound="-1"
+        eType="#//Part" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="customerData" upperBound="-1"
+        eType="#//CustomerData" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//Parameter" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Part">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="price" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="manufacturer" eType="#//Manufacturers"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CustomerData">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//Parameter" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Manufacturers">
+    <eLiterals name="SuperParts" literal="SuperParts"/>
+    <eLiterals name="HomeParts" value="1" literal="HomeParts"/>
+    <eLiterals name="HandMadeParts" value="2" literal="HandMadeParts"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Frame" eSuperTypes="#//Part">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="frameType" eType="#//FrameType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//Color"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Wheel" eSuperTypes="#//Part"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InnerGear" eSuperTypes="#//Part"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OuterGear" eSuperTypes="#//Part"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Pedals" eSuperTypes="#//Part">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pedalType" eType="#//PedalTypes"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Saddle" eSuperTypes="#//Part">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="saddleType" eType="#//SaddleType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HandBrakes" eSuperTypes="#//Part"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HandleBars" eSuperTypes="#//Part"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="FrameType">
+    <eLiterals name="RacerFrame" literal="RacerFrame"/>
+    <eLiterals name="CityFrame" value="1" literal="CityFrame"/>
+    <eLiterals name="UnicycleFrame" value="2" literal="UnicycleFrame"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Color">
+    <eLiterals name="Red" literal="Red"/>
+    <eLiterals name="Blue" value="1" literal="Blue"/>
+    <eLiterals name="Black" value="2" literal="Black"/>
+    <eLiterals name="Green" value="3" literal="Green"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PedalTypes">
+    <eLiterals name="ChildPedals" literal="ChildPedals"/>
+    <eLiterals name="SportsPedals" value="1" literal="SportsPedals"/>
+    <eLiterals name="ComfortPedals" value="2" literal="ComfortPedals"/>
+    <eLiterals name="ExtremePedals" value="3" literal="ExtremePedals"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SaddleType">
+    <eLiterals name="RacingSaddle" literal="RacingSaddle"/>
+    <eLiterals name="ChildSaddle" value="1" literal="ChildSaddle"/>
+    <eLiterals name="SpecialUnicycleSaddle" value="2" literal="SpecialUnicycleSaddle"/>
+    <eLiterals name="ComfortSaddle" value="3" literal="ComfortSaddle"/>
+  </eClassifiers>
+</ecore:EPackage>
