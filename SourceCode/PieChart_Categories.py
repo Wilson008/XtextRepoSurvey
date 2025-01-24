@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-# 数据定义
+# Data Definition
 categories = {
     "Modeling, Simulation, and Design": 37,
     "Programming Languages": 36,
@@ -22,17 +22,16 @@ categories = {
     "Questionnaire": 2
 }
 
-# 总数
 total_count = 226
 
-# 计算每个类别的百分比
+# Calculate the percentage for each category
 category_percentages = {category: (count / total_count) * 100 for category, count in categories.items()}
 
-# 数据准备
+# Data preparation
 # labels = list(category_percentages.keys())
 sizes = list(category_percentages.values())
 
-# 绘制饼状图
+# Draw a pie chart
 fig, ax = plt.subplots(figsize=(10, 8))
 colors = [
     'brown', 'blue', 'magenta', 'purple', 'teal', 'cyan', 'yellow', 'green', 
@@ -45,9 +44,9 @@ ax.pie(sizes, autopct='%1.1f%%', startangle=140,
 
 ax.set_title("Category Distribution")
 
-# 保存图像为 PDF 文件
+# Save image as PDF file
 plt.savefig("SourceCode\proportion_of_repos_in_categories.pdf", format="pdf", bbox_inches='tight')
 print('Successfully saved proportion_of_repos_in_categories.pdf')
 
-# 显示图表
+# Show Chart
 plt.show()

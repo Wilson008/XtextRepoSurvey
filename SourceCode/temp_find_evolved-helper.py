@@ -1,35 +1,35 @@
 import csv
 
-# 输入和输出文件路径
+# Input and output file paths
 input_file = "SourceCode/auto_analysis_results/file_commit_msg_with_time.csv"
 output_file = "SourceCode/find_evolved_helper.csv"
 
-# 打开输入文件，逐行读取
+# Open the input file and read it line by line
 with open(input_file, mode='r', encoding='utf-8') as infile, open(output_file, mode='w', encoding='utf-8', newline='') as outfile:
     reader = csv.reader(infile)
     writer = csv.writer(outfile)
     
-    # 读取表头
+    # Read header
     header = next(reader)
-    # 在表头后添加新列 "O"
+    # Add a new column "O" after the table header
     header.append("O")
     writer.writerow(header)
     
-    # 初始化变量
-    previous_filename = None  # 用于暂存上一行的文件名
+    # Initializing variables
+    previous_filename = None  # The file name used to temporarily save the previous line
     
-    # 逐行读取
+    # Read line by line
     for row in reader:
-        current_filename = row[2]  # Column C 的文件名
+        current_filename = row[2]  # Column C file name
         
-        # 判断是否与上一行文件名相同
+        # Determine whether the file name is the same as the previous line
         if current_filename == previous_filename:
             row.append("yes")
         else:
             row.append("no")
         
-        # 写入新文件
+        # Writing to a new file
         writer.writerow(row)
         
-        # 更新上一行的文件名
+        # Update the file name of the previous line
         previous_filename = current_filename
