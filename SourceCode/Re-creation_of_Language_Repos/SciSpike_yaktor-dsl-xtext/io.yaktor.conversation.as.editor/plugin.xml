@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated conversation -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="io.yaktor.conversation.presentation.ConversationModelWizardID"
+            name="%_UI_ConversationModelWizard_label"
+            class="io.yaktor.conversation.presentation.ConversationModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ConversationModelFile.gif">
+         <description>%_UI_ConversationModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated conversation -->
+      <editor
+            id="io.yaktor.conversation.presentation.ConversationEditorID"
+            name="%_UI_ConversationEditor_label"
+            icon="icons/full/obj16/ConversationModelFile.gif"
+            extensions="conversation"
+            class="io.yaktor.conversation.presentation.ConversationEditor"
+            contributorClass="io.yaktor.conversation.presentation.ConversationActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated conversation -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="io.yaktor.types.presentation.TypesModelWizardID"
+            name="%_UI_TypesModelWizard_label"
+            class="io.yaktor.types.presentation.TypesModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/TypesModelFile.gif">
+         <description>%_UI_TypesModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated conversation -->
+      <editor
+            id="io.yaktor.types.presentation.TypesEditorID"
+            name="%_UI_TypesEditor_label"
+            icon="icons/full/obj16/TypesModelFile.gif"
+            extensions="types"
+            class="io.yaktor.types.presentation.TypesEditor"
+            contributorClass="io.yaktor.types.presentation.TypesActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated conversation -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="io.yaktor.access.presentation.AccessModelWizardID"
+            name="%_UI_AccessModelWizard_label"
+            class="io.yaktor.access.presentation.AccessModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/AccessModelFile.gif">
+         <description>%_UI_AccessModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated conversation -->
+      <editor
+            id="io.yaktor.access.presentation.AccessEditorID"
+            name="%_UI_AccessEditor_label"
+            icon="icons/full/obj16/AccessModelFile.gif"
+            extensions="access"
+            class="io.yaktor.access.presentation.AccessEditor"
+            contributorClass="io.yaktor.access.presentation.AccessActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

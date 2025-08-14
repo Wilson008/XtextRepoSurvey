@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated statepubsubmodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="hu.sze.jkk.middleware.statepubsub.model.statepubsubmodel.presentation.StatepubsubmodelModelWizardID"
+            name="%_UI_StatepubsubmodelModelWizard_label"
+            class="hu.sze.jkk.middleware.statepubsub.model.statepubsubmodel.presentation.StatepubsubmodelModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/StatepubsubmodelModelFile.gif">
+         <description>%_UI_StatepubsubmodelModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated statepubsubmodel -->
+      <editor
+            id="hu.sze.jkk.middleware.statepubsub.model.statepubsubmodel.presentation.StatepubsubmodelEditorID"
+            name="%_UI_StatepubsubmodelEditor_label"
+            icon="icons/full/obj16/StatepubsubmodelModelFile.gif"
+            extensions="statepubsubmodel"
+            class="hu.sze.jkk.middleware.statepubsub.model.statepubsubmodel.presentation.StatepubsubmodelEditor"
+            contributorClass="hu.sze.jkk.middleware.statepubsub.model.statepubsubmodel.presentation.StatepubsubmodelActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

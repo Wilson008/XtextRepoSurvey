@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: dk.itu.mdd.nbs.dsl
+Bundle-ManifestVersion: 2
+Bundle-Name: dk.itu.mdd.nbs.dsl
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: dk.itu.mdd.nbs.dsl; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.16.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.35.0",
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: dk.itu.mdd.nbs.dsl,
+ dk.itu.mdd.nbs.dsl.serializer,
+ dk.itu.mdd.nbs.dsl.parser.antlr,
+ dk.itu.mdd.nbs.dsl.nowhereBycicleDsl,
+ dk.itu.mdd.nbs.dsl.nowhereBycicleDsl.util,
+ dk.itu.mdd.nbs.dsl.generator,
+ dk.itu.mdd.nbs.dsl.nowhereBycicleDsl.impl,
+ dk.itu.mdd.nbs.dsl.scoping,
+ dk.itu.mdd.nbs.dsl.parser.antlr.internal,
+ dk.itu.mdd.nbs.dsl.validation,
+ dk.itu.mdd.nbs.dsl.services
+Import-Package: org.apache.log4j

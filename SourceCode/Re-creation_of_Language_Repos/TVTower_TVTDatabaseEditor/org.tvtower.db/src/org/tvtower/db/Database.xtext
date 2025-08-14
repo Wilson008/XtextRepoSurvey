@@ -1,0 +1,875 @@
+grammar org.tvtower.db.Database with org.eclipse.xtext.common.Terminals
+
+generate database "http://www.tvtower.org/db/Database"
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+
+//kein SL-Comment-Key!!!
+//%Text% als Variable unterstützen, dann aber Number% - nicht als Variable
+
+//person function
+//newseffect news3,4
+
+//Outline
+//Autovervollständigung
+
+
+Database:
+	'<'{Database}('?xml' properties+=UnnamedProperty*'?>''<')?
+	'tvtdb' '>'
+		(
+			personLocalization=PersonLocalization
+				|
+			(version=Version?
+			definitions+=Definition*
+			exportOptions=ExportOptions?
+			)
+		)
+	'</' 'tvtdb' '>';
+
+ExportOptions:
+	'<''exportOptions' {ExportOptions}
+		(
+			data+=UnnamedProperty*
+		)
+	'/>'
+;
+
+Definition:News|ScriptTemplates|ProgrammeRoles|Achievements|Advertisements|CelebrityPeople|InsignificantPeople|Programmes;
+
+PersonLocalization:
+	'<''persons'{PersonLocalization}->'>'
+		persons+=PersonLocale*
+	'</''persons''>'
+	'<''roles''>'
+		roles+=RoleLocale*
+	'</''roles''>'
+;
+
+MayContainVariables:NewsItem|ScriptTemplate;
+
+ScriptTemplates:
+	'<''scripttemplates''>'{ScriptTemplates}
+		templates+=ScriptTemplate*
+	'</''scripttemplates''>'
+;
+
+ScriptTemplate:
+	'<''scripttemplate'
+		(
+			('guid''='name=STRING)&
+			('product''='product=STRING)&
+			('licence_type''='licenceType=STRING)&
+			('index''='index=STRING)?&
+			('comment''='comment=STRING)?&
+			('creator''='creator=STRING)?&
+			('created_by''='createdBy=STRING)?
+		)
+	'>'
+	(
+		title=Title &
+		title_original=TitleOriginal? &
+		description=Description?&
+		variables=Variables? &
+		genres=ScriptGenres?&
+		jobs=Jobs?&
+		data=ScriptData?&
+		groups=ProgrammeGroups? &
+		availability=Availability?&
+		episodes=Episodes?&
+		studioSize=StudioSize?&
+		blocks=Blocks?&
+		price=Price?&
+		potential=Potential?&
+		outcome=Outcome?&
+		review=Review?&
+		speed=Speed?&
+		productionTime=ProductionTime?&
+		children=ScriptChildren?&
+		attractivity=GroupAttractivity?&
+		progDataModifiers=TemplateProgrammeModifiers?&
+		effects=Effects?
+	)
+	'</''scripttemplate''>'
+;
+ContainsLanguageStrings:Title|Description|VariableDef|Text;
+Title:
+	'<''title'{Title}
+	('/>'
+		|
+	'>'
+		lstrings+=LanguageString*
+	'</''title''>'
+	)
+;
+Description:
+	'<''description''>'{Description}
+		lstrings+=LanguageString*
+	'</''description''>'
+;
+ScriptChildren:
+	'<''children''>'
+		child+=ScriptTemplate+
+	'</''children''>'
+;
+Variables:
+	'<''variables''>'{Variables}
+		variable+=VariableDef*
+	'</''variables''>'
+;
+
+VariableDef:
+	'<'var=IDorKeyword'>'
+		lstrings+=LanguageString*
+	'</'IDorKeyword'>'
+;
+
+Jobs:
+	'<''jobs''>'{Jobs}
+		job+=Job*
+	'</''jobs''>'
+;
+
+Job:
+	'<''job'
+		(
+			('index''='index=STRING)&
+			('function''='function=STRING)&
+			('required''='required=STRING)&
+			('gender''='gender=STRING)?&
+			('role_guid''='rolId=[ProgrammeRole|STRING] )?
+		)
+	'/>'
+;
+
+ScriptData:
+	'<''data'{ScriptData}
+		(
+			('flags''='programmeFlags=STRING)?&
+			('flags_optional''='optionalProgrammeFlags=STRING)?&
+			('scriptflags''='scriptFlags=STRING)?&
+			('live_date''='live_date=STRING)?&
+			('broadcast_time_slot_start''='broadcastTimeSlotStart=STRING)?&
+			('broadcast_time_slot_end''='broadcastTimeSlotEnd=STRING)?&
+			('production_limit''='productionLimit=STRING)?&
+			('production_broadcast_limit''='broadcastLimit=STRING)?&
+			('production_broadcast_flags''='broadcastFlags=STRING)?&
+			('production_licence_flags''='licenceFlags=STRING)?&
+			('available''='available=STRING)?
+		)
+	'/>'
+;
+ScriptGenres:
+	'<''genres'
+		(
+			('maingenre''='mainGenre=STRING)&
+			('subgenres''='subgenres=STRING)?
+		)
+	'/>'
+;
+
+ContainsMinMaxSlope:Blocks|Episodes|StudioSize|Outcome|Potential|Price|ProductionTime|Review|Speed;
+
+Blocks:
+	'<''blocks'
+		data=MinMaxSlope
+	'/>'
+;
+
+
+Episodes:
+	'<''episodes'
+		data=MinMaxSlope
+	'/>'
+;
+
+StudioSize:
+	'<''studio_size'
+		data=MinMaxSlope
+	'/>'
+;
+
+Price:
+	'<''price'
+		data=MinMaxSlope
+	'/>'
+;
+
+Potential:
+	'<''potential'
+		data=MinMaxSlope
+	'/>'
+;
+
+Outcome:
+	'<''outcome'
+		data=MinMaxSlope
+	'/>'
+;
+
+Review:
+	'<''review'
+		data=MinMaxSlope
+	'/>'
+;
+
+Speed:
+	'<''speed'
+		data=MinMaxSlope
+	'/>'
+;
+
+ProductionTime:
+	'<''production_time'
+		data=MinMaxSlope
+	'/>'
+;
+
+MinMaxSlope:
+	'value''='value=STRING|
+	(('min''='min=STRING)&
+	('max''='max=STRING)&
+	('slope''='slope=STRING)?)
+;
+
+LanguageString:
+	'<'langage=ID'>'
+		text=TextContent
+	'</'langage2=ID'>'
+;
+
+ProgrammeRoles:
+	'<''programmeroles''>'{ProgrammeRoles}
+		roles+=ProgrammeRole*
+	'</''programmeroles''>'
+;
+
+ProgrammeRole:
+	'<''programmerole'
+		(
+			('guid''='name=STRING )&
+			('first_name''='firstName=STRING)&
+			('last_name''='lastName=STRING)&
+			('first_name_original''='firstNameOriginal=STRING)?&
+			('last_name_original''='lastNameOriginal=STRING)?&
+			('nick_name''='nickName=STRING)?&
+			('nick_name_original''='nickNameOriginal=STRING)?&
+			('title''='title=STRING)?&
+			('country''='country=STRING)?&
+			('comment''='comment=STRING)?&
+			('gender''='gender=STRING)?
+		)
+	'/>'
+;
+
+RoleLocale:
+	'<''role'
+		(
+			('guid''='role=[ProgrammeRole|STRING] )&
+			('first_name''='firstName=STRING)&
+			('last_name''='lastName=STRING)&
+			('title''='title=STRING)?
+		)
+	'/>'
+;
+
+Achievements:
+	'<''allachievements''>'{Achievements}
+		achievements+=Achievement*
+	'</''allachievements''>'
+;
+
+Achievement:
+	'<''achievement'
+		(
+			(('id')'='name=STRING )&
+			('comment''='comment=STRING)?&
+			('creator''='creator=STRING)?&
+			('created_by''='createdBy=STRING)?
+		)
+	'>'
+	(
+		title=Title &
+		text=Text?&
+		tasks=Tasks?&
+		rewards=Rewards?&
+		data=AchievementData?
+	)
+	'</''achievement''>'
+;
+
+Text:
+	'<''text' {Text}
+	('/>'
+		|
+	'>'
+		lstrings+=LanguageString*
+	'</''text''>'
+	)
+;
+
+Tasks:
+	'<''tasks''>'{Tasks}
+		tasks+=Task*
+	'</''tasks''>'
+;
+
+Task:
+	'<''task'
+		(
+			(('id')'='id=STRING )&
+			('comment''='comment=STRING)?&
+			('creator''='creator=STRING)?&
+			('created_by''='createdBy=STRING)?
+		)
+	'>'
+		(
+			title=Title?&
+			text=Text?&
+			data=TaskData?
+		)
+	'</''task''>'
+;
+
+TaskData:
+	'<''data'
+		(
+			('type''='type=STRING )&
+			('minAudienceAbsolute''='minAudienceAbs=STRING)?&
+			('minAudienceQuote''='minAudiencePercent=STRING)?&
+			('limitToGenres''='limitToGenres=STRING)?&
+			('limitToFlags''='limitToFlags=STRING)?&
+			('minReachAbsolute''='minReachAbs=STRING)?&
+			('minReachPercentage''='minReachPercent=STRING)?&
+			('keyword1''='keyword1=STRING)?&
+			('keyword2''='keyword2=STRING)?&
+			('keyword3''='keyword3=STRING)?&
+			('genre1''='genre1=STRING)?&
+			('genre2''='genre2=STRING)?&
+			('genre3''='genre3=STRING)?&
+			('minQuality1''='minQuality1=STRING)?&
+			('minQuality2''='minQuality2=STRING)?&
+			('minQuality3''='minQuality3=STRING)?&
+			('maxQuality1''='maxQuality1=STRING)?&
+			('maxQuality2''='maxQuality2=STRING)?&
+			('maxQuality3''='maxQuality3=STRING)?&
+			('checkMinute''='checkMinute=STRING)?&
+			('checkHour''='checkHour=STRING)?
+		)
+	'/>'
+;
+
+Rewards:
+	'<''rewards''>'{Rewards}
+		rewards+=Reward*
+	'</''rewards''>'
+;
+
+Reward:
+	'<''reward'
+		(
+			(('id')'='id=STRING )&
+			('comment''='comment=STRING)?&
+			('creator''='creator=STRING)?&
+			('created_by''='createdBy=STRING)?
+		)
+	('/>'|
+	'>'
+		(
+			title=Title?&
+			text=Text?&
+			data=RewardData?
+		)
+	'</''reward''>'
+	)
+;
+
+RewardData:
+	'<''data'
+		(
+			('type''='type=STRING )&
+			('money''='money=STRING)?
+		)
+	'/>'
+;
+
+AchievementData:
+	'<''data'
+		(
+			('flags''='flags=STRING )&
+			('group''='group=STRING)?&
+			('category''='category=STRING)?&
+			('sprite_finished''='spriteFinished=STRING)?&
+			('sprite_unfinished''='spriteUnfinished=STRING)?&
+			('index''='index=STRING)?
+		)
+	'/>'
+;
+
+
+Advertisements:
+	'<''allads''>'{Advertisements}
+		ads+=Advertisement*
+	'</''allads''>'
+;
+
+Advertisement:
+	'<''ad'
+		(
+			('id''='name=STRING )&
+			('comment''='comment=STRING )?&
+			('creator''='creator=STRING)?&
+			('created_by''='createdBy=STRING)?
+		)
+	'>'
+	(
+		title=Title?&
+		description=Description?&
+		conditions=AdConditions?&
+		data=AdvertisementData?&
+		availability=Availability?&
+		modifiers=Modifiers?
+	)
+	'</''ad''>'
+;
+
+AdConditions:
+	'<''conditions'{AdConditions}
+		(
+			('min_audience''='minAudience=STRING)?&
+			('min_image''='minImage=STRING)?&
+			('max_image''='maxImage=STRING)?&
+			('allowed_genre''='allowedGenre=STRING)?&
+			('prohibited_genre''='prohibitedGenre=STRING)?&
+			('allowed_programme_flag''='allowedProgrammeFlag=STRING)?&
+			('prohibited_programme_flag''='prohibitedProgrammeFlag=STRING)?&
+			('target_group''='targetGroup=STRING)?&
+			('allowed_programme_type''='allowedProgrammeType=STRING)?&
+			('prohibited_programme_type''='prohibitedProgrammeType=STRING)?&
+			('pro_pressure_groups''='proPressureGroup=STRING)?&
+			('contra_pressure_groups''='contraPressureGroup=STRING)?
+		)
+	'/>'
+;
+
+AdvertisementData:
+	'<''data'{AdvertisementData}
+		(
+			('quality''='quality=STRING)?&
+			('available''='available=STRING)?&
+			('type''='type=STRING)?&
+			('repetitions''='repetitions=STRING)?&
+			('duration''='duration=STRING)?&
+			('profit''='profit=STRING)?&
+			('fix_price''='fixPrice=STRING)?&
+			('penalty''='penalty=STRING)?&
+			('infomercial''='infomercial=STRING)?&
+			('blocks''='blocks=STRING)?&
+			('infomercial_profit''='infomercialProfit=STRING)?&
+			('fix_infomercial_profit''='fixInfomercialProfit=STRING)?&
+			('pro_pressure_groups''='proPressureGroup=STRING)?&
+			('contra_pressure_groups''='contraPressureGroup=STRING)?
+		)
+	'/>'
+;
+
+News:
+	'<''allnews''>'{News}
+		news+=NewsItem*
+	'</''allnews''>'
+;
+
+NewsItem:
+	'<''news'
+		(
+			('id''='name=STRING )&
+			('thread_id''='threadId=STRING )?&
+			('type''='type=STRING )?&
+			('creator''='creator=STRING)?&
+			('comment''='comment=STRING)?&
+			('created_by''='createdBy=STRING)?
+		)
+	'>'
+	(
+		title=Title?&
+		description=Description?&
+		variables=Variables?&
+		availability=Availability?&
+		data=NewsData?&
+		attractivity=GroupAttractivity?&
+		modifiers=Modifiers?&
+		effects=Effects?
+	)
+	'</''news''>'
+;
+
+Effects:
+	'<''effects' {Effects}
+//	//TODO this alternative breaks code completion for all elements following!!
+//	//it is needed for many news entries that have an empty effects tag
+//	(	'/>'
+//		|
+		'>'
+			effects+=Effect*
+		'</''effects''>'
+//	)
+;
+
+Effect:
+	'<''effect'{Effect}
+		(
+			('trigger''='trigger=STRING )?& 
+			('type''='type=STRING)?&
+			('news''='news=[NewsItem|STRING])?& 
+			('genre''='genre=STRING)?&
+			('choose''='choose=STRING)?&
+			('guid''='guid=[ecore::EObject|STRING])?&//script or programme or person 
+			('valueMin''='valueMin=STRING)?&
+			('valueMax''='valueMax=STRING)?&
+			('probability''='probability=STRING)?&
+			('news1''='news1=[NewsItem|STRING])?&//TODO lieber als Children
+			('probability1''='probability1=STRING)?&
+			('news2''='news2=[NewsItem|STRING])?&
+			('probability2''='probability2=STRING)?&
+			('news3''='news3=[NewsItem|STRING])?&
+			('probability3''='probability3=STRING)?&
+			('news4''='news4=[NewsItem|STRING])?&
+			('probability4''='probability4=STRING)?&
+			('enable''='enable=STRING)?&
+			('time''='time=STRING)?
+		)
+	'/>'
+;
+
+
+Availability:
+	'<''availability'{Availability}
+		(
+			('script''='script=STRING)?&
+			('year_range_from''='yearFrom=STRING)?&
+			('year_range_to''='yearTo=STRING)?
+		)
+	'/>'
+;
+
+NewsData:
+	'<''data'{NewsData}
+		(
+			('genre''='genre=STRING)?&
+			('price''='price=STRING)?&
+			('quality''='quality=STRING)?&
+			('flags''='flags=STRING)?&
+			('happen_time''='happenTime=STRING)?&
+			('min_subscription_level''='subscriptionLevel=STRING)?&
+			('fictional''='fictional=STRING)?&
+			('available''='available=STRING)?&
+			//TODO stattdessen Kindelement quality mit Attributen value, min, max, slope?
+			('quality_min''='qualityMin=STRING)?&
+			('quality_max''='qualityMax=STRING)?&
+			('quality_slope''='qualitySlope=STRING)?
+		)
+	'/>'
+;
+
+CelebrityPeople:
+	'<''celebritypeople''>'{CelebrityPeople}
+		persons+=Person*
+	'</''celebritypeople''>'
+;
+
+InsignificantPeople:
+	'<''insignificantpeople''>'{InsignificantPeople}
+		persons+=Person*
+	'</''insignificantpeople''>'
+;
+
+Person:
+	'<''person'
+		(
+			('id''='name=STRING )&
+			('tmdb_id''='tmdbId=STRING )?&
+			('imdb_id''='imdbId=STRING )?&
+			('first_name''='firstName=STRING )?&
+			('first_name_original''='firstNameOrig=STRING )?&
+			('last_name''='lastName=STRING )?&
+			('last_name_original''='lastNameOrig=STRING )?&
+			('nick_name''='nickName=STRING )?&
+			('nick_name_original''='nickNameOrig=STRING )?&
+			('title''='title=STRING )?&
+			('fictional''='fictional=STRING )?&
+			('levelup''='levelUp=STRING )?&
+			('castable''='castable=STRING )?&
+			('gender''='gender=STRING )?&
+			('face_code''='faceCode=STRING )?&
+			('country''='country=STRING)?&
+			('generator''='generator=STRING)?&
+			('job''='job=STRING)?&
+			('birthday''='birthday=STRING)?&
+			('deathday''='deathday=STRING)?&
+			('comment''='comment=STRING)?&
+			('creator''='creator=STRING)?&
+			('created_by''='createdBy=STRING)?
+		)
+	(
+		'/>'
+			|
+		'>'
+		(
+			('<''first_name''>'firstName=PersonName'</''first_name''>')?&
+			('<''last_name''>'lastName=PersonName'</''last_name''>')?&
+			('<''nick_name''>'nickName=PersonName?'</''nick_name''>')?&
+			('<''first_name_original''>'firstNameOrig=PersonName'</''first_name_original''>')?&
+			('<''last_name_original''>'lastNameOrig=PersonName'</''last_name_original''>')?&
+			('<''nick_name_original''>'nickNameOrig=PersonName'</''nick_name_original''>')?&
+			details=PersonDetails?&
+			data=PersonData?
+		)
+		'</''person''>'
+	)
+;
+
+PersonLocale:
+	'<''person'
+		(
+			('guid''='person=[Person|STRING] )&
+			('first_name''='firstName=STRING )?&
+			('last_name''='lastName=STRING )?&
+			('nick_name''='nickName=STRING )?
+		)
+	'/>'
+;
+
+PersonName:(IDorKeyword|ANY_OTHER)+;
+
+PersonDetails:
+	'<''details' {PersonDetails}
+		(
+			('job''='job=STRING)?&
+			('gender''='gender=STRING)?&
+			('birthday''='birthday=STRING)?&
+			('deathday''='deathday=STRING)?&
+			('fictional''='fictional=STRING)?&
+			('face_code''='faceCode=STRING)?&
+			('country''='country=STRING)?
+		)
+	'/>'
+;
+
+PersonData:
+	'<''data'{PersonData}
+		(
+			('popularity''='popularity=STRING)?&
+			('popularity_target''='popularityTarget=STRING)?&
+			('affinity''='affinity=STRING)?&
+			('fame''='fame=STRING)?&
+			('scandalizing''='scandalizing=STRING)?&
+			('price_mod''='priceMod=STRING)?&
+			('power''='power=STRING)?&
+			('humor''='humor=STRING)?&
+			('charisma''='charisma=STRING)?&
+			('appearance''='appearance=STRING)?&
+			('topgenre''='topGenre=STRING)?
+		)
+	'/>'
+;
+
+Programmes:
+	'<''allprogrammes''>'{Programmes}
+		programmes+=Programme*
+	'</''allprogrammes''>'
+;
+
+Programme:
+	'<''programme'
+		(
+			('id''='name=STRING )&
+			('product''='product=STRING )?&
+			('licence_type''='licenceType=STRING )?&
+			('tmdb_id''='tmdbId=STRING )?&
+			('imdb_id''='imdbId=STRING )?&
+			('fictional''='fictional=STRING )?&
+			('programmedata_id''='ref=[Programme|STRING])?&
+			('comment''='comment=STRING)?&
+			('creator''='creator=STRING)?&
+			('created_by''='createdBy=STRING)?
+		)
+	'>'
+	(
+		title=Title?&
+		titleOrig=TitleOriginal?&
+		description=Description?&
+		groups=ProgrammeGroups?&
+		attractivity=GroupAttractivity?&
+		children=ProgrammeChildren?&
+		staff=Staff?&
+		releaseTime=ProgrammeReleaseTime?&
+		ratings=ProgrammeRatings?&
+		modifiers=Modifiers?&
+		data=ProgrammeData?&
+		effects=Effects?
+	)
+	'</''programme''>'
+;
+
+ProgrammeChildren:
+	'<''children''>'
+		child+=Programme+
+	'</''children''>'
+;
+
+Staff:
+	'<''staff' {Staff}
+	(	'/>'
+		|
+		'>'
+			member+=StaffMember*
+		'</''staff''>'
+	)
+;
+
+ProgrammeGroups:
+	'<''groups' {ProgrammeGroups}
+		(
+			('target_groups''='targetGroup=STRING )?&
+			('target_groups_optional''='optionalTargetGroup=STRING)?&
+			('pro_pressure_groups''='proPressureGroup=STRING)?&
+			('contra_pressure_groups''='contraPressureGroup=STRING)?
+		)
+	'/>'
+;
+
+GroupAttractivity:
+	'<''targetgroupattractivity' {GroupAttractivity}
+		(
+			data+=UnnamedProperty*
+		)
+	'/>'
+;
+
+ProgrammeReleaseTime:
+	'<''releaseTime'  {ProgrammeReleaseTime}
+		(
+			('year''='year=STRING )?&
+			('day''='day=STRING)?& 
+			('hour''='hour=STRING)?&
+			('year_relative''='yearRelative=STRING)?&
+			('year_relative_min''='yearRelativeMin=STRING)?&
+			('year_relative_max''='yearRelativeMax=STRING)?
+			//TODO day_random_mon, day_random_max, day_random_slope
+			//hour_random_min,hour_random_max,hour_random_slope
+		)
+	'/>'
+;
+
+StaffMember:
+	'<''member'
+	(
+		('index''='index=STRING )&
+		('function''='function=STRING)?
+	)
+	(
+		('generator''='generator=STRING
+			'>'
+			'</''member''>'
+		)?
+		|
+		(
+			'>'
+			ref=[Person|PersonRef]
+			'</''member''>'
+		)
+	)
+;
+
+Modifiers:
+	'<''modifiers''>'{Modifiers}
+	modifier+=Modifier*
+	'</''modifiers''>'
+;
+
+TemplateProgrammeModifiers:
+	'<''programme_data_modifiers''>'{Modifiers}
+	modifier+=Modifier*
+	'</''programme_data_modifiers''>'
+;
+
+Modifier:
+	'<''modifier'
+		(
+			('name''='modName=STRING )&
+			('value''='value=STRING)?
+		)
+	'/>'
+;
+
+PersonRef hidden():(IDorKeyword|ANY_OTHER|INT)+;
+
+
+ProgrammeRatings:
+	'<''ratings'{ProgrammeRatings}
+		(
+			('critics''='critics=STRING)?&
+			('speed''='speed=STRING)?&
+			('outcome''='outcome=STRING)?
+		)
+	'/>'
+;
+
+ProgrammeData:
+	'<''data'{ProgrammeData}
+		(
+			('country''='country=STRING)?&
+			('year''='year=STRING)?&
+			('price''='price=STRING)?&
+			('distribution''='distribution=STRING)?&
+			('maingenre''='maingenre=STRING)?&
+			('subgenre''='subgenre=STRING)?&
+			('flags''='flags=STRING)?&
+			('licence_flags''='licenceFlags=STRING)?&
+			('blocks''='blocks=STRING)?&
+			('broadcast_time_slot_start''='slotStart=STRING)?&
+			('broadcast_time_slot_end''='slotEnd=STRING)?&
+			('broadcast_limit''='broadcastLimit=STRING)?&
+			('broadcast_flags''='broadcastFlags=STRING)?&
+			('licence_broadcast_limit''='licenceBroadcastLimit=STRING)?&
+			('licence_broadcast_flags''='licenceBroadcastFlags=STRING)?&
+			('available''='available=STRING)?&
+			('price_mod''='priceMod=STRING)?
+			//TODO noch nicht alles unterstützt
+		)
+	'/>'
+;
+
+TitleOriginal:
+	'<''title_original'{TitleOriginal}
+	('/>'
+		|
+	'>'
+		languageString+=LanguageString*
+	'</''title_original''>'
+	)
+;
+
+
+Version: '<' 'version' {Version}props+=UnnamedProperty* '/>';
+UnnamedProperty:key=IDorKeyword'='value=STRING;
+
+IDorKeyword:ID|'version'|'jobs'|'job'|'title'|'description'|'value'|'price'|'quality'|'money'|'children'|'infomercial'|'available'|'type'|'group'|'comment'|'genre'|'genres'|'effect'|'time'|'probability'|'news'|'country'|'fictional'|'appearance'|'birthday'|'person'|'power'|'humor'|'charisma'|'fame'|'popularity'|'groups'|'staff'|'member'|'programme'|'index'|'function'|'year'|'distribution'|'critics'|'speed'|'outcome'|'ad'|'celebritypeople'|'script'|'choose'|'tags'|'product'|'images'|'name'|'modifier'|'modifiers'|'generator'|'ratings'|'min'|'day'|'hour'|'trigger'|'blocks'|'enable'|'episodes'|'flags'|'max'|'penalty'|'data'|'potential'|'effects'|'guid'|'profit'|'gender'|'task'|'tasks'|'conditions'|'details'|'reward'|'rewards'|'persons'|'role'|'roles'|'='|'subgenre'|'category'|'text'|'required';
+TextContent:(IDorKeyword |STRING|INT|ANY_OTHER)* /* ignore variables and variable resolution for now*/ ;
+
+//no variable recognition, yet
+//VARIABLE hidden():'%'(ID|ANY_OTHER|INT)+'%';
+//terminal VARIABLE:'%'->'%';
+
+@Override
+terminal STRING:
+	'"' ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|'"') )* '"'
+;
+@Override
+terminal ML_COMMENT:
+	 '<!--' -> '-->'
+;
+@Override
+terminal SL_COMMENT:
+	"THEREARENOSINGLELINECOMMENTS"
+;

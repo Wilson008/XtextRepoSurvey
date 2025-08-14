@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/es.udima.cesarlaso.tfm/src" modelPluginID="es.udima.cesarlaso.tfm"
+    modelName="GpiosEvents" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    usedGenPackages="Events.genmodel#//events Gpios.genmodel#//gpios" operationReflection="true"
+    importOrganizing="true">
+  <foreignModel>GpiosEvents.ecore</foreignModel>
+  <genPackages prefix="Gpiosevents" basePackage="es.udima.cesarlaso.tfm" disposableProviderFactory="true"
+      ecorePackage="GpiosEvents.ecore#/">
+    <genClasses image="false" ecoreClass="GpiosEvents.ecore#//GpioEvent">
+      <genOperations ecoreOperation="GpiosEvents.ecore#//GpioEvent/performed"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="GpiosEvents.ecore#//DigitalEvent">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GpiosEvents.ecore#//DigitalEvent/pin"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="GpiosEvents.ecore#//AnalogEvent">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GpiosEvents.ecore#//AnalogEvent/pin"/>
+    </genClasses>
+    <genClasses ecoreClass="GpiosEvents.ecore#//Interrupted">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GpiosEvents.ecore#//Interrupted/mode"/>
+    </genClasses>
+    <genClasses ecoreClass="GpiosEvents.ecore#//ButtonInput">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GpiosEvents.ecore#//ButtonInput/mode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GpiosEvents.ecore#//ButtonInput/minDuration"/>
+    </genClasses>
+    <genClasses ecoreClass="GpiosEvents.ecore#//ButtonInputAccumulator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GpiosEvents.ecore#//ButtonInputAccumulator/count"/>
+    </genClasses>
+    <genClasses ecoreClass="GpiosEvents.ecore#//ButtonInputReleased">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GpiosEvents.ecore#//ButtonInputReleased/mode"/>
+    </genClasses>
+    <genClasses ecoreClass="GpiosEvents.ecore#//PulseInput">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GpiosEvents.ecore#//PulseInput/mode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GpiosEvents.ecore#//PulseInput/count"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GpiosEvents.ecore#//PulseInput/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GpiosEvents.ecore#//PulseInput/spaceWidth"/>
+    </genClasses>
+    <genClasses ecoreClass="GpiosEvents.ecore#//AnalogRead">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GpiosEvents.ecore#//AnalogRead/pollIntervalLoops"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="GpiosEvents.ecore#//AnalogReadPerformOnChange">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GpiosEvents.ecore#//AnalogReadPerformOnChange/value"/>
+    </genClasses>
+    <genClasses ecoreClass="GpiosEvents.ecore#//AnalogReadPerformOnHigh"/>
+    <genClasses ecoreClass="GpiosEvents.ecore#//AnalogReadPerformOnLow"/>
+  </genPackages>
+</genmodel:GenModel>

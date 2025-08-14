@@ -1,0 +1,1003 @@
+Owner,Repo,Scenario
+waynepiekarski,XTextureExtractor,not applicable
+TypeFox,theia-xtext-sprotty-example,not applicable
+altran-mde,xtext-sirius-integration,TBD
+graph-quilt,graphql-xtext,not applicable
+TypeFox,vscode-xtext-sprotty-example,not applicable
+eclipse,xtext-website,not applicable
+intuit,common-xtext-expression-language,not applicable
+PacktPublishing,Implementing-Domain-Specific-Languages-with-Xtext-and-Xtend,metamodel-driven
+resloved,xtext,not applicable
+lurenzhangdeshuai,EmojiText-XText,not applicable
+kuniss,xtext-ide-extensions,not applicable
+graph-quilt,xtext-service-dsl,not applicable
+btc-ag,service-idl,not applicable
+eventB-Soton,XUML_B,not applicable
+Minres,CoreDSL,not applicable
+TypeFox,xtext2langium,not applicable
+v-bashev,post_core,not applicable
+NielsLiisberg,RPG-lexer,grammar-driven
+OpenSextant,XText,not applicable
+laubfall,jugh-xtext-arkanoid,grammar-driven
+khabdrick,LambdaXtextract,not applicable
+bsati,mgpl-xtext,not applicable
+UnBCIC-TP2,Oberon-XText,grammar-driven
+TopXDevTeam,TopXTextUI,not applicable
+ngreve,xtext_web,not applicable
+nmaoez,composer-language-server,not applicable
+FAMILIAR-project,xtext-dsl-compiler-example,not applicable
+eventB-Soton,XTheory,metamodel-driven
+program-in-chinese,xtext_tutorial_15_min_zh,grammar-driven
+code-kontor,openCypher-Xtext,not applicable
+eclipse,epsilon,not applicable
+UnBCIC-TP2,Oberon-IDE,grammar-driven
+idiomaticsoft,xtext-tips,metamodel-driven
+atb,pt.isep.dsl.puml,not applicable
+Webastronaut,mgpl,grammar-driven
+PAMunb,MetaCrySL,not applicable
+raghvendra-v,tosca-yaml-lsp,not applicable
+zxhr,gradle-xtext-generator,not applicable
+tmtron,ex.xtext.lsp,not applicable
+echebbi,standalone-xtext-example,grammar-driven
+darvasd,xtext-docs-gen,grammar-driven
+jcabot,WordPress-Plugin-DSL,not applicable
+JensBAndersen,PolicyLanguage,not applicable
+Zannith,XtextTest,not applicable
+AnnaLenaMeiners,XtextExamples,not applicable
+Kerolos77,XTextEditor,not applicable
+Mabar16,xtextMath,not applicable
+holgerschill,xtextCodebuff,not applicable
+devzwy,XTextView,not applicable
+mraminella,XtextExamples,grammar-driven
+msntts,XtextStudy,grammar-driven
+chiachong,XTextClassification,not applicable
+vinisbranco,XtextGerador,not applicable
+pakhopav,XtextPlugin,not applicable
+IamRaziel,XtextTutorial,not applicable
+dstoft,XtextWorkspace,grammar-driven
+MisbahAwan,XtextCollaborativeEnvironment,not applicable
+pakhopav,XtextLanguage,not applicable
+fonuhuolian,XTextView,not applicable
+RomainLefeuvre,xtextHW,not applicable
+BestCoderXQX,XTextFlagDemo,not applicable
+vinisbranco,XtextTrabalho2,grammar-driven
+loicperreal,Xtext,not applicable
+goflyboy,xtextsample,not applicable
+SharkJ,XtextInheritanceTest,grammar-driven
+hewenyuAndroid,XTextView-Android,not applicable
+OLibutzki,XtextExtras446,grammar-driven
+vinisbranco,XtextJavaScript,not applicable
+AndreasGroentved,XtextDSL2018,grammar-driven
+robertchristen,XTextCategorizer.Demo,not applicable
+alvarofpp,tutorial-xtext,not applicable
+pakhopav,XtextLanguageGradle,not applicable
+pakhopav,xtext,not applicable
+adamhorvath88,Xtext,not applicable
+0xMYsteRy,Xtext,not applicable
+taylorlohan,XtextHealth2.0,grammar-driven
+Caroline66666,xtext,not applicable
+xuxiaowen87,XText,not applicable
+MisbahAwan,xtext,metamodel-driven
+ichxorya,failed-xtext2vscode-example,not applicable
+hwong23,dsl.evtool,not applicable
+RobMoloney,xtext,not applicable
+l1ppe,xtext,grammar-driven
+madhouni,wps-ecore-ocl-xtext,metamodel-driven
+MISO4202,uniandes.mdd.xtext2xmi,not applicable
+tchebs,xtext,grammar-driven
+mlopez8621,xtext,TBD
+magick93,xtext,not applicable
+ShivaniBali,Theia-Xtext-Yangster-Project-,grammar-driven
+ehah,XtendExample,not applicable
+MISO4202,co.edu.uniandes.gramaticajmeter,grammar-driven
+vks2106,prenum,not applicable
+drkstr101,hello-xtext,grammar-driven
+arthurmosley,Essex-Test,not applicable
+eclipse,xtext-website-publish,not applicable
+jflopezfernandez,xtextutils,not applicable
+AlanQuadros,xtextlpmangan,grammar-driven
+jonaslagoni,JSON-Schema-to-internal-DSL,grammar-driven
+OezzyB,e-portfolio-Xtext,grammar-driven
+fedorov-vk,apds_dsl,not applicable
+zinon,xtextminer,not applicable
+mustafa231,xtexteditor,not applicable
+MOSafely,xtextrepo,not applicable
+bproenca,mpti-dsl,grammar-driven
+LorenzoBettini,xtext-domain-model-guice-5,grammar-driven
+BlackBeltTechnology,karaf-features-eclipse-xtext,not applicable
+vashchenkov,xtext-samle,not applicable
+germono,FormXtext,grammar-driven
+Quingo,compiler_xtext,not applicable
+ShrawanBK,xtext_salestransaction,not applicable
+tshoang,XMarking,metamodel-driven
+szschaler,henshin_xtext_adapter,not applicable
+hakimuga,BIP-language,not applicable
+adautofbn,pascal-xtext,grammar-driven
+efuentesp,Xtext-UCS,not applicable
+preesm,ripacola-xtext,not applicable
+wibeck,testXtext,grammar-driven
+msun68,xtext-examples,grammar-driven
+xTexturedxx,xTexturedxx,not applicable
+HexXText,HexXText,not applicable
+Gricel-lee,Xtext-Maven,not applicable
+kolchanov,org.xtext.example.mydsl.parent,grammar-driven
+kecksk0enig,vuc-xtext,grammar-driven
+EvdokimovMaks,xtext-expressions,not applicable
+Sorokatov,xtext-demo,not applicable
+uppaal-emf,uppaal-xtext,not applicable
+matheuslenke,Xtext-UML,not applicable
+r4mtor,xtext-talks,grammar-driven
+nbhusare,xtext-playground,grammar-driven
+kokostino,xtext_kokomodel,not applicable
+GiordanoT,ocl-xtext,grammar-driven
+dr-jam,ABL-XText,not applicable
+lahirugayanga,xtext-projection,grammar-driven
+daniel614,xtext-webapp,grammar-driven
+Spiderixius,DSLIndividualXtext,not applicable
+mdsd-team-1,photos-xtext,grammar-driven
+efuentesp,xtext-cobol,not applicable
+torosky,Libreria-Xtext,not applicable
+MaxiEckert,Xtext-example,metamodel-driven
+as500,xtext-rpgle,not applicable
+JavierOramas,AudiXText,not applicable
+xtext,xtext-monorepo,not applicable
+vjordan,Xtext_browser,grammar-driven
+Yop-La,xtext_project,grammar-driven
+JesterOrNot,Gitpod-XText,not applicable
+eclipse,xtext-archive,not applicable
+Lethalaric,xtext-learning,not applicable
+DSIE2,tr.xtext,not applicable
+ShivaniBali,Theia-Xtext,grammar-driven
+kthoms,xtext-webinar,not applicable
+christopherosthues,mgpl-xtext,not applicable
+zhanglin2018,learnXtext,grammar-driven
+seebgar,Xtext-Projects,not applicable
+Vallenstein,xtext_web,not applicable
+AbQadirr,dialogXtextflow,not applicable
+blue995,xtext-orm,not applicable
+arockiaraj1994,xtext-mvn,grammar-driven
+moein9,passXtext,not applicable
+saivarunr,xtext-editor,not applicable
+JesterOrNot,xtext-cli,not applicable
+Somiacao,xtext-web,not applicable
+katmatt,graphql-xtext,not applicable
+LIONant-depot,xtexture_compiler,not applicable
+tchebs,xtext-example,not applicable
+ballcoach12,xtext_samples,not applicable
+AssaX0,MDSE-xtext,grammar-driven
+samples-projects,sample-xtext,not applicable
+karthik137,xtext-demo,grammar-driven
+MDE-Course-23-24,SIRIUS-XTEXT,metamodel-driven
+softlang,megal-xtext,metamodel-driven
+laurocesar,xtext-domainmodel,grammar-driven
+Yahaya12,Xtext-project,not applicable
+malhxr,SpeechXtext,not applicable
+stanimirovv,xtext-extractor,not applicable
+3m3k3,xtext-congen,not applicable
+pen-zhang,xtext_elm_editor,not applicable
+NSaitoNmiri,toppers_cfg_xtext,not applicable
+tmtron,ex.xtext.twog,not applicable
+vinicius0197,metacrysl,not applicable
+Dexels,navascript-editor,not applicable
+adrianrutle,PCS953-EMF-Exercise,not applicable
+ravornyo,xspice,grammar-driven
+yamen-njm,IotXtext,not applicable
+kainzpat14,xtext-plsql,grammar-driven
+epsilonlabs,emc-xtext,not applicable
+robertovillarejo,kukulkan-grammar,grammar-driven
+lvanzeun,ulm-xtext-test,grammar-driven
+purerstamp,N7.compilateur,grammar-driven
+jaedabee,xtext-gradle-test,not applicable
+MassiBelaid,M-langeuse-Xtext,not applicable
+qxe35v,xtext_encoding_dsl,TBD
+random-eclipse,nix-eclipse-xtext,not applicable
+meta-doodle,Xtext_Gradle_Test,not applicable
+LiamWalsh98,nusmv-xtext-lsp,grammar-driven
+MaximilianKoestler,vscode-xtext-links,not applicable
+AhmedEssam2212,xText-Editor-,not applicable
+adrinerDP,DSL-with-Xtext,not applicable
+cdietrich,xtext-domainmodel-ls,not applicable
+tmtron,ex.xtext.ml,not applicable
+andrewsandu,xtext-web-example,grammar-driven
+pngowda,xtext-build-tools,not applicable
+SharkJ,xtext-dsl-sample,grammar-driven
+hammedb197,team-hacktive-xtext,not applicable
+SimonCockx,xtext-monaco-example,not applicable
+mister-walter,xtext-folding-issue,not applicable
+alexvolh,xtext-xml-grammar,not applicable
+SharkJ,my-theia-xtext,grammar-driven
+urbanoanderson,xtext-gait-model,grammar-driven
+vjordan,Xtext_directory-file,grammar-driven
+JosBouwhuis,xText-DSL,not applicable
+CS130-W20,assignment-2-xtext,not applicable
+lunifera,xtext-jvmtypeprovider-standalone,not applicable
+bobbyfisher1,eclipse-workspace,grammar-driven
+dsl-course,xtext-entities-tutorial,not applicable
+Highbrainer,xtext-pde-target,not applicable
+mattsse,xtext-fipa-acl,not applicable
+XIECHO,qingo_xtext_documentation,not applicable
+FariSoftware,xtext-problem-matcher,not applicable
+ShrawanBK,xtext.sales.transactions,not applicable
+Lzgpom,xtext-gen-extension,not applicable
+drkstr101,Domainmodel,grammar-driven
+vinicius0197,expressions-dsl,grammar-driven
+LorenzoBettini,xtext-xdoc-releases,not applicable
+KarstenWilken,xTextForum,grammar-driven
+S-wald,xtext-plugin-gradle,metamodel-driven
+lahirugayanga,xtext-example-dsl,grammar-driven
+cdietrich,xtext-fragment-experiments,not applicable
+cdietrich,xtext_bug_1974,not applicable
+bergmanngabor,xtext-railmap-demo,grammar-driven
+mchlrch,xtext-intro-bfh,grammar-driven
+EvdokimovMaks,xtext-example-entities,grammar-driven
+cipek,MyFirstXText,grammar-driven
+pngowda,xtext-ci-libs,not applicable
+paulvberlin,BaSiriusXtext,metamodel-driven
+szarnyasg,sql-pgq-xtext,not applicable
+frademacher,xtext-jpms-test,not applicable
+xtext,xtext-monorepo-lfs,not applicable
+LorenzoBettini,xtext-build-utils,not applicable
+cdietrich,xtext-two-dsls,not applicable
+balazsgrill,xtext_bug508518,metamodel-driven
+Tim-S,xtext-valueconverter-example,grammar-driven
+ayakurtam,xText-Editor,not applicable
+HouseBuilder-MDE,HouseBuilder-Xtext,not applicable
+xtext,xtext-orbit-replacement,not applicable
+fedorov-vk,xtext-xcore-sample,not applicable
+gustavotemple,mo631xtext,not applicable
+Tim-S,xtext-mapbasedscope-example,not applicable
+shakenetwork,xTextHandler,not applicable
+GabrielBozza,ProjetoXtextPFC,not applicable
+HexXText,HexXTextSMP,not applicable
+snarkipus,xtext-dsl-book,not applicable
+fedorov-vk,xtextxtend-book-examples,not applicable
+ArneDeutsch,xtext-gradle-example,grammar-driven
+oliver-reinhard,xtext-ppt-demo,grammar-driven
+tpluscode,xtext-completion-nullpointer,not applicable
+idiomaticsoft,sbt-xtext-plugin,not applicable
+pen-zhang,online_elm_xtext,grammar-driven
+raglu,ExternalDSL-xtext,not applicable
+kulcsii,xtext-railmap-theia,grammar-driven
+NiccoMlt,xtext-showdown-grammar,not applicable
+NinjaArmy,xtext-language-server,not applicable
+jnt0r,xtext-npe-reproducable,grammar-driven
+HermanPeeren,eJSL-ANTLR4,not applicable
+cs130-w21,statemachine,grammar-driven
+csbc92,MDSE-assignment3,grammar-driven
+ghillairet,org.example.mydsl.parent,metamodel-driven
+antoine-morvan,caph-java-parser,not applicable
+abatti,XTEXT_FACPL3_PreserveVarious,not applicable
+tfLabs,xtext-languageserver-example-duplicator,not applicable
+LorenzoBettini,xtext-maven-plugin-example,not applicable
+cdietrich,xtext-eclipse-issue-1009,not applicable
+patrickneubauer,UoY-MODE-XTEXT,metamodel-driven
+cau-se,sprat-ecosystem-dsl-xtext,grammar-driven
+cdietrich,theia-xtext-vscode-example,not applicable
+cdietrich,j9-tycho-xtext,not applicable
+loradd,xtext-lsp-ecore-support,metamodel-driven
+nnn911,LaTeXTextOverlay,not applicable
+IbanezGio,VuC,not applicable
+Samirez,DSLs,not applicable
+ShahimEssaid,com.essaid.model.xtext,not applicable
+gon10,EclipseRepoTese,grammar-driven
+max-leuthaeuser,jmhmathexample,grammar-driven
+tshoang,WhitespaceIDE,not applicable
+seebgar,MISO4202-proyecto-xtext,not applicable
+NiccoMlt,xtext-15-minutes-tutorial,not applicable
+SharkJ,theia-xtext-extension-test,grammar-driven
+jku-win-se,JsonBasedXtextGrammar,not applicable
+altran-mde,xtext-sirius-integration.io,not applicable
+cdietrich,xtext-core-issue-1835,not applicable
+Zaki-Fadlan,xtext_getting_started_skilledup,not applicable
+raptor494,Xtext-Minecraft-JSON-Languages,grammar-driven
+rudi,xtext-emacs-lsp-demo,not applicable
+fedorov-vk,apds_prototype,not applicable
+test-editor,test-editor-xtext-gradle,not applicable
+Ixgauth,perspectiveDSL-Sirus-Xtext,grammar-driven
+keve98,SzakD_xtext_xtend,not applicable
+silvergl,xtext-headless-rcp-example,not applicable
+reinaqu,bpmnFromXtextDSL,not applicable
+xtext,xtext-p2-orbit,not applicable
+dsl-course,xtext-tutorial-turku-interim,grammar-driven
+tfLabs,xtext-lsp-validation-anyway,not applicable
+BalzGuenat,xtext-bug-minimal-example,not applicable
+dmfullstack,org.xtext.example.mydsl,not applicable
+SuelanyBrito,JFlex_CUP_XText_SQL,not applicable
+cdietrich,xtext-languageserver-example-simple,not applicable
+msntts,Xtext-Standalone-fat-jar,not applicable
+oldulov,cfeditor,metamodel-driven
+LorenzoBettini,xtext-type-errors-examples,not applicable
+claudenirmf,OntoUML-2.0-Xtext,not applicable
+Mehmetcanss,example_xtext_language_server_vscode,not applicable
+lidochca,xtext.skip.build.before.rename,not applicable
+cdietrich,xtext-maven-plugin-coverage-example,grammar-driven
+Kevin-Philip,TP_etudiant_Compilax,grammar-driven
+elite-se,elite-se.xtext.languages.plantuml,not applicable
+tshoang,BareBonesIDE,not applicable
+tareklel,PDFtoText,not applicable
+TVTower,TVTBlitzmaxEditor,not applicable
+cdietrich,xtext-multi-dsl-manual-metamodel,not applicable
+hallvard,xost,not applicable
+davidmpaz,log-book,not applicable
+oliver-reinhard,xtext-scoping-default-imports-demo,grammar-driven
+tshoang,Simple-Barebone-XText-based-IDE,not applicable
+MISO4202,uniandes.mdd.example.create-xtext,metamodel-driven
+NaoMod,XText-Language-Server-in-VSCode,grammar-driven
+MISO4202,xtext-egl-sql2java,grammar-driven
+cdietrich,simple-xtext-parallel-load-example,not applicable
+bobbyfisher1,expressions,grammar-driven
+lowcomote,DBML-to-ER,not applicable
+tfLabs,xtext-n4js-lsp,not applicable
+yishakabreham,mde.sales.transactions.xtext.4,metamodel-driven
+Rajesh2015,DSL-using-Xtext-and-Xtend,grammar-driven
+cdietrich,xtext-lsp-tests-with-tycho,not applicable
+CarlosAsrc,Reconhecedor-scheme,grammar-driven
+oliver-reinhard,xtext-scoping-default-namespaces-demo,grammar-driven
+TVTower,TVTDatabaseEditor,not applicable
+casino-mdd,DSL,grammar-driven
+cokeSchlumpf,bashdsl,grammar-driven
+sumeetchhetri,faugjs-eclipse-plugin,grammar-driven
+sderrien,Uclid-editor,not applicable
+GlancingMind,xtext-lsp-missing-deleteFile-impl,not applicable
+zmy3036190149,theia-xtext-pf-v1-backup,grammar-driven
+MDSDLab,mdsd-2023-lab2-xtext-xtend,not applicable
+abieren,MDSD-Xtext-Project-for-JavaFX,grammar-driven
+SimonCockx,xtext-assertAllWhitespaceIsFormatted,not applicable
+tombk556,SF_Factories_Beleg2324_Xtext_DSL,not applicable
+DonatasC,CodeGeneration,not applicable
+trichterwolke,init,not applicable
+zs6jce,x400-xrpgle,not applicable
+cyrilnavessamuel,TripManagment,metamodel-driven
+paullewallencom,xtext-xtend-978-1-7864-6496-5,not applicable
+coalae,telemed,TBD
+vorburger,xtend-StackOverflowError-issue461,not applicable
+JoaoMAlmeida,projetoCompiladores18-2,not applicable
+Bisssen,math_assignment_3_math_compiler_xtext_and_xtend,not applicable
+vks2106,domain.model,grammar-driven
+metafacture,metafacture-flux,not applicable
+mrtnstn,example-script-language,not applicable
+Michel-Nassalang,eclipse_workspace,not applicable
+varadbal,FunPL,metamodel-driven
+oliverablagojevic,QuestionnaireDSL,metamodel-driven
+EightPillars,NmtranEditor,grammar-driven
+DSIE2,Implementing-observer-design-pattern-with-Xtext-and-Xtend,grammar-driven
+George-6629,Lobster-language-conversion-sql-language-based-on-Xtext,grammar-driven
+hvbargen,meth,not applicable
+mischnic,bachelors-thesis,not applicable
+cs130-w22,statemachine,not applicable
+cesarlaso,tfm-udima-arquitectura-del-software-dsl-ecore-xtext-emf,metamodel-driven
+houssemradhouane,Meta-Modelisation-of-Games-Using-UML-Eclipse-Xtext-Acceleo-JAVA,not applicable
+mdsd-team-1,domain-specific-language,grammar-driven
+PalladioSimulator,Palladio-Editors-VSCode,not applicable
+nils-christian,xtend-active-annotation-issue,not applicable
+modicio,feature-dsl-tools,not applicable
+HBuender,Aim42Visualizer,not applicable
+scanyboss,ide-yourdsl,not applicable
+spirvdev,dumpsymb,not applicable
+thlaegler,edilang,not applicable
+agonzalezgaliana,mydsl-language-server,not applicable
+codezork,DSL-Blog,not applicable
+LorenzoBettini,issue-2000-example,not applicable
+trifonnt,net.adempiere.dsl.properties.spring.parent,grammar-driven
+scanyboss,hello-world-language,not applicable
+joerg-holtmann,Pretty-Printer_Language-Analysis,not applicable
+coffeeframework,HLVL,not applicable
+HermanPeeren,eJSL-MPS,not applicable
+kukulkan-project,kukulkan-language-server,grammar-driven
+mdsd-team-1,dsl-layered-style,not applicable
+larissafiorini,t2-lingProg,grammar-driven
+ragben,NetzDsl,not applicable
+Cosimo5lli,assertx-swing,grammar-driven
+gyaltso,Eclipse-Training-Schedules,not applicable
+wzurborg,xtend-example,not applicable
+kyberszittya,simple-ros-code-generator,metamodel-driven
+LinguaPhylo,linguaPhyloDSL,not applicable
+dsanmartins,Entidades,not applicable
+opcoach,datasample,metamodel-driven
+bujosa,smart-dsl,not applicable
+robinguill,DSL_UML_INSA,not applicable
+DedalArmy,SpringDSLJava,not applicable
+LiamWalsh98,tumlrt-language-server,not applicable
+jonev,HTTP-REST-test-DSL,grammar-driven
+ElBilbao,DSL-Wizard-Creator,metamodel-driven
+ooaa30,Wail,grammar-driven
+Wilson008,GrammarGenerator,not applicable
+ScytherTool,dsl,grammar-driven
+NaoMod,MiniTL,not applicable
+ryangarvey,mde-spec,grammar-driven
+bfMarcelino,SchemeLP,grammar-driven
+henriklange,ifcBrickConvert,not applicable
+osarenogae,fault_trees_textual_editor,not applicable
+claudenirmf,TPTP-Editor,grammar-driven
+augustin-rialan,IDM,metamodel-driven
+henriklange,ifcBrickConvertDsl,grammar-driven
+PikaQin,XModel-Code-Converter,grammar-driven
+helloyaqin,XModel-Code-Converter,grammar-driven
+Garlo13,CEPStaticAnalysis,grammar-driven
+Frederic-Boulanger-UPS,MiniARM-feature,not applicable
+Jaddison011,C4EventB,not applicable
+MDEGroup,metatemplating,TBD
+abdullah-4Mohammed,AWS-EC2-Service_DSL-EMF,not applicable
+grammeaway,math-interpreter-dsl,not applicable
+ahmedsaleh1998,concept_project,not applicable
+Chaimaa-Louahabi,Model-Driven-Engineering,not applicable
+fayssalElAnsari,Kotlin-Meta-Model,not applicable
+MisbahAwan,SeamlessRuntimeTransformations,not applicable
+ProjetoDSL,CanopusDesign,not applicable
+Ryuzaki101,Workbench,not applicable
+eclipse,xtext,not applicable
+eclipse,xtext-core,TBD
+eclipse,xtext-xtend,metamodel-driven
+eclipse,xtext-eclipse,TBD
+eclipse,xtext-extras,TBD
+eclipse,xtext-web,grammar-driven
+xtext,seven-languages-xtext,grammar-driven
+eclipse,xtext-maven,not applicable
+eclipse,xtext-lib,not applicable
+xtext,maven-xtext-example,not applicable
+seebk,LaTeXText,not applicable
+cdietrich,xtext-languageserver-example,not applicable
+eclipse,xtext-idea,not applicable
+adamschmideg,coffeescript-eclipse,not applicable
+RvonMassow,xDoc,metamodel-driven
+xtext,xtext-gradle-plugin,not applicable
+LorenzoBettini,packtpub-xtext-book-2nd-examples,metamodel-driven
+PrinceMei,xTextHandler,not applicable
+LorenzoBettini,packtpub-xtext-book-examples,grammar-driven
+theia-ide,theia-xtext,grammar-driven
+svenefftinge,xtext-lsp-workshop,grammar-driven
+ObeoNetwork,Xtext-Sirius-integration,grammar-driven
+dslmeinte,Xtext2-DSLs,not applicable
+merks,Xcore,metamodel-driven
+ssi-schaefer,lcdsl,grammar-driven
+eclipse,xtext-umbrella,not applicable
+danieldietrich,xtext-protected-regions,not applicable
+xtext,xtend-gradle-plugin,not applicable
+aphethean,xtext-maven-examples,not applicable
+ckulla,xtext-tycho-example,not applicable
+vorburger,xtext-sandbox,grammar-driven
+basilfx,xtext-standalone-maven-build,grammar-driven
+JakeGinnivan,XText,not applicable
+OLibutzki,xtext.tools,not applicable
+Xpitfire,xtext-dnn,not applicable
+LorenzoBettini,Xtext2-experiments,metamodel-driven
+eclipse,xsemantics,metamodel-driven
+xtext,xtext-reference-projects,not applicable
+mzaks,FlatBuffersSchemaEditor,grammar-driven
+vorburger,eLang,not applicable
+fuinorg,emt-xtext-archetype,not applicable
+eclipse-soc,amalgamation-examples-xtext,not applicable
+kthoms,xtext-experimental,not applicable
+dsldevkit,dsl-devkit,TBD
+itemis,generator-xtext,not applicable
+att,yang-design-studio,TBD
+martinbaker,xtextadd,grammar-driven
+LorenzoBettini,edelta,metamodel-driven
+sebastianbenz,xgherkin,metamodel-driven
+vladdu,xtext.unittesting,grammar-driven
+slizaa,slizaa-opencypher-xtext,not applicable
+xpomul,cdo-xtext,metamodel-driven
+mark-christiaens,Xtext-Models-Stats-View,not applicable
+TypeFox,xtext-jflex,not applicable
+vorburger,eclipse-typescript-xtext,not applicable
+patrickneubauer,XMLText,not applicable
+xtext,org.xtext.antlr.generator,not applicable
+boalang,xtext-ide,not applicable
+nittka,terminology,not applicable
+veraPDF,veraPDF-model-syntax,not applicable
+TypeFox,languageserver-example,not applicable
+Hellmy,plantuml-eclipse-xtext,not applicable
+stephanrauh,JSFLibraryGenerator,grammar-driven
+loonwerks,jkind-xtext,grammar-driven
+TatyPerson,Xtext2Sonar,not applicable
+TypeFox,xtext-vscode,not applicable
+svenefftinge,Xtext-Workshop-Development-Workspace,not applicable
+cdietrich,xtext-uml-example,grammar-driven
+cdietrich,xtext-maven-example,grammar-driven
+marklemay,tptpParser,not applicable
+borgar,xtexts,not applicable
+uqbar-project,xtext-tortuga-lang,grammar-driven
+dslmeinte,Xtext1-DSLs,not applicable
+applause,applause,metamodel-driven
+LorenzoBettini,ecefrance2015-xtext-example,not applicable
+jcmm33,DirectXTextBlock,not applicable
+dhuebner,xtext-apidiff,not applicable
+appdev,XTextView,not applicable
+oehme,xtext-maven-example,grammar-driven
+SMadani,ThriftMDE,metamodel-driven
+xtext,xtext-external-editors,not applicable
+itemis,xtext-generator-vscode,grammar-driven
+soluvas,ecommerce-sample,not applicable
+tianguanghui,xTextHandler-objc,not applicable
+meysholdt,xtext_stateful_lexer,not applicable
+holgerschill,XtextCon_Xcore_Maven,TBD
+scottopell,vim-xtext,not applicable
+itemis,xtext-debug-example-no-xbase,not applicable
+TypeFox,Xtext-XMI,metamodel-driven
+joergreichert,XtextPlayground,not applicable
+wuwen1030,XTExtension,not applicable
+fuinorg,org.fuin.dsl.cqrs,grammar-driven
+JanKoehnlein,EclipseCon2013_XtextTutorial,metamodel-driven
+avaranovich,megal-xtext,metamodel-driven
+fuinorg,org.fuin.dsl.ddd,not applicable
+arturboronat,xtext.domainmodel,grammar-driven
+otrosien,xtext-perl,grammar-driven
+cmendible,Hexa.xText,not applicable
+SciSpike,yaktor-dsl-xtext,metamodel-driven
+andrearn,org.fornax.soa.xtextservicerepository,grammar-driven
+ujhelyiz,xtext-reflective,not applicable
+szarnekow,xtextcon-xbase-example,grammar-driven
+bsi-software,org.eclipse.scout.xtext,metamodel-driven
+cdietrich,xtext-languageserver-xbase-example,not applicable
+test-editor,deprecated-test-editor-xtext,not applicable
+awk-kazmin,eclipse_1C_xtext,TBD
+svenefftinge,fowlers-statemachine-with-expressions,metamodel-driven
+copton,XTextExamples,metamodel-driven
+GeekBugs,XTextView,not applicable
+akosyakov,org.xtext.example.mydsl.idea,TBD
+vaulttec,isis-script,not applicable
+HBehrens,Xtext2Workshop,not applicable
+GrupoHunter,Kukuroo,grammar-driven
+itemis,xtext-languageserver-example-lsp4e,not applicable
+fatalerrortan,Xtext_Xtend_HTML_Generator,grammar-driven
+spoenemann,xtext-gef,grammar-driven
+Minres,RDL-Editor,not applicable
+svenefftinge,Guice-Modules-DSL,metamodel-driven
+LorenzoBettini,jbase,metamodel-driven
+mn-mikke,Model-driven-Pretty-Printer-for-Xtext-Framework,metamodel-driven
+hishidama,xtext-dmdl-editor,metamodel-driven
+cmark,androtext,not applicable
+svenefftinge,homeautomation-example,grammar-driven
+SOM-Research,graphQL-xtext-grammar,not applicable
+janesser,frege-xtext,not applicable
+szarnekow,org.eclipse.e4.xcss,not applicable
+LorenzoBettini,xtext-scoping,metamodel-driven
+JanKoehnlein,ESE-2010-Tutorial,metamodel-driven
+spoenemann,xtext-orion,grammar-driven
+Modaptix,xtext-expressions,metamodel-driven
+nittka,Jtag,not applicable
+erlide,erlide_xtext,metamodel-driven
+cdietrich,xtext-forum-support-example,not applicable
+ESIR2Compilation,Langage-WHILE,grammar-driven
+jhonatan89,gen-angular-grammar,grammar-driven
+Sofiane-13,tutorialXtextSirius,not applicable
+eclipse-soc,amalgamation-examples,metamodel-driven
+dvdkruk,xtext-xsd-resourceprovider,not applicable
+marnix,metamath-eclipse-xtext,not applicable
+JanKoehnlein,Xtext-Syntax-View,not applicable
+planger,xtext-uml-experiment,not applicable
+rquinio,ck2xtext,grammar-driven
+mzaks,petrinet_dsl,metamodel-driven
+drnappalm,xtext,grammar-driven
+svenefftinge,Xtext-Workshop-Runtime-Workspace,not applicable
+martijndwars,XtextXT,not applicable
+nahni,xtextTessla,grammar-driven
+baidty,xtextLearning,not applicable
+MoayadHn,XtextBDI,grammar-driven
+fzalila,XtextExperiments,grammar-driven
+Girish-Venkatesh,XTextSelenium,grammar-driven
+Vinayakatk,xtextScopes,grammar-driven
+01Lizard10,XTextUML,grammar-driven
+Salome-Maro,XtextUtils,not applicable
+fanghuixing,XtextApricot,grammar-driven
+mraminella,xtextTests,not applicable
+Alma2015RSABSAWA,XtextLangage,not applicable
+myorb,XTextParser,not applicable
+Jhinnn,XTextView,not applicable
+kathisai,xtextSample,grammar-driven
+huibo-shi,XtextExamples,grammar-driven
+osamu-k,XTextStudy,grammar-driven
+Treehopper,XTextTemplate,not applicable
+seba111,Xtext1,metamodel-driven
+shinesamjacob,XtextExample,grammar-driven
+ajperalt,xtext,metamodel-driven
+schakko,xtext-plugin-with-maven-tycho,not applicable
+colameo,xtext4roo,metamodel-driven
+vinpereira,XtextToXMI,grammar-driven
+JanKoehnlein,XtextCon2014,not applicable
+bink81,xtext-test,not applicable
+xtext42,xtext42-coding,not applicable
+borisbrodski,XtextBug437519,grammar-driven
+hypery2k,xText,not applicable
+borisbrodski,XtextBug453268,grammar-driven
+arnulfo-rodriguez,XtextClosureExample,metamodel-driven
+superxlx,XTextViewDemo,not applicable
+johnBened,XtextMyDSLExample,not applicable
+philiber92,XtextTestRepository,grammar-driven
+fabienfleureau,XtextAtStackoverflow,not applicable
+yunxiaocloud,XTextFieldLimtDemo,not applicable
+eclipse,xtext-gradle,not applicable
+Mensmec,THESIS_XTEXT,not applicable
+MacJariel,sandbox-dsl,metamodel-driven
+chetanladdha,XtextFormatingHoverSample,not applicable
+ainslec,XTextCustomLexerExample,metamodel-driven
+hem28,DSL_Xtext2.3,metamodel-driven
+HBuender,XtextAndSiriusIntegration,grammar-driven
+meysholdt,EclipseCon2014_XtextTutorial,grammar-driven
+jaimedelgado,Xtext,not applicable
+chris125964,xtext,not applicable
+DonRenando,xtext,grammar-driven
+martijndwars,Xtext,not applicable
+ozkandemir,XText,grammar-driven
+johnahfong,xtext,grammar-driven
+Mensmec,Xtext,not applicable
+pellcorp,xtext,grammar-driven
+Tutti91,Xtext,grammar-driven
+ANCIT,xtext-examples,metamodel-driven
+DECENTSoftwareAssessment,dag.m1x,not applicable
+rmemory,xtext,TBD
+deb-sandeep,com.sandy.xtext.jovenotes.tests,not applicable
+yasuohosotani,Xtext,not applicable
+Nika24,Xtext,grammar-driven
+BenediktNiehues,de.nie.fin,metamodel-driven
+AlexElvers,XText,not applicable
+lakzso,xtext,not applicable
+seba111,Xtext,metamodel-driven
+MacJariel,xtext,not applicable
+tmtron,xtext.15minTutorial,not applicable
+blewis13,Boxes,metamodel-driven
+DECENTSoftwareAssessment,famix.m3x,not applicable
+dslmeinte,SimScript,not applicable
+webdaford,aqleditor,not applicable
+goldschmiede,2012-02-03_dsls_mit_xtext,metamodel-driven
+kthoms,org.eclipse.xtext.example.domainmodel,not applicable
+Reitzner,xtextmaven,grammar-driven
+hectorsun,xtextonboost,not applicable
+duck2,xtextbg,not applicable
+HolyCityAudio,SpinCAD-Builder,grammar-driven
+ceefour,glproto,metamodel-driven
+DECENTSoftwareAssessment,dag.m1x.tests,not applicable
+gvd,xtext-sm,metamodel-driven
+davidmpaz,php.ware.web.ui,not applicable
+DanielWeber,xtextext,not applicable
+fzalila,xtextfsm,grammar-driven
+DECENTSoftwareAssessment,dag.m1x.sdk,not applicable
+jgoppert,xmodelica,grammar-driven
+Vinayakatk,xtextgeneratetest,not applicable
+deb-sandeep,com.sandy.xtext.jovenotes,grammar-driven
+DECENTSoftwareAssessment,dag.m1x.ui,not applicable
+viatra,viatra-evm-xtext,grammar-driven
+protossoftware,ReqText,grammar-driven
+meysholdt,e4dsl,metamodel-driven
+benzait27,Xtext.Promo,grammar-driven
+malakeel,myDsl,grammar-driven
+npalix,org.eclipse.xtext.example.arithmetics,not applicable
+sormgabriel,textual_verduler,not applicable
+ekowahyudi,examplextext,not applicable
+DECENTSoftwareAssessment,famix.m3x.ui,not applicable
+nakul02,sialx-xtext-ide,not applicable
+kduske-n4,DomainModel,grammar-driven
+Infoly,SmallJava,not applicable
+inakuhn,de.htwg.mdse.setgame.entities.parent,grammar-driven
+mlanoe,x-vhdl,metamodel-driven
+DECENTSoftwareAssessment,famix.m3x.tests,not applicable
+nkonev,CalcXtext,not applicable
+meysholdt,xtext_examples,not applicable
+manuelleduc,xtext-lib,not applicable
+xarvey,atom-xtext-package,not applicable
+LolloCorte,bpel-xtext,metamodel-driven
+sciolizer,xtext-sandbox,grammar-driven
+denschu,xtext-whitespace,not applicable
+pablitar,claseXtext,metamodel-driven
+DECENTSoftwareAssessment,famix.m3x.sdk,not applicable
+tdegueul,xtext-composition,grammar-driven
+danieldietrich,xtext-javatools,not applicable
+akademia,ontouml-xtext,not applicable
+efuentesp,codebuilder-xtext,not applicable
+zrrk,xtext-utils,not applicable
+juli1,xtext-debug,grammar-driven
+nbhusare,Xtext-sandbox,grammar-driven
+jachinte,xtext-grammars,not applicable
+susieagerholm,XTEXT_EXAMPLE,grammar-driven
+itemis,monaco-xtext,not applicable
+xiaoyvr,xtext-demo,not applicable
+hmc-cs111-fall2015,picobot-XText,not applicable
+yanntm,Xtext-Light,not applicable
+quendimax,libXtextcursorchanger,not applicable
+Ikraminfo,GrammaireXtext,not applicable
+nickeeyyoo,xtext_project,grammar-driven
+marinamygithub,xtext_project,grammar-driven
+lukashaertel,xtext-xgen,TBD
+fmca,xtext-typesystem,metamodel-driven
+almazhou,xtext-demo,not applicable
+Huluvu424242,xtext.example,grammar-driven
+kiddochan,xtext-typesystem,metamodel-driven
+mmalohlava,ppXtext,not applicable
+ponta027,xtext_practice,grammar-driven
+bhdrkn,Xtext-Examples,metamodel-driven
+fatalerrortan,Xtext-examples,not applicable
+gcr-nist,runtime-Xtext,not applicable
+fBrx,language-xtext,not applicable
+ilya-klyuchnikov,sll-xtext,grammar-driven
+vonbolt,Xtext_test,grammar-driven
+rytina,xtext-typesystem,metamodel-driven
+philiber92,xtext-utils,not applicable
+thomasfischl,xtext-workshop,grammar-driven
+jbadeau,ng-xtext,not applicable
+OliverScherf,MGPL-Xtext,not applicable
+szarnyasg,gradle-xtext,not applicable
+malbac,Xtend_Xtext,grammar-driven
+gitpan,Convert-XText,not applicable
+rmemory,xtext_eclipse,not applicable
+lukashaertel,xtext-technocat,grammar-driven
+lukashaertel,xtext-xtestgen,grammar-driven
+zhangyuanqiao,selenium-xtext,grammar-driven
+cooked,modelica-xtext,grammar-driven
+pablitar,firewall-xtext,not applicable
+hamza-abed,JSEditorXtext,grammar-driven
+Virtlink,paplj-xtext,grammar-driven
+kwanggy,xtext-sublime,not applicable
+thicket-lang,thicket-xtext,grammar-driven
+agentlab,xtext-web,grammar-driven
+test-editor,xtext-dropwizard,not applicable
+kecskesk,xtext-menetrend,grammar-driven
+ftrifin,xtext-utils,not applicable
+scottopell,xtext_utils,not applicable
+lukashaertel,xtext-fsml,grammar-driven
+sahrmann,xtext-json,not applicable
+Modaptix,xtext-utils,not applicable
+itemis,xtext-issues,not applicable
+holzem,xtext-lexertrace,grammar-driven
+victorlacorte,Tcc,not applicable
+limelanguage,lime-xtext,not applicable
+edgarmueller,xtext-recordmapper,metamodel-driven
+santoshdeshpande,wwf-xtext,not applicable
+MatzeGIT,XText-maven,not applicable
+tkurita,XText.scptd,not applicable
+t-buss,mgpl_xtext,not applicable
+dvdkruk,xtext-workshop,not applicable
+npalix,org.xtext.example.mde,not applicable
+logicfish,XActiv,metamodel-driven
+kittaakos,webcalc,not applicable
+evandor,skysail-prototypr-dsl,grammar-driven
+iensen,certware-l-editor,grammar-driven
+vladimirkozhaev,casualintellect_new_wizard,grammar-driven
+TinyScream,org.xtext.amodel,grammar-driven
+M2TIIL2016-2017,SiteWeb_XText,metamodel-driven
+schakko,hackcamp-xtext-automotivebus,grammar-driven
+sfinnie,xtext.scoping.adventures,grammar-driven
+jpaw,bonaparte-apidsl,not applicable
+rainerschuster,yacc-ide,not applicable
+schakko,xtext-bug-436688,grammar-driven
+dhuebner,xtext-builddsl-tycho,not applicable
+matejsp,lwc13-xtext,not applicable
+ftrifin,xtext-utils.uml,not applicable
+mbarbero,xtext-forms-integration,metamodel-driven
+FForw4rd,xtext-restriction-framework,metamodel-driven
+zrrk,xtext-utils.devenv,not applicable
+ftrifin,xtext-utils.xtend,not applicable
+svenefftinge,xtext-jaxcon-example,grammar-driven
+LorenzoBettini,xtext-demo-laquila,grammar-driven
+jakecobb,xtext-iris-datalog,not applicable
+Huluvu424242,rezept-dsl.xtext,grammar-driven
+philiber92,xtext-utils.unittesting,not applicable
+philiber92,xtext-utils.distribution,not applicable
+phaldan,htwg-cform-xtext,not applicable
+itemis,xtext-example-conplan,not applicable
+LorenzoBettini,Xtext-Buckminster-Example,metamodel-driven
+LorenzoBettini,xtextcon-typesystem-example,not applicable
+dhuebner,org.xtext.example.tycho,metamodel-driven
+agentlab,eclipse-orbit_xtext-web,grammar-driven
+Tutti91,xtext_language_bla,not applicable
+LeonoraG,xtext-req-editor,grammar-driven
+xarvey,atom-xtext-autocomplete,not applicable
+franzbecker,xtext-formatter-problem,not applicable
+ftrifin,xtext-utils.distribution,not applicable
+Fritzi,XText_TeSSLa,grammar-driven
+madasar,booster2-xtext,not applicable
+TypeFox,xtext-splitted-repo,not applicable
+zrrk,xtext-utils.uml,not applicable
+zrrk,xtext-utils.xtend,not applicable
+ftrifin,xtext-forms-integration,metamodel-driven
+JanKoehnlein,fxdiagram-xtext-examples,grammar-driven
+ubx,openair,metamodel-driven
+rju,xtext-typing-example,metamodel-driven
+philiber92,xtext-utils.xtend,not applicable
+Advanced-Model-Engineering-SS16,xtext-ocl-extensions,metamodel-driven
+zrrk,xtext-utils.distribution,not applicable
+Johanvdberg,mcrl2.xtext,grammar-driven
+kryptonite22,rsbac.xtext.dsl,not applicable
+tkleszczynski,jug-zgora-xtext,grammar-driven
+philiber92,xtext-utils.devenv,not applicable
+jeffmaury,devoxx2012-xtext,metamodel-driven
+YonedaMasashi,xText_Practice,grammar-driven
+jackqq,xTextEdit,not applicable
+ftrifin,xtext-utils.unittesting,not applicable
+lgcardeas,xtext-forms-integration,metamodel-driven
+vrichard12,xtext-forms-integration,metamodel-driven
+itemis,xtext-monaco-example,not applicable
+pabu90,xtext-ci-test,not applicable
+EricssonPlant,plantuml-xtext-light,not applicable
+zrrk,xtext-utils.unittesting,not applicable
+LorenzoBettini,xtext-index-experiments,metamodel-driven
+ftrifin,xtext-utils.devenv,not applicable
+inteldict,xtext-gradle-demo,not applicable
+cdietrich,xtext-multi-dsl,metamodel-driven
+hachreak,dmss.pouex.xtext,not applicable
+lunifera,lunifera-xtext-runtimebuilder,grammar-driven
+sikessle,xtext-forms-integration,metamodel-driven
+priya0311,xtext-forms-integration,metamodel-driven
+philiber92,xtext-utils.uml,not applicable
+talalong,dbFactoryXtext,not applicable
+stackoverflowmailer,lwc13-xtext,not applicable
+willy2706,if4150-xtext,not applicable
+wwu-pi,acse-xtext-validation,grammar-driven
+ProgrammableDrones,xTextLanguage,not applicable
+stefano-bragaglia,Kinect-ECE-XText,grammar-driven
+wwu-pi,acse-xtext-gui,grammar-driven
+peterssas,xtext-gradle-problem,grammar-driven
+zhoumin03,xtext-forms-integration,metamodel-driven
+gcubar,CodeXcessXtext,not applicable
+cdietrich,xtext-ecore-xcore,metamodel-driven
+ayoubziat,xtext_DSL_example,not applicable
+xiaoyvr,xtext-demo-oxygen,not applicable
+test-editor,deprecated-xtext-index-backend,not applicable
+kuniss,Aqua,grammar-driven
+npalix,org.eclipse.xtext.example.fowlerdsl,not applicable
+dslmeinte,xtext-workshop-code1,metamodel-driven
+chauhansaurabhb,Eclipse-Xtext-Mydsl-Plugin,grammar-driven
+oyse,jetson,not applicable
+zwgirl,summer,TBD
+rymarenkosuccess,Coffeescript-Eclipse,not applicable
+felipedf,compiler,grammar-driven
+logicfish,XPlane,not applicable
+LorenzoBettini,Xtext-Xtend-Buckminster-Example,grammar-driven
+vorburger,eclipse-typescript-xtext-repository,not applicable
+pankeshpatel,EclipsePluginForXtext,grammar-driven
+Hellmy,plantuml-eclipse-xtext_update,not applicable
+xpomul,xtext-multi-edit-example,grammar-driven
+tmtron,xtext.eclipse.15minExtended,grammar-driven
+deb-sandeep,com.sandy.xtext.jovenotes.ui,not applicable
+ftrifin,xtext-utils.xtend1,not applicable
+szarnekow,xtext-arithmetics-web-example,grammar-driven
+wwu-pi,acse-xtext-knuth-binaries,grammar-driven
+jwachter,xtext-serializer-issue-example,not applicable
+DemidovAlexander,Xtext_MiniJava_IDE,grammar-driven
+camilagarcia113,xtext-dsl-obj3,grammar-driven
+cdietrich,gradle-xtext-xtend-problem,not applicable
+uqbar-paco,firewall-dsls-externos-xtext,metamodel-driven
+svenefftinge,Xtext-LWC-contribution--Instances-,metamodel-driven
+rainerschuster,eclipse-webidl,not applicable
+willy2706,if4150-xtext-html,not applicable
+phaldan,htwg-cform-xtext-demo,not applicable
+hypery2k,Xtext-GrammarMixin-Example,not applicable
+philiber92,xtext-utils.subproject-template,not applicable
+zrrk,xtext-utils.subproject-template,not applicable
+thowin,ituXtextLandinConfigurator,grammar-driven
+philiber92,xtext-utils.xtend1,not applicable
+claudenirmf,old-tests-on-xtext,not applicable
+zouhairireda,xtext-ocl-xtend-poc,metamodel-driven
+franzbecker,xtext-serializer-parallel-problem,not applicable
+lunifera,lunifera-xtext-runtimebuilder-example,not applicable
+ftrifin,xtext-utils.subproject-template,not applicable
+fluxtah,xtext-android-gradle-example,not applicable
+hypery2k,Xtext-Maven-BuildExample,not applicable
+kittaakos,xtext-eclipse-gh-238,grammar-driven
+MatzeGIT,XText-Maven-CleanStart,not applicable
+Rodolfocostapr,org.xtext.example.pascalito,not applicable
+deb-sandeep,JoveNotesProcessor,not applicable
+zrrk,xtext-utils.xtend1,not applicable
+tanthingdeveloper3unshine,AutoCompleteXTextView,not applicable
+loradd,uml-xtext-grammar-generator,not applicable
+RobertWalter83,DialogScriptDSL,metamodel-driven
+vicegd,org.xtext.dsl.restaurante,grammar-driven
+paulluap,xtext-extras-issue216,not applicable
+dhakehurst,net.akehurst.example.xtext.vertx,not applicable
+alvilgau,de.htwg.xtext.setGame,grammar-driven
+nittka,Xarchive,not applicable
+rdurelli,com.br.refactoring.xtext.dsl,not applicable
+tmtron,xtext.15minTutorial.project,not applicable
+agentlab,eclipse-orbit_xtext-web-dsls,grammar-driven
+threadedblue,org.eclipse.xtext.example.domainmodel,grammar-driven
+cdietrich,xtext-existing-metamodel-gradle-example,metamodel-driven
+wrungel,tycho.xtext.mwe2.test,not applicable
+Scholvac,EclipseTaskJuggler,grammar-driven
+ftmdida,xtext_code_gen_version_2,grammar-driven
+alexwatts,xtext-j2ee-dsl,not applicable
+cdietrich,xtext-gradle-plugin-issue-60,not applicable
+thowin,ituXtextLandin2Configurator,grammar-driven
+jkouwer,basicfamily,metamodel-driven
+goldschmiede,2011-02-18_xtext_apache_wicket,not applicable
+nileshrege,El,not applicable
+deparlak,de.htwg.mdsd.xtext.portals,not applicable
+shashwatanand,org.shashwat.xtext.smallJava,grammar-driven
+mmalohlava,gpp-for-xtext-master-thesis,not applicable
+dexz92,Integrating-Xtext-and-JavaRAG,not applicable
+Rodolfocostapr,org.xtext.example.pascalitoOld,not applicable
+KasperGam,IGESImport,grammar-driven
+fuinorg,xsample,grammar-driven
+florianpirchner,beantypes,metamodel-driven
+cdietrich,xtext-gradle-plugin-issue-61,not applicable
+rdurelli,com.br.refactoring.xtext.dsl.ui,not applicable
+threadedblue,org.eclipse.xtext.example.domainmodel.tests,not applicable
+rdurelli,com.br.refactoring.xtext.dsl.tests,not applicable
+shashwatanand,org.shashwat.xtext.smallJava.ui,not applicable
+tmtron,xtext.eclipse.15minExtended.project,not applicable
+chqu1012,MetroUiDescriper,metamodel-driven
+rainerschuster,sygus-ide,not applicable
+jacruzca,xtext-multilanguage-multiple-target-impl-reuse,grammar-driven
+qscdfg,mybash,grammar-driven
+eirikg,XbaseSiriusIntegration,grammar-driven
+nohum,android-code-generation,grammar-driven
+gvd,zest-sm,not applicable
+uqbar-paco,declaratividad-orm-java,metamodel-driven
+shashwatanand,org.shashwat.xtext.smallJava.tests,not applicable
+dhakehurst,net.akehurst.example.xtext.vertx.lsp,not applicable
+vztpv,ClauTextWithEclipse,not applicable
+goldschmiede,2011-04-29_xtext_service_repository,not applicable
+markusvoelter,DSLEngBook-Xtext-P3Demo,not applicable
+ESIR2Compilation,PrettyPrinter,not applicable
+bmael,MVCLang,not applicable
+zhou-jg,tefler,grammar-driven
+bogdanvuk,xvhdl,grammar-driven
+marcotinacci,XTuring,metamodel-driven
+threadedblue,org.eclipse.xtext.example.domainmodel.ui,not applicable
+joergreichert,OperationsResearch,grammar-driven
+tommyettinger,julepp,not applicable
+masters-info-nantes,SmokingText,TBD
+daniel-laszlo,temalabor,not applicable
+Communote,communote-restws,not applicable
+vorburger,FormGeneratorPOC,not applicable
+nittka,pocesl,not applicable
+logicfish,POMText,not applicable
+cdietrich,https---github.com-meysholdt-xtext_stateful_lexer,not applicable
+bogdanvuk,xrst,grammar-driven
+meysholdt,performance_probes,not applicable
+agentlab,PowerLoomDSL,grammar-driven
+rainerschuster,jdl-ide,not applicable
+JoostvanPinxten,SDF3-editor,grammar-driven
+ceefour,emf-sandbox,metamodel-driven
+Mehdi23,FlexoModelingLanguage,metamodel-driven
+atanaka,experimental-rmodp-dsl,metamodel-driven
+leolimasa,reqlang,grammar-driven
+smba,model-based-times,TBD
+DavidFosterLuhmann,high-dim,not applicable
+test-editor,deprecated-test-editor-index-backend,not applicable
+sidz8690,EasyUnit,not applicable
+lsotnk,lsotnk.xbase.launching,not applicable
+Tim-S,ReqLNG,grammar-driven
+helunwencser,PAOC,grammar-driven
+nakul02,sysml.dml,grammar-driven
+rainerschuster,tlsf-ide,not applicable
+rainerschuster,asdl-ide,not applicable
+N0P0x90,EclipseExamples,TBD
+martinmuellenberg,cityplanning,not applicable
+newdigate,soa-dsl-scaffolding,not applicable
+evansnicholas,yaxpath,not applicable
+nittka,ASP,not applicable
+josros,boby,grammar-driven
+danhaywood,kemble,not applicable
+schakko,bsc-thesis-documentation,not applicable
+szarnekow,mongoBeans,metamodel-driven
+timeraider4u,external_jar_download,not applicable
+Buggaboo,xplatform,TBD
+jonathankoehn,entitygenerator,not applicable
+marcusphi,polopoly-dsl,metamodel-driven
+alexisfacques,dsl-feature-modelling,not applicable
+sbrocard,statemachine-generator,metamodel-driven
+JPL-IMCE,gov.nasa.jpl.imce.oml.core,not applicable
+PuneetPatwari,system-map-maker,not applicable
+atanaka,DomainmodelWithCrossReference,grammar-driven
+cedricvidal,protobuf4e,not applicable
+rowlo,testdsl,not applicable
+joergreichert,Cool,grammar-driven
+WesleyMarques,CompiladorJava,grammar-driven
+tommyettinger,kobold,grammar-driven
+stolorz,RankPL-EclipsePlugin,grammar-driven
+UnibgInfo3A,ebnfworkbench,grammar-driven
+sergiowebo,RaspduinoDSL,grammar-driven
+Remypoc,CmooSimpleJ,grammar-driven
+majordomo,majordomo,metamodel-driven
+ryanignatius,CheckerDSL,grammar-driven
+raynair,webml,metamodel-driven
+arbennett,ParserGeneratorExample,grammar-driven
+OElabed,Model-Driven-Engineering--Eclipse-RCP-plugin--Software-product-line,grammar-driven
+renaudhelias,MameVHDL,metamodel-driven
+cwiscount,mydsl-emf-gen,metamodel-driven
+rmuecke,clinicaltrialcreator,not applicable
+mythicfreak,aomxsgrammar,grammar-driven
+diverse-project,melange-studio,not applicable
+marcotinacci,Event-Oriented-Language,metamodel-driven
+ksza,Bicycle-Shop,metamodel-driven
+marcotinacci,SwarmRobotics,metamodel-driven
+Padmar1995,gh,not applicable

@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: ch.vobos
+Bundle-ManifestVersion: 2
+Bundle-Name: ch.vobos
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: ch.vobos; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.16.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.35.0",
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: ch.vobos.parser.antlr,
+ ch.vobos.scoping,
+ ch.vobos.typescript.util,
+ ch.vobos.generator,
+ ch.vobos.validation,
+ ch.vobos.typescript.impl,
+ ch.vobos.typescript,
+ ch.vobos.serializer,
+ ch.vobos,
+ ch.vobos.parser.antlr.internal,
+ ch.vobos.services
+Import-Package: org.apache.log4j

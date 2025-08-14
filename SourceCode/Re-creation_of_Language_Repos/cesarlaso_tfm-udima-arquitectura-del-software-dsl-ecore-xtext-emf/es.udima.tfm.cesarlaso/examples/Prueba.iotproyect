@@ -1,0 +1,79 @@
+/*
+ * Ejemplo programa monedero
+ */
+IotProyect monedero_remoto
+{
+	product_code 1
+	version 1
+	devices {
+		simulator, 
+		esp8266 {
+			ssid "monederos" with_password "monederos"
+		}
+	}
+	
+	servers {
+		java_server {
+			network_interface_address"localhost"
+			network_interface_port 8080
+		}
+	}
+	
+	program {
+		gpio_aliases {
+			gpio_output_digital "status_led" connected_to_pin 1,
+
+			gpio_input_digital "monedero_entrada" connected_to_pin 2,
+			gpio_output_digital "monedero_salida" connected_to_pin 3
+		}
+		
+		remote_identifiers {
+			remote_event_identifier "dar_moneda",
+			remote_actuator_identifier "moneda_entrante"
+		}
+		
+		start_state "main"
+		
+		states {
+			state "main" {
+				now {
+					change monedero_salida low 
+				},
+				network_connected {
+					blink status_led interval 500 Millisecond
+				},
+				network_disconnected {
+					change status_led low
+				},
+				server_connected {
+					change status_led high
+				}, 
+				server_disconnected {
+					blink status_led interval 250 Millisecond
+				},
+				
+				remote_event dar_moneda {
+					blink_timer status_led {
+						during 1 Second
+						interval 50 Millisecond
+					},
+					pulse monedero_salida {
+						times 1
+						width 50 ms
+						space_width 50 ms
+					}
+				},
+				
+				pulse_input monedero_entrada {
+					mode pull_down 
+					count 1
+					width 50
+					space_width 50
+					{
+						remote_actuator moneda_entrante
+					}
+				}
+			}
+		}
+	}
+}

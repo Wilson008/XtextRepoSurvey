@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: www.ubx.ch
+Bundle-ManifestVersion: 2
+Bundle-Name: www.ubx.ch
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: www.ubx.ch; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.16.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.35.0",
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-21
+Export-Package: www.ubx.ch.services,
+ www.ubx.ch.openAir,
+ www.ubx.ch.generator,
+ www.ubx.ch.openAir.util,
+ www.ubx.ch.parser.antlr,
+ www.ubx.ch.serializer,
+ www.ubx.ch.openAir.impl,
+ www.ubx.ch.scoping,
+ www.ubx.ch.parser.antlr.internal,
+ www.ubx.ch.validation,
+ www.ubx.ch
+Import-Package: org.apache.log4j

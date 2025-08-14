@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: es.udima.tfm.cesarlaso.ui
+Bundle-ManifestVersion: 2
+Bundle-Name: es.udima.tfm.cesarlaso.ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: es.udima.tfm.cesarlaso.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: es.udima.tfm.cesarlaso,
+ es.udima.tfm.cesarlaso.ide,
+ es.udima.cesarlaso.tfm,
+ org.eclipse.xtext.ui,
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.ui.editors;bundle-version="3.14.300",
+ org.eclipse.ui.ide;bundle-version="3.18.500",
+ org.eclipse.ui,
+ org.eclipse.compare,
+ org.eclipse.xtext.builder
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: es.udima.tfm.cesarlaso.ui.quickfix,
+ es.udima.tfm.cesarlaso.ui.contentassist,
+ es.udima.tfm.cesarlaso.ui.internal
+Bundle-Activator: es.udima.tfm.cesarlaso.ui.internal.CesarlasoActivator

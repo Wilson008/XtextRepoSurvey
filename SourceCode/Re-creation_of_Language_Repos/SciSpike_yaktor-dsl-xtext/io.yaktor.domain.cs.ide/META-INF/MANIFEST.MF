@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: io.yaktor.domain.cs.ide
+Bundle-ManifestVersion: 2
+Bundle-Name: io.yaktor.domain.cs.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: io.yaktor.domain.cs.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: io.yaktor.domain.cs,
+ io.yaktor.domain.as,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: io.yaktor.ide.contentassist.antlr.internal,
+ io.yaktor.ide.contentassist.antlr
