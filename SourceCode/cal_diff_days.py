@@ -1,49 +1,49 @@
 import csv
 from datetime import datetime
 
-# 输入和输出文件路径
+# Input and output file paths
 input_file = "SourceCode/auto_analysis_results/file_commit_msg_with_time.csv"
 output_file = "SourceCode/calculate_time_diff.csv"
 
-# 打开输入文件读取，输出文件写入
+# Open input file for reading, output file for writing
 with open(input_file, mode='r', encoding='utf-8') as infile, open(output_file, mode='w', encoding='utf-8', newline='') as outfile:
     reader = csv.reader(infile)
     writer = csv.writer(outfile)
 
-    # 读取表头并添加新的 Column P
+    # Read the header and add a new Column P
     header = next(reader)
-    header.append("P")  # 新增列
+    header.append("P")  # Add new column
     writer.writerow(header)
 
-    # 初始化变量
-    previous_filename = None  # 前一行的文件名
-    previous_date = None      # 前一行的时间
+    # Initialize variables
+    previous_filename = None  # Filename of the previous row
+    previous_date = None      # Date of the previous row
 
-    # 第一行初始化
+    # Initialize with the first row
     first_row = next(reader)
-    previous_filename = first_row[2]  # 初始化为第一行的文件名 (Column C)
-    previous_date = datetime.strptime(first_row[6], "%Y-%m-%dT%H:%M:%S%z")  # 初始化为第一行的时间 (Column G)
-    first_row.append(0)  # 第一行填入 "0" 天，因为它没有前一个 commit
+    previous_filename = first_row[2]  # Initialize with the filename from the first row (Column C)
+    previous_date = datetime.strptime(first_row[6], "%Y-%m-%dT%H:%M:%S%z")  # Initialize with the datetime from the first row (Column G)
+    first_row.append(0)  # First row gets "0" days because it has no previous commit
     writer.writerow(first_row)
 
-    # 从第二行开始逐行读取和处理
+    # Start from the second row and process line by line
     for row in reader:
-        current_filename = row[2]  # Column C: 当前行的文件名
-        current_date = datetime.strptime(row[6], "%Y-%m-%dT%H:%M:%S%z")  # Column G: 当前行的时间戳
+        current_filename = row[2]  # Column C: filename of the current row
+        current_date = datetime.strptime(row[6], "%Y-%m-%dT%H:%M:%S%z")  # Column G: timestamp of the current row
 
         if current_filename == previous_filename:
-            # 文件名相同，计算时间差（天数）
+            # Same filename: calculate time difference (in days)
             days_diff = (current_date - previous_date).days
         else:
-            # 文件名不同，表示第一次 commit
+            # Different filename: treat as the first commit for this file
             days_diff = 0
 
-        # 将天数差填入 Column P
+        # Append the days difference to Column P
         row.append(days_diff)
 
-        # 写入新文件
+        # Write to the new file
         writer.writerow(row)
 
-        # 更新上一行的文件名和时间
+        # Update previous filename and date
         previous_filename = current_filename
         previous_date = current_date

@@ -4,140 +4,140 @@ import os
 
 def calculate_repo_lifespan(input_file, output_file):
     """
-    计算存储库的lifespan（生命周期）并保存到新文件
+    Calculate the repository lifespan (in days) and save it to a new file.
     
-    参数:
-    input_file: 输入Excel文件路径
-    output_file: 输出Excel文件路径
+    Parameters:
+    input_file: Path to the input Excel file
+    output_file: Path to the output Excel file
     """
     
     try:
-        # 读取Excel文件
-        print(f"正在读取文件: {input_file}")
+        # Read the Excel file
+        print(f"Reading file: {input_file}")
         df = pd.read_excel(input_file)
         
-        print(f"文件读取成功，共有 {len(df)} 行数据")
-        print(f"列名: {list(df.columns)}")
+        print(f"File read successfully, total {len(df)} rows")
+        print(f"Column names: {list(df.columns)}")
         
-        # 显示前几行数据以确认结构
-        print("\n前5行数据:")
+        # Show the first few rows to confirm structure
+        print("\nFirst 5 rows of data:")
         print(df.head())
         
-        # 获取第三列（创建日期）和第四列（最后提交日期）
-        # 注意：Python中索引从0开始，所以第三列是索引2，第四列是索引3
-        created_date_col = df.iloc[:, 2]  # 第三列：创建日期
-        last_commit_col = df.iloc[:, 3]   # 第四列：最后提交日期
+        # Get the 3rd column (creation date) and 4th column (last commit date)
+        # Note: Python uses zero-based indexing, so 3rd column index = 2, 4th column index = 3
+        created_date_col = df.iloc[:, 2]  # 3rd column: creation date
+        last_commit_col = df.iloc[:, 3]   # 4th column: last commit date
         
-        print(f"\n创建日期列的数据类型: {created_date_col.dtype}")
-        print(f"最后提交日期列的数据类型: {last_commit_col.dtype}")
+        print(f"\nData type of creation date column: {created_date_col.dtype}")
+        print(f"Data type of last commit date column: {last_commit_col.dtype}")
         
-        # 初始化lifespan列表
+        # Initialize lifespan list
         lifespan_days = []
         
-        # 逐行处理日期计算
+        # Process each row to calculate lifespan
         for i in range(len(df)):
             try:
-                # 获取创建日期和最后提交日期
+                # Get creation date and last commit date
                 created_date = created_date_col.iloc[i]
                 last_commit_date = last_commit_col.iloc[i]
                 
-                # 处理创建日期 - 格式如 "2018-01-15"
+                # Handle missing creation date
                 if pd.isna(created_date):
                     lifespan_days.append(None)
-                    print(f"第 {i+1} 行: 创建日期为空")
+                    print(f"Row {i+1}: Creation date is empty")
                     continue
                 
-                # 如果是字符串，解析日期
+                # If it's a string, parse it
                 if isinstance(created_date, str):
                     created_dt = datetime.strptime(created_date, "%Y-%m-%d")
                 else:
-                    # 如果已经是datetime对象
+                    # Already a datetime object
                     created_dt = pd.to_datetime(created_date)
                 
-                # 处理最后提交日期 - 格式如 "9/7/2023"
+                # Handle missing last commit date
                 if pd.isna(last_commit_date):
                     lifespan_days.append(None)
-                    print(f"第 {i+1} 行: 最后提交日期为空")
+                    print(f"Row {i+1}: Last commit date is empty")
                     continue
                 
-                # 如果是字符串，解析日期
+                # If it's a string, parse it
                 if isinstance(last_commit_date, str):
-                    # 尝试不同的日期格式
+                    # Try multiple date formats
                     try:
-                        # 先尝试 M/D/YYYY 格式
+                        # First try M/D/YYYY format
                         last_commit_dt = datetime.strptime(last_commit_date, "%m/%d/%Y")
                     except ValueError:
                         try:
-                            # 尝试 MM/DD/YYYY 格式
+                            # Try MM/DD/YYYY format
                             last_commit_dt = datetime.strptime(last_commit_date, "%m/%d/%Y")
                         except ValueError:
                             try:
-                                # 尝试 YYYY-MM-DD 格式
+                                # Try YYYY-MM-DD format
                                 last_commit_dt = datetime.strptime(last_commit_date, "%Y-%m-%d")
                             except ValueError:
-                                print(f"第 {i+1} 行: 无法解析最后提交日期格式: {last_commit_date}")
+                                print(f"Row {i+1}: Unable to parse last commit date format: {last_commit_date}")
                                 lifespan_days.append(None)
                                 continue
                 else:
-                    # 如果已经是datetime对象
+                    # Already a datetime object
                     last_commit_dt = pd.to_datetime(last_commit_date)
                 
-                # 计算lifespan（天数）
+                # Calculate lifespan in days
                 lifespan = (last_commit_dt - created_dt).days
                 lifespan_days.append(lifespan)
                 
-                # 每100行打印一次进度
+                # Print progress every 100 rows
                 if (i + 1) % 100 == 0:
-                    print(f"已处理 {i + 1} 行")
+                    print(f"Processed {i + 1} rows")
                 
             except Exception as e:
-                print(f"第 {i+1} 行处理出错: {str(e)}")
+                print(f"Error processing row {i+1}: {str(e)}")
                 lifespan_days.append(None)
         
-        # 将lifespan添加到数据框的第六列
+        # Add lifespan to the 6th column in DataFrame
         df['Lifespan_Days'] = lifespan_days
         
-        # 显示一些统计信息
+        # Show statistics
         valid_lifespans = [x for x in lifespan_days if x is not None]
         if valid_lifespans:
-            print(f"\n成功计算了 {len(valid_lifespans)} 个存储库的lifespan")
-            print(f"平均lifespan: {sum(valid_lifespans) / len(valid_lifespans):.2f} 天")
-            print(f"最短lifespan: {min(valid_lifespans)} 天")
-            print(f"最长lifespan: {max(valid_lifespans)} 天")
+            print(f"\nSuccessfully calculated lifespan for {len(valid_lifespans)} repositories")
+            print(f"Average lifespan: {sum(valid_lifespans) / len(valid_lifespans):.2f} days")
+            print(f"Shortest lifespan: {min(valid_lifespans)} days")
+            print(f"Longest lifespan: {max(valid_lifespans)} days")
         
-        # 保存到新文件
-        print(f"\n正在保存到: {output_file}")
+        # Save to output file
+        print(f"\nSaving to: {output_file}")
         df.to_excel(output_file, index=False)
-        print("文件保存成功！")
+        print("File saved successfully!")
         
-        # 显示结果的前几行
-        print("\n结果预览（前5行）:")
+        # Show preview of results
+        print("\nPreview of results (first 5 rows):")
         print(df[['Lifespan_Days']].head())
         
         return df
         
     except Exception as e:
-        print(f"处理文件时发生错误: {str(e)}")
+        print(f"Error occurred while processing file: {str(e)}")
         return None
 
 def main():
-    # 文件路径
+    # File paths
     input_file = "SourceCode/repos_created_time_new.xlsx"
     output_file = "SourceCode/repos_lifespan_days_new.xlsx"
     
-    # 检查输入文件是否存在
+    # Check if input file exists
     if not os.path.exists(input_file):
-        print(f"错误: 输入文件 {input_file} 不存在")
-        print("请确保文件路径正确")
+        print(f"Error: Input file {input_file} does not exist")
+        print("Please make sure the file path is correct")
         return
     
-    # 执行计算
+    # Run lifespan calculation
     result = calculate_repo_lifespan(input_file, output_file)
     
     if result is not None:
-        print(f"\n任务完成！结果已保存到 {output_file}")
+        print(f"\nTask completed! Results saved to {output_file}")
     else:
-        print("\n任务失败，请检查错误信息")
+        print("\nTask failed, please check error messages")
 
 if __name__ == "__main__":
     main()

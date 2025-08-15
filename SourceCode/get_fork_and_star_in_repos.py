@@ -2,16 +2,16 @@ import requests
 import csv
 
 def get_repo_info(owner, repo, access_token):
-    # 构建API请求URL
+    # Construct the API request URL
     api_url = f"https://api.github.com/repos/{owner}/{repo}"
 
-    # 添加访问令牌到请求头
+    # Add the access token to the request headers
     headers = {
         "Authorization": f"token {access_token}"
     }
 
     try:
-        # 发送GET请求获取存储库信息
+        # Send a GET request to fetch repository information
         response = requests.get(api_url, headers=headers)
         if response.status_code == 200:
             repo_info = response.json()
@@ -33,11 +33,11 @@ def write_to_csv(owner, repo, forks_count, stars_count):
         writer.writerow([owner, repo, forks_count, stars_count])
 
 if __name__ == "__main__":
-    access_token = "ACCESS_TOKEN"  # 替换为您的访问令牌
+    access_token = "ACCESS_TOKEN"  # Replace with your access token
 
     with open('D:/02.Git Repository/XtextRepoSurvey/SourceCode/manual_analysis_results/mwe2_and_extensions.csv', mode='r') as csv_file:
         csv_reader = csv.reader(csv_file)
-        next(csv_reader)  # 跳过第一行，因为它是header
+        next(csv_reader)  # Skip the first row since it is the header
         for row in csv_reader:
             owner = row[0]
             repo = row[1]

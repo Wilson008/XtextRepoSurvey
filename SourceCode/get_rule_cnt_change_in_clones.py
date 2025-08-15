@@ -13,7 +13,7 @@ def get_commit_count(file_path):
 
 def get_xtext_file_content(repo, file_path, commit_sha):
     try:
-        # 获取相对路径
+        # Get relative path
         git_root = repo.working_dir.replace('\\', '/') + '/'
         rel_file_path = file_path.replace('\\', '/').replace(git_root, '')
         file_content = repo.git.show(f"{commit_sha}:{rel_file_path}")
@@ -40,7 +40,7 @@ def is_first_line_of_grammar_rule(s):
     return does_string_exist(s, r"\w+\s*\:") and not does_string_exist(s, r"\w+\s*\+*=")
 
 def count_grammar_rule(str_raw):
-    # Split the contents of Xtext file (i.e. string) into lines
+    # Split the contents of the Xtext file (i.e., string) into lines
     lines = str_raw.split("\n")
 
     count = 0
@@ -50,7 +50,7 @@ def count_grammar_rule(str_raw):
 
     return count
 
-# 读取 CSV 文件获取 owner 和 repo 信息
+# Read the CSV file to get owner and repo information
 csv_file_path = r'D:\\02.Git Repository\\XtextRepoSurvey\\SourceCode\\manual_analysis_results\\mwe2_and_extensions.csv'
 output_csv_file = 'SourceCode/count_changed_rule.csv'
 
@@ -59,10 +59,10 @@ with open(csv_file_path, mode='r', newline='', encoding='utf-8') as csv_file, \
     reader = csv.reader(csv_file)
     writer = csv.writer(output_csv)
 
-    # 写入 CSV 文件的 header
+    # Write the header of the CSV file
     writer.writerow(['owner', 'repo', 'average_count_diff'])
 
-    next(reader)  # 跳过header行
+    next(reader)  # Skip the header row
     for row in reader:
         owner = row[0]
         repo_name = row[1]
@@ -70,17 +70,17 @@ with open(csv_file_path, mode='r', newline='', encoding='utf-8') as csv_file, \
 
         print(f"Analyzing {owner} | {repo_name}")
 
-        # 查找所有扩展名为.xtext的文件并获取其commit次数
+        # Find all files with the .xtext extension and get their commit counts
         xtext_files_list = find_xtext_files(root_folder)
         total_count_diff = 0
         file_count = len(xtext_files_list)
 
-        # 处理每个文件的commit次数和文本，并计算差异
+        # Process each file’s commit history and text to calculate differences
         for file_path, commit_count in xtext_files_list:
             print(f"File: {file_path} | Commit Count: {commit_count}")
 
             try:
-                # 获取该文件最近两次commit的文本并传递给count_grammar_rule函数
+                # Get the contents of the most recent two commits for the file and pass them to count_grammar_rule
                 repo = git.Repo(file_path, search_parent_directories=True)
                 commits = list(repo.iter_commits(paths=file_path))
                 commit_texts = [get_xtext_file_content(repo, file_path, commit.hexsha) for commit in commits]
@@ -105,7 +105,7 @@ with open(csv_file_path, mode='r', newline='', encoding='utf-8') as csv_file, \
         average_count_diff = total_count_diff / file_count if file_count > 0 else 0
         print(f"Average Grammar rules added/removed: {average_count_diff:.2f}")
 
-        # 将部分结果写入CSV文件
+        # Write partial results to the CSV file
         writer = csv.writer(output_csv)
         writer.writerow([owner, repo_name, f"{average_count_diff:.2f}"])
 

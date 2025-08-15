@@ -4,64 +4,64 @@ import numpy as np
 
 def calculate_commit_days_after_repo_creation():
     """
-    计算每个commit发生在其所在仓库创建多少天之后
+    Calculate how many days after its repository's creation each commit occurred.
     """
-    # 文件路径
+    # File paths
     commits_file = "SourceCode/commits (evolutionary steps).xlsx"
     repos_file = "SourceCode/226 repos with lifespans.xlsx"
     output_file = "SourceCode/commits_with_days_after_creation.xlsx"
     
     try:
-        # 读取表格A (commits信息)
-        print("正在读取commits数据...")
+        # Read Table A (commits information)
+        print("Reading commits data...")
         df_commits = pd.read_excel(commits_file)
-        print(f"成功读取commits数据，共{len(df_commits)}行")
+        print(f"Successfully read commits data, total {len(df_commits)} rows")
         
-        # 读取表格B (repositories信息)
-        print("正在读取repositories数据...")
+        # Read Table B (repositories information)
+        print("Reading repositories data...")
         df_repos = pd.read_excel(repos_file)
-        print(f"成功读取repositories数据，共{len(df_repos)}行")
+        print(f"Successfully read repositories data, total {len(df_repos)} rows")
         
-        # 显示表格结构
-        print("\n表格A的列名:", list(df_commits.columns))
-        print("表格B的列名:", list(df_repos.columns))
+        # Show table structures
+        print("\nColumns in Table A:", list(df_commits.columns))
+        print("Columns in Table B:", list(df_repos.columns))
         
-        # 创建一个字典来快速查找仓库创建日期
-        # 使用 (login, repo_name) 作为键
+        # Create a dictionary for quick lookup of repository creation dates
+        # Use (login, repo_name) as the key
         repo_creation_dict = {}
         
-        print("\n正在构建仓库创建日期查找字典...")
+        print("\nBuilding repository creation date lookup dictionary...")
         for _, row in df_repos.iterrows():
             login = row['Owner Login']
             repo_name = row['Repository Name']
             created_date = row['Created date']
             
-                    # 处理日期格式，假设是 "MM/DD/YYYY" 格式
+            # Handle date format, assuming "MM/DD/YYYY" format
             if pd.notna(created_date):
                 if isinstance(created_date, str):
                     try:
-                        # 尝试解析 MM/DD/YYYY 格式
+                        # Try parsing as MM/DD/YYYY format
                         created_datetime = datetime.strptime(created_date, "%m/%d/%Y")
                     except ValueError:
                         try:
-                            # 尝试其他可能的格式
+                            # Try other possible formats
                             created_datetime = pd.to_datetime(created_date)
                         except:
-                            print(f"警告: 无法解析日期 {created_date} for {login}/{repo_name}")
+                            print(f"Warning: Unable to parse date {created_date} for {login}/{repo_name}")
                             continue
                 else:
-                    # 如果已经是datetime对象
+                    # If already a datetime object
                     created_datetime = pd.to_datetime(created_date)
                 
-                # 确保创建日期格式正确
+                # Ensure correct date format
                 repo_creation_dict[(login, repo_name)] = created_datetime
         
-        print(f"成功构建了{len(repo_creation_dict)}个仓库的创建日期查找字典")
+        print(f"Successfully built creation date dictionary for {len(repo_creation_dict)} repositories")
         
-        # 为表格A添加第八列："Days After Repo Creation"
+        # Prepare to add the 8th column: "Days After Repo Creation"
         days_after_creation = []
         
-        print("\n正在处理每个commit...")
+        print("\nProcessing each commit...")
         processed_count = 0
         not_found_count = 0
         
@@ -70,22 +70,22 @@ def calculate_commit_days_after_repo_creation():
             repo_name = row['repo_name']
             commit_time_str = row['commit_time']
             
-            # 查找仓库创建日期
+            # Look up repository creation date
             repo_key = (login, repo_name)
             
             if repo_key in repo_creation_dict:
                 repo_creation_date = repo_creation_dict[repo_key]
                 
-                # 解析commit时间，只取日期部分
+                # Parse commit time and take only the date part
                 try:
-                    # commit_time格式类似 "2021-07-14T07:18:34+02:00"
+                    # commit_time format example: "2021-07-14T07:18:34+02:00"
                     commit_datetime = pd.to_datetime(commit_time_str)
                     
-                    # 只取日期部分，忽略时间和时区
+                    # Take only the date part, ignoring time and timezone
                     commit_date = commit_datetime.date()
                     repo_creation_date_only = repo_creation_date.date()
                     
-                    # 计算天数差异
+                    # Calculate day difference
                     time_diff = commit_date - repo_creation_date_only
                     days_diff = time_diff.days
                     
@@ -93,57 +93,57 @@ def calculate_commit_days_after_repo_creation():
                     processed_count += 1
                     
                 except Exception as e:
-                    print(f"警告: 无法解析commit时间 {commit_time_str} for {login}/{repo_name}: {e}")
+                    print(f"Warning: Unable to parse commit time {commit_time_str} for {login}/{repo_name}: {e}")
                     days_after_creation.append(None)
             else:
-                print(f"警告: 未找到仓库 {login}/{repo_name} 的创建日期")
+                print(f"Warning: Repository creation date not found for {login}/{repo_name}")
                 days_after_creation.append(None)
                 not_found_count += 1
             
-            # 显示进度
+            # Show progress
             if (index + 1) % 50 == 0:
-                print(f"已处理 {index + 1}/{len(df_commits)} 条记录...")
+                print(f"Processed {index + 1}/{len(df_commits)} records...")
         
-        # 将计算结果添加到DataFrame的第八列
+        # Add calculation results to the 8th column of DataFrame
         df_commits['Days After Repo Creation'] = days_after_creation
         
-        # 保存结果到新的Excel文件
-        print(f"\n正在保存结果到 {output_file}...")
+        # Save results to a new Excel file
+        print(f"\nSaving results to {output_file}...")
         df_commits.to_excel(output_file, index=False)
         
-        # 显示统计信息
-        print(f"\n处理完成!")
-        print(f"总计处理: {len(df_commits)} 条commit记录")
-        print(f"成功计算: {processed_count} 条记录")
-        print(f"未找到仓库: {not_found_count} 条记录")
+        # Show statistics
+        print(f"\nProcessing complete!")
+        print(f"Total commits processed: {len(df_commits)}")
+        print(f"Successfully calculated: {processed_count}")
+        print(f"Repositories not found: {not_found_count}")
         
-        # 显示一些统计信息
+        # Show additional statistics
         valid_days = [d for d in days_after_creation if d is not None]
         if valid_days:
-            print(f"\n统计信息:")
-            print(f"平均天数: {np.mean(valid_days):.2f}")
-            print(f"中位数天数: {np.median(valid_days):.2f}")
-            print(f"最小天数: {min(valid_days)}")
-            print(f"最大天数: {max(valid_days)}")
+            print(f"\nStatistics:")
+            print(f"Average days: {np.mean(valid_days):.2f}")
+            print(f"Median days: {np.median(valid_days):.2f}")
+            print(f"Minimum days: {min(valid_days)}")
+            print(f"Maximum days: {max(valid_days)}")
         
-        # 显示前几行结果作为示例
-        print(f"\n前5行结果示例:")
+        # Show first few rows as example
+        print(f"\nFirst 5 rows preview:")
         print(df_commits[['login', 'repo_name', 'commit_time', 'Days After Repo Creation']].head())
         
         return df_commits
         
     except FileNotFoundError as e:
-        print(f"错误: 找不到文件 {e}")
+        print(f"Error: File not found {e}")
         return None
     except Exception as e:
-        print(f"处理过程中发生错误: {e}")
+        print(f"An error occurred during processing: {e}")
         return None
 
 if __name__ == "__main__":
-    # 运行脚本
+    # Run the script
     result = calculate_commit_days_after_repo_creation()
     
     if result is not None:
-        print("\n脚本执行成功！结果已保存到 'SourceCode/commits_with_days_after_creation.xlsx'")
+        print("\nScript executed successfully! Results saved to 'SourceCode/commits_with_days_after_creation.xlsx'")
     else:
-        print("\n脚本执行失败，请检查错误信息")
+        print("\nScript execution failed, please check the error messages")

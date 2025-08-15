@@ -2,13 +2,13 @@ import os
 
 def find_ecore_files(root_dir):
     ecore_files = []
-    containing_folders = set()  # 用集合来存储包含ecore文件的文件夹名称
+    containing_folders = set()  # Use a set to store the names of folders containing ecore files
     for root, dirs, files in os.walk(root_dir):
         for file in files:
             if file.endswith('.ecore'):
                 containing_folder = os.path.basename(os.path.dirname(os.path.join(root, file)))
                 ecore_files.append((os.path.join(root, file), containing_folder))
-                containing_folders.add(containing_folder)  # 将文件夹名称添加到集合中
+                containing_folders.add(containing_folder)  # Add the folder name to the set
     return ecore_files, containing_folders
 
 def main():
@@ -25,7 +25,7 @@ def main():
             print(f"Containing folder: {containing_folder}")
             print()
         
-        # 检查所有包含ecore文件的文件夹名称
+        # Check the names of all folders containing ecore files
         if all(folder == "generated" for folder in containing_folders):
             print("grammar-driven")
         elif any(folder == "generated" for folder in containing_folders):

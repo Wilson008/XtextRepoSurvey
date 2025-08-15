@@ -31,16 +31,16 @@ def get_commit_count(file_path):
     return len(commits)
 
 if __name__ == "__main__":
-    # 读取Excel文件
+    # Read the Excel file
     excel_file = r"SourceCode/manual_analysis_results/analyze_ecore_xtext_files.xlsx"
     df = pd.read_excel(excel_file)
     
-    # 打开CSV文件准备写入
+    # Open CSV file for writing
     with open("SourceCode/xtext_commits_count_by_clones.csv", "w", newline="") as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(["owner", "repo", "total_files", "total_commit_count", "average_commit_count"])
 
-        # 遍历每行数据
+        # Iterate through each row in the Excel data
         for index, row in df.iterrows():
             owner = row["Owner Login"]
             repo = row["Repository Name"]
@@ -48,8 +48,8 @@ if __name__ == "__main__":
             print(f"Querying {owner}'s local repo: {repo}...")
             repo_path = os.path.join(r"E:\xtext_repos_clone_new", repo_name)
             
-            # 查询本地仓库中的xtext文件及其提交次数信息
+            # Get xtext file information and commit counts in the local repository
             total_files, total_commit_count, average_commit_count = list_xtext_files_with_commit_count(repo_path)
             
-            # 将结果写入CSV文件
+            # Write the results to the CSV file
             writer.writerow([owner, repo, total_files, total_commit_count, average_commit_count])
